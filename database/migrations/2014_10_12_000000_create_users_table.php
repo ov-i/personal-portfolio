@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('lastname')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->boolean('is_banned')->default(false);
+            $table->boolean('banned')->default(false);
             $table->boolean('toggle_nick_display')
                 ->default(false)
                 ->comment('This column is only for chaning nick display from nick to full name');

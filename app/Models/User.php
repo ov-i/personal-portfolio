@@ -23,7 +23,7 @@ class User extends Authenticatable
         'email',
         'firstname',
         'lastname',
-        'is_banned',
+        'banned',
         'toggle_nick_display',
         'password',
     ];
