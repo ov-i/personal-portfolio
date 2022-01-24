@@ -20,6 +20,7 @@ class CreateAttachmentsTable extends Migration
             $table->string('mimetype');
             $table->integer('filesize')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
