@@ -3,8 +3,11 @@
 @section('title', 'Strona Główna')
 
 @section('content')
-    <h1 class="text-primary-accent font-body"><% msg %></h1>
-    <p class="text-gray font-display font-light">
-        Lorem ipsum dolor sit a`m`et consectetur adipisicing elit. Laboriosam, reprehenderit!
-    </p>
+    <form action="{{ route('home.store_file') }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <input type="file" name="attachment" id="attachment">
+        <button type="submit" class="font-body font-medium rounded shadow-sm bg-primary-accent p-2">
+            Wyślij
+        </button>
+    </form>
 @endsection
