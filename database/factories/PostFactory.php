@@ -19,7 +19,7 @@ class PostFactory extends Factory
             'title' => $this->faker->text(100),
             'slug' => $this->faker->slug(3),
             'description' => $this->faker->text(),
-            'content' => $this->faker->sentences(30, true),
+            'content' => $this->faker->sentences(100, true),
             'published' => $this->faker->boolean(45),
             'created_at' => $this->faker->dateTime(),
             'updated_at' => $this->faker->dateTime()
