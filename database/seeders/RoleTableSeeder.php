@@ -28,7 +28,17 @@ class RoleTableSeeder extends Seeder
             'updated_at' => Carbon::now()
         ]);
 
-        $user = User::find(1);
-        $user->roles()->attach(1);
+        for ($i = 1; $i <= 10; $i++) {
+            $user = User::find($i);
+            $user->roles()->attach(2);
+        }
+        for ($i = 10; $i <= 18; $i++) {
+            $user = User::find($i);
+            $user->roles()->attach(1);
+        }
+        for ($i = 18; $i <= 20; $i++) {
+            $user = User::find($i);
+            $user->roles()->sync([1, 2]);
+        }
     }
 }

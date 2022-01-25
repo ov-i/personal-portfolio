@@ -17,9 +17,9 @@ class PostFactory extends Factory
             'user_id' => 1,
             'category_id' => $this->faker->numberBetween(1, 3),
             'title' => $this->faker->text(100),
-            'slug' => $this->faker->slug(),
+            'slug' => $this->faker->slug(3),
             'description' => $this->faker->text(),
-            'content' => $this->faker->text(1000),
+            'content' => $this->faker->sentences(30, true),
             'published' => $this->faker->boolean(45),
             'created_at' => $this->faker->dateTime(),
             'updated_at' => $this->faker->dateTime()

@@ -14,7 +14,7 @@ class Role extends Model
         'name'
     ];
 
-    public function users()
+    public function users(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this
             ->belongsToMany(User::class, 'users_roles', 'user_id', 'role_id')
