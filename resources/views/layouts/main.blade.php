@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="app" class="app" v-cloak>
-
+    @yield('content')
 </div>
 
 <!-- custom scripts -->
