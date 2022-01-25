@@ -24,7 +24,7 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function category()
+    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
