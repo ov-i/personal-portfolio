@@ -3,7 +3,7 @@
 @section('title', 'Strona Główna')
 
 @section('content')
-    <img src="{{ asset('attachments/matebook.png') }}" alt="">
+    <img src="{{ $attachment->source }}" alt="{{ $attachment->name }}" title="{{ $attachment->name }}">
     <form action="{{ route('home.store_file') }}" method="post" enctype="multipart/form-data">
         @csrf
         <input type="file" name="attachment" id="attachment">
