@@ -424,18 +424,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.rounded {
+  border-radius: 0.25rem;
+}
+.bg-primary-accent {
+  --tw-bg-opacity: 1;
+  background-color: rgb(2 132 199 / var(--tw-bg-opacity));
+}
+.p-2 {
+  padding: 0.5rem;
+}
 .font-body {
   font-family: Roboto Condensed;
 }
-.font-display {
-  font-family: Poppins1;
+.font-medium {
+  font-weight: 500;
 }
-.font-light {
-  font-weight: 300;
-}
-.text-primary-accent {
-  --tw-text-opacity: 1;
-  color: rgb(2 132 199 / var(--tw-text-opacity));
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 [v-cloak] {
