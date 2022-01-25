@@ -56,4 +56,14 @@ class User extends Authenticatable
             ->belongsToMany(Role::class, 'users_roles', 'user_id', 'role_id')
             ->withTimestamps();
     }
+
+    public function posts(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function comments()
+    {
+        $this->hasMany(Comment::class);
+    }
 }

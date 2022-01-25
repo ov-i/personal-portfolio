@@ -15,4 +15,14 @@ class Comment extends Model
         'comment',
         'published'
     ];
+
+    public function user()
+    {
+        $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function post()
+    {
+        $this->belongsTo(Post::class);
+    }
 }
