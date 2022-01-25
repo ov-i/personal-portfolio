@@ -16,4 +16,9 @@ class Attachment extends Model
         'mimetype',
         'file_size'
     ];
+
+    public function posts(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Post::class);
+    }
 }

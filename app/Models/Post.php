@@ -29,8 +29,13 @@ class Post extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
 
-    public function comments()
+    public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class);
+    }
+
+    public function attachment(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Attachment::class, 'attachment_id');
     }
 }
