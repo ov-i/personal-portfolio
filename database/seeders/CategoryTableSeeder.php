@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CategoryTableSeeder extends Seeder
 {
@@ -13,6 +15,22 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('categories')->insert([
+           'name' => 'bezpieczeństwo',
+           'created_at' => Carbon::now(),
+           'updated_at' => Carbon::now()
+        ]);
+
+        DB::table('categories')->insert([
+            'name' => 'programowanie',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+
+        DB::table('categories')->insert([
+            'name' => 'wydarzenia',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
     }
 }
