@@ -39,4 +39,11 @@ class Post extends Model
     {
         return $this->hasMany(Attachment::class);
     }
+
+    public function tags(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this
+            ->belongsToMany(Tag::class, 'posts_tags', 'post_id', 'tag_id')
+            ->withTimestamps();
+    }
 }
