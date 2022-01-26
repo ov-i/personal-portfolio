@@ -35,8 +35,8 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function attachment(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function attachment(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->belongsTo(Attachment::class, 'attachment_id');
+        return $this->hasMany(Attachment::class);
     }
 }

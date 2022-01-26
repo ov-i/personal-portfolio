@@ -17,7 +17,6 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('category_id')->unsigned();
-            $table->integer('attachment_id')->unsigned()->nullable();
             $table->string('title')->unique();
             $table->string('slug')->unique();
             $table->string('description');
@@ -37,13 +36,6 @@ class CreatePostsTable extends Migration
                 ->foreign('category_id')
                 ->references('id')
                 ->on('categories')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-
-            $table
-                ->foreign('attachment_id')
-                ->references('id')
-                ->on('attachments')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

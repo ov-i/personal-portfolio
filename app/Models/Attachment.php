@@ -11,14 +11,15 @@ class Attachment extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'post_id',
         'name',
         'source',
         'mimetype',
         'file_size'
     ];
 
-    public function posts(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function posts(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->hasMany(Post::class);
+        return $this->belongsTo(Post::class, 'post_id');
     }
 }
