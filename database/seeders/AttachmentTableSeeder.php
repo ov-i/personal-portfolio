@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Attachment;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -15,13 +16,8 @@ class AttachmentTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('attachments')->insert([
-           'name' => 'matebook.png',
-           'source' => 'http://localhost:8000/attachments/matebook.png',
-           'mimetype' => 'image/png',
-           'filesize' => 386000,
-           'created_at' => Carbon::now(),
-           'updated_at' => Carbon::now()
-        ]);
+        Attachment::factory()
+            ->count(100)
+            ->create();
     }
 }
