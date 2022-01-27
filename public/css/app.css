@@ -427,15 +427,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded {
   border-radius: 0.25rem;
 }
-.bg-primary-accent {
-  --tw-bg-opacity: 1;
-  background-color: rgb(2 132 199 / var(--tw-bg-opacity));
-}
 .p-2 {
   padding: 0.5rem;
-}
-.font-body {
-  font-family: Roboto Condensed;
 }
 .font-medium {
   font-weight: 500;
