@@ -5,3 +5,7 @@
 [v-cloak] {
   @apply hidden;
 }
+
+.material-padding {
+    padding: 22px 21px 0 21px;
+}
