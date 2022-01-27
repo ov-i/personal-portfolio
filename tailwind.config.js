@@ -2,18 +2,22 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   content: [
-    "./resources/**/*.blade.php", 
-    "./resources/**/*.js", 
+    "./resources/**/*.blade.php",
+    "./resources/**/*.js",
     "./resources/**/*.vue",
   ],
   theme: {
     fontFamily: {
-      'body': ['Roboto Condensed'],
-      'display': ['Poppins1']
+      'primary': ['Poppins']
     },
     colors: {
-      'primary-accent': '#0284C7',
-      'secondary-accent': '##2563EB'
+      'accent': '#006BC7',
+      'dark': {
+          '700': '#000000',
+          '300': 'rgba(0, 0, 0, 0.6)',
+          '100': '#8C8C8C'
+      },
+      'dirty-white': '#EBEBEB'
     },
     extend: {},
   },
