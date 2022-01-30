@@ -35,7 +35,9 @@
                     <li role="listitem" class="inline-block font-primary font-regular text-white pr-3">start</li>
                     <li role="listitem" class="inline-block font-primary font-regular text-white pr-3">o mnie</li>
                     <li role="listitem" class="inline-block font-primary font-regular text-white pr-3">projekty</li>
-                    <li role="listitem" class="inline-block font-primary font-regular text-white">blog</li>
+                    <li role="listitem" class="inline-block font-primary font-regular text-white">
+                        <a href="{{ route('home.index') }}">Blog</a>
+                    </li>
                 </ul>
             </section>
         </nav>
