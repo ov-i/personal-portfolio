@@ -424,23 +424,52 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
-.inline-block {
-  display: inline-block;
+.relative {
+  position: relative;
+}
+.mt-5 {
+  margin-top: 1.25rem;
 }
 .flex {
   display: flex;
 }
+.hidden {
+  display: none;
+}
 .h-screen {
   height: 100vh;
 }
-.list-none {
-  list-style-type: none;
+.w-8 {
+  width: 2rem;
+}
+.flex-1 {
+  flex: 1 1 0%;
 }
 .items-center {
   align-items: center;
 }
+.justify-end {
+  justify-content: flex-end;
+}
 .justify-between {
   justify-content: space-between;
+}
+.justify-evenly {
+  justify-content: space-evenly;
+}
+.border-2 {
+  border-width: 2px;
+}
+.border-b {
+  border-bottom-width: 1px;
+}
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+.bg-accent {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 107 199 / var(--tw-bg-opacity));
 }
 .bg-hero-background {
   background-image: url("/img/background.jpg");;
@@ -451,28 +480,72 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-center {
   background-position: center;
 }
-.pr-3 {
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+.p-3 {
+  padding: 0.75rem;
+}
+.p-1 {
+  padding: 0.25rem;
+}
+.px-3 {
+  padding-left: 0.75rem;
   padding-right: 0.75rem;
+}
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.text-center {
+  text-align: center;
 }
 .font-primary {
   font-family: Poppins;
 }
-.text-xl {
-  font-size: 1.25rem;
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+.text-lg {
+  font-size: 1.125rem;
   line-height: 1.75rem;
 }
 .font-medium {
   font-weight: 500;
 }
-.tracking-normal {
-  letter-spacing: 0em;
+.font-semibold {
+  font-weight: 600;
+}
+.font-normal {
+  font-weight: 400;
+}
+.uppercase {
+  text-transform: uppercase;
 }
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-.decoration-0 {
-  text-decoration-thickness: 0px;
+.text-accent {
+  --tw-text-opacity: 1;
+  color: rgb(0 107 199 / var(--tw-text-opacity));
 }
 
 [v-cloak] {
@@ -481,5 +554,103 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .material-padding {
     padding: 22px 21px 0 21px;
+}
+
+.nav-shown {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  padding: 0.5rem;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: 400;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  opacity: 0.95;
+}
+
+@media (min-width: 768px) {
+
+  .nav-shown {
+    position: relative;
+  }
+
+  .nav-shown {
+    height: 100%;
+  }
+
+  .nav-shown {
+    width: auto;
+  }
+
+  .nav-shown {
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 768px) {
+    .nav-shown {
+        background: none;
+    }
+}
+
+@media (min-width: 768px) {
+
+  .md\:m-0 {
+    margin: 0px;
+  }
+
+  .md\:inline-block {
+    display: inline-block;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:border-none {
+    border-style: none;
+  }
+
+  .md\:p-0 {
+    padding: 0px;
+  }
+
+  .md\:pr-2 {
+    padding-right: 0.5rem;
+  }
+
+  .md\:pr-3 {
+    padding-right: 0.75rem;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 

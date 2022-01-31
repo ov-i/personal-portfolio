@@ -9,3 +9,13 @@
 .material-padding {
     padding: 22px 21px 0 21px;
 }
+
+.nav-shown {
+    @apply absolute top-0 right-0 w-screen p-2 font-primary font-normal bg-dark-700 z-10 h-screen text-white md:relative md:w-auto md:h-full opacity-95 text-center md:text-left;
+}
+
+@media screen and (min-width: 768px) {
+    .nav-shown {
+        background: none;
+    }
+}

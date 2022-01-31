@@ -33,30 +33,53 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-<div id="app" class="app" v-cloak role="application">
-    <header aria-label="Baner aplikacji" role="banner" class="font-primary" id="primary-heading">
-        <nav class="px-3" id="primary-navigation" aria-label="Nawigacja" role="navigation">
+<div id="app" class="app relative" v-cloak role="application">
+    <!-- header section -->
+    <header aria-label="Baner aplikacji" role="banner" class="font-primary bg-hero-background h-screen bg-center bg-fixed bg-no-repeat" id="primary-heading">
+        <!-- nav section -->
+        <nav class="px-4 py-3 flex justify-between items-center" id="primary-navigation" aria-label="Nawigacja" role="navigation">
+            <!-- application brand -->
             <div class="font-medium">
-                <a href="#" class="text-2xl " role="link">Bartosz Pazdur</a>
+                <a href="#" class="text-2xl md:text-3xl text-white" role="link">Bartosz Pazdur</a>
             </div>
-            <div>
-                <span class="iconify" data-icon="clarity:bars-line"></span>
+            <!-- nav toggler -->
+            <div class="text-dark md:hidden" id="show-nav-button">
+                <span class="iconify text-3xl" data-icon="clarity:bars-line"></span>
             </div>
-            <div>
-                <ul>
-                    <li>
+            <!-- nav list -->
+            <div class="nav-shown text-center" id="nav-list">
+                <div class="flex justify-end p-3 text-white text-4xl md:hidden" role="button" id="close-nav">
+                    <span class="iconify border-2 border-white" data-icon="clarity:times-line"></span>
+                </div>
+                <ul class="mt-5 md:m-0 text-center">
+                    <li class="border-b border-white p-3 md:p-0 md:pr-3 md:text-lg md:inline-block md:border-none">
                         <a href="#">start</a>
                     </li>
-                    <li>
+                    <li class="border-b border-white p-3 md:p-0 md:pr-3 md:text-lg md:inline-block md:border-none">
                         <a href="#">o mnie</a>
                     </li>
-                    <li>
+                    <li class="border-b border-white p-3 md:p-0 md:pr-3 md:text-lg md:inline-block md:border-none">
                         <a href="#">projekty</a>
                     </li>
-                    <li>
+                    <li class="border-b border-white p-3 md:p-0 md:inline-block md:border-none">
                         <a href="#">blog</a>
                     </li>
                 </ul>
+            </div>
+            <!-- social icons -->
+            <div class="socials hidden md:flex justify-between items-center">
+                <!-- single icon -->
+                <div class="social md:inline-block p-3 text-white text-lg">
+                    <span class="iconify" data-icon="akar-icons:facebook-fill"></span>
+                </div>
+                <!-- single icon -->
+                <div class="social md:inline-block p-3 text-white text-lg">
+                    <span class="iconify" data-icon="akar-icons:github-fill"></span>
+                </div>
+                <!-- single icon -->
+                <div class="social md:inline-block p-3 text-white text-lg">
+                    <span class="iconify" data-icon="akar-icons:linkedin-fill"></span>
+                </div>
             </div>
         </nav>
         <section>
