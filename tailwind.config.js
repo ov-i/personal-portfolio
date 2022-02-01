@@ -23,6 +23,10 @@ module.exports = {
     extend: {
         backgroundImage: {
             'hero-background': 'url("/img/background.jpg");',
+        },
+        lineHeight: {
+            'extra-loose': '3rem',
+            '12': '5rem'
         }
     },
   },

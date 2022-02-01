@@ -14,11 +14,11 @@
     TOP CONTENT
 */
 .header-wrapper {
-    @apply font-primary bg-hero-background bg-cover h-screen bg-center bg-fixed bg-no-repeat;
+    @apply font-primary bg-hero-background bg-cover h-screen bg-center bg-fixed bg-no-repeat relative;
 }
 
 .navigation-wrapper {
-    @apply px-4 py-7 flex justify-between items-center;
+    @apply px-5 py-7 flex justify-between items-center;
 }
 
 .navigation-wrapper .nav-items {
@@ -26,7 +26,7 @@
 }
 
 .navigation-wrapper .nav-items .nav-item {
-    @apply border-b border-white p-3 md:p-0 md:pr-6 md:text-lg md:inline-block md:border-none;
+    @apply border-b border-white p-3 md:p-0 md:pr-6 md:text-xl md:inline-block md:border-none;
 }
 
 .navigation-wrapper .nav-items .nav-item .nav-link {
@@ -56,4 +56,35 @@
     @apply flex justify-end p-3 text-white text-4xl md:hidden;
 }
 
+/* Socials */
+.navigation-wrapper .socials {
+    @apply md:flex justify-between items-center;
+}
 
+.navigation-wrapper .socials .social {
+    @apply md:inline-block p-3 text-white text-2xl;
+}
+
+/* jumbotron */
+.header-jumbotron {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-primary
+}
+
+.header-jumbotron .jumbotron-wrapper {
+    @apply p-2 text-white;
+
+    letter-spacing: 0.68px;
+}
+
+.header-jumbotron .jumbotron-wrapper .jumbotron-profession {
+    @apply font-medium text-4xl md:text-5xl lg:text-6xl text-center md:leading-extra-loose lg:leading-12;
+}
+
+.header-jumbotron .jumbotron-wrapper .jumbotron-name {
+    @apply font-semibold text-3xl md:text-4xl lg:text-5xl text-center md:leading-extra-loose lg:leading-12;
+}
+
+.header-jumbotron .jumbotron-wrapper .jumbotron-motto {
+    @apply italic font-light text-center md:text-right text-sm
+    md:text-lg leading-loose md:leading-extra-loose capitalize;
+}

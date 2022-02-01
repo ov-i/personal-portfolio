@@ -430,14 +430,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hidden {
   display: none;
 }
+.w-screen {
+  width: 100vw;
+}
 .w-8 {
   width: 2rem;
-}
-.items-center {
-  align-items: center;
-}
-.justify-between {
-  justify-content: space-between;
 }
 .border-2 {
   border-width: 2px;
@@ -449,9 +446,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-accent {
   --tw-bg-opacity: 1;
   background-color: rgb(0 107 199 / var(--tw-bg-opacity));
-}
-.p-3 {
-  padding: 0.75rem;
 }
 .p-1 {
   padding: 0.25rem;
@@ -469,10 +463,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
-}
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 .font-medium {
   font-weight: 500;
@@ -494,6 +484,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(0 107 199 / var(--tw-text-opacity));
 }
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 [v-cloak] {
   display: none;
@@ -507,6 +501,7 @@ Ensure the default browser behavior of the `hidden` attribute.
     TOP CONTENT
 */
 .header-wrapper {
+  position: relative;
   height: 100vh;
   background-image: url("/img/background.jpg");;
   background-size: cover;
@@ -520,8 +515,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
   padding-top: 1.75rem;
   padding-bottom: 1.75rem;
 }
@@ -564,7 +559,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 
   .navigation-wrapper .nav-items .nav-item {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 1.75rem;
   }
 }
@@ -647,21 +642,151 @@ Ensure the default browser behavior of the `hidden` attribute.
   .navigation-wrapper .nav-shown .closing-button {
     display: none;
   }
+}
+
+/* Socials */
+.navigation-wrapper .socials {
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 768px) {
+
+  .navigation-wrapper .socials {
+    display: flex;
+  }
+}
+
+.navigation-wrapper .socials .social {
+  padding: 0.75rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+@media (min-width: 768px) {
+
+  .navigation-wrapper .socials .social {
+    display: inline-block;
+  }
+}
+
+/* jumbotron */
+.header-jumbotron {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  --tw-translate-x: -50%;
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  font-family: Poppins;
+}
+
+.header-jumbotron .jumbotron-wrapper {
+  padding: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+
+    letter-spacing: 0.68px;
+}
+
+.header-jumbotron .jumbotron-wrapper .jumbotron-profession {
+  text-align: center;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+
+  .header-jumbotron .jumbotron-wrapper .jumbotron-profession {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .header-jumbotron .jumbotron-wrapper .jumbotron-profession {
+    line-height: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .header-jumbotron .jumbotron-wrapper .jumbotron-profession {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .header-jumbotron .jumbotron-wrapper .jumbotron-profession {
+    line-height: 5rem;
+  }
+}
+
+.header-jumbotron .jumbotron-wrapper .jumbotron-name {
+  text-align: center;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+
+  .header-jumbotron .jumbotron-wrapper .jumbotron-name {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .header-jumbotron .jumbotron-wrapper .jumbotron-name {
+    line-height: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .header-jumbotron .jumbotron-wrapper .jumbotron-name {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .header-jumbotron .jumbotron-wrapper .jumbotron-name {
+    line-height: 5rem;
+  }
+}
+
+.header-jumbotron .jumbotron-wrapper .jumbotron-motto {
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 300;
+  text-transform: capitalize;
+  font-style: italic;
+  line-height: 2;
+}
+
+@media (min-width: 768px) {
+
+  .header-jumbotron .jumbotron-wrapper .jumbotron-motto {
+    text-align: right;
+  }
+
+  .header-jumbotron .jumbotron-wrapper .jumbotron-motto {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .header-jumbotron .jumbotron-wrapper .jumbotron-motto {
+    line-height: 3rem;
+  }
 
   .md\:block {
     display: block;
   }
 
-  .md\:inline-block {
-    display: inline-block;
-  }
-
-  .md\:flex {
-    display: flex;
-  }
-
   .md\:hidden {
     display: none;
+  }
+
+  .md\:w-auto {
+    width: auto;
   }
 
   .md\:text-3xl {
@@ -669,6 +794,4 @@ Ensure the default browser behavior of the `hidden` attribute.
     line-height: 2.25rem;
   }
 }
-
-
 

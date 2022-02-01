@@ -32,7 +32,7 @@
     <!-- custom styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body>
+<body class="antialiased">
 <div id="app" class="app relative" v-cloak role="application">
     <!-- header section -->
     <header aria-label="banner" role="banner" class="header-wrapper" id="primary-heading">
@@ -84,28 +84,36 @@
             </div>
 
             <!-- social icons -->
-            <div class="socials hidden md:flex justify-between items-center">
+            <div class="socials hidden">
                 <!-- single icon -->
-                <div class="social md:inline-block p-3 text-white text-lg">
+                <div class="social" role="group">
                     <span class="iconify" data-icon="akar-icons:facebook-fill"></span>
                 </div>
 
                 <!-- single icon -->
-                <div class="social md:inline-block p-3 text-white text-lg">
+                <div class="social" role="group">
                     <span class="iconify" data-icon="akar-icons:github-fill"></span>
                 </div>
 
                 <!-- single icon -->
-                <div class="social md:inline-block p-3 text-white text-lg">
+                <div class="social" role="group">
                     <span class="iconify" data-icon="akar-icons:linkedin-fill"></span>
                 </div>
             </div>
         </nav>
-        <section class="header-jumbotron" id="header-jumbotron">
+
+        <!-- jumbotron section -->
+        <section class="header-jumbotron w-screen md:w-auto" id="header-jumbotron" role="presentation">
             <article class="jumbotron-wrapper" id="jumbotron-wrapper">
-                <p class="">Bartosz Pazdur</p>
-                <h1>Web Developer</h1>
-                <span>"admin, think, improve."</span>
+                <p class="jumbotron-profession">
+                    Web Developer
+                </p>
+                <h1 class="jumbotron-name">
+                    Bartosz Pazdur
+                </h1>
+                <p class="jumbotron-motto">
+                    "admit, think, improve."
+                </p>
             </article>
         </section>
     </header>
