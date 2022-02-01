@@ -35,47 +35,58 @@
 <body>
 <div id="app" class="app relative" v-cloak role="application">
     <!-- header section -->
-    <header aria-label="Baner aplikacji" role="banner" class="font-primary bg-hero-background h-screen bg-center bg-fixed bg-no-repeat" id="primary-heading">
+    <header aria-label="banner" role="banner" class="header-wrapper" id="primary-heading">
+
         <!-- nav section -->
-        <nav class="px-4 py-3 flex justify-between items-center" id="primary-navigation" aria-label="Nawigacja" role="navigation">
+        <nav class="navigation-wrapper" id="primary-navigation" aria-label="navigation" role="navigation">
             <!-- application brand -->
             <div class="font-medium">
-                <a href="#" class="text-2xl md:text-3xl text-white" role="link">Bartosz Pazdur</a>
+                <a href="#" class="text-2xl md:text-3xl text-white" role="link">
+                    Bartosz Pazdur
+                </a>
             </div>
-            <!-- nav toggler -->
+
+            <!-- nav toggle -->
             <div class="text-dark md:hidden" id="show-nav-button">
                 <span class="iconify text-3xl" data-icon="clarity:bars-line"></span>
             </div>
+
             <!-- nav list -->
-            <div class="nav-shown text-center" id="nav-list">
-                <div class="flex justify-end p-3 text-white text-4xl md:hidden" role="button" id="close-nav">
+            <div class="nav-shown hidden md:block text-center" id="nav-list">
+                <!-- closing button -->
+                <div class="closing-button" role="button" id="close-nav">
                     <span class="iconify border-2 border-white" data-icon="clarity:times-line"></span>
                 </div>
-                <ul class="mt-5 md:m-0 text-center">
-                    <li class="border-b border-white p-3 md:p-0 md:pr-3 md:text-lg md:inline-block md:border-none">
+
+                <!-- nav items -->
+                <ul class="nav-items" id="nav-list" role="list">
+                    <li class="nav-item" role="listitem">
                         <a href="#">start</a>
                     </li>
-                    <li class="border-b border-white p-3 md:p-0 md:pr-3 md:text-lg md:inline-block md:border-none">
+                    <li class="nav-item">
                         <a href="#">o mnie</a>
                     </li>
-                    <li class="border-b border-white p-3 md:p-0 md:pr-3 md:text-lg md:inline-block md:border-none">
+                    <li class="nav-item">
                         <a href="#">projekty</a>
                     </li>
-                    <li class="border-b border-white p-3 md:p-0 md:inline-block md:border-none">
+                    <li class="nav-item">
                         <a href="#">blog</a>
                     </li>
                 </ul>
             </div>
+
             <!-- social icons -->
             <div class="socials hidden md:flex justify-between items-center">
                 <!-- single icon -->
                 <div class="social md:inline-block p-3 text-white text-lg">
                     <span class="iconify" data-icon="akar-icons:facebook-fill"></span>
                 </div>
+
                 <!-- single icon -->
                 <div class="social md:inline-block p-3 text-white text-lg">
                     <span class="iconify" data-icon="akar-icons:github-fill"></span>
                 </div>
+
                 <!-- single icon -->
                 <div class="social md:inline-block p-3 text-white text-lg">
                     <span class="iconify" data-icon="akar-icons:linkedin-fill"></span>
@@ -90,15 +101,20 @@
             </article>
         </section>
     </header>
-    <main class="" id="" aria-label="Główna treść" role="main">
+
+    <!-- main content -->
+    <main id="main-content" aria-label="Główna treść" role="main">
         <!-- section about me -->
-        <section class="font-primary">
-            <article>
+        <section class="font-primary" aria-label="sekcja o mnie">
+            <!-- about me heading -->
+            <article aria-label="o mnie nagłówek" id="about-me-heading">
                 <h2>O mnie</h2>
                 <span>Poznaj mnie</span>
                 <div class="divider w-8 p-1 bg-accent"></div>
             </article>
-            <section>
+
+            <!-- about me content -->
+            <section aria-label="Treść główna sekcji o mnie" id="about-me-content" role="contentinfo">
                 <article>
                     <h2 class="font-medium">
                         Jestem
@@ -149,7 +165,7 @@
         </section>
 
         <!-- section projects -->
-        <section>
+        <section aria-label="Moje projekty" id="project-section">
             <article>
                 <h2 class="uppercase">projekty</h2>
                 <span>Czym się zajmuję?</span>
@@ -157,6 +173,7 @@
             </article>
             <!-- projects -->
             <article class="projects">
+
                 <!-- single project -->
                 <div class="project">
                     <span>javascipt</span>

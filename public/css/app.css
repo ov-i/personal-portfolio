@@ -427,41 +427,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 .relative {
   position: relative;
 }
-.mt-5 {
-  margin-top: 1.25rem;
-}
-.flex {
-  display: flex;
-}
 .hidden {
   display: none;
-}
-.h-screen {
-  height: 100vh;
 }
 .w-8 {
   width: 2rem;
 }
-.flex-1 {
-  flex: 1 1 0%;
-}
 .items-center {
   align-items: center;
-}
-.justify-end {
-  justify-content: flex-end;
 }
 .justify-between {
   justify-content: space-between;
 }
-.justify-evenly {
-  justify-content: space-evenly;
-}
 .border-2 {
   border-width: 2px;
-}
-.border-b {
-  border-bottom-width: 1px;
 }
 .border-white {
   --tw-border-opacity: 1;
@@ -471,39 +450,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(0 107 199 / var(--tw-bg-opacity));
 }
-.bg-hero-background {
-  background-image: url("/img/background.jpg");;
-}
-.bg-fixed {
-  background-attachment: fixed;
-}
-.bg-center {
-  background-position: center;
-}
-.bg-no-repeat {
-  background-repeat: no-repeat;
-}
 .p-3 {
   padding: 0.75rem;
 }
 .p-1 {
   padding: 0.25rem;
-}
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
 }
 .text-center {
   text-align: center;
@@ -518,10 +469,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
-}
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 .text-lg {
   font-size: 1.125rem;
@@ -556,7 +503,77 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding: 22px 21px 0 21px;
 }
 
-.nav-shown {
+/*
+    TOP CONTENT
+*/
+.header-wrapper {
+  height: 100vh;
+  background-image: url("/img/background.jpg");;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: Poppins;
+}
+
+.navigation-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.navigation-wrapper .nav-items {
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+
+  .navigation-wrapper .nav-items {
+    margin: 0px;
+  }
+}
+
+.navigation-wrapper .nav-items .nav-item {
+  border-bottom-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+  padding: 0.75rem;
+}
+
+@media (min-width: 768px) {
+
+  .navigation-wrapper .nav-items .nav-item {
+    display: inline-block;
+  }
+
+  .navigation-wrapper .nav-items .nav-item {
+    border-style: none;
+  }
+
+  .navigation-wrapper .nav-items .nav-item {
+    padding: 0px;
+  }
+
+  .navigation-wrapper .nav-items .nav-item {
+    padding-right: 1.5rem;
+  }
+
+  .navigation-wrapper .nav-items .nav-item {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+.navigation-wrapper .nav-items .nav-item:last-child {
+    padding-right: 0;
+}
+
+.navigation-wrapper .nav-shown {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -576,33 +593,47 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 @media (min-width: 768px) {
 
-  .nav-shown {
+  .navigation-wrapper .nav-shown {
     position: relative;
   }
 
-  .nav-shown {
+  .navigation-wrapper .nav-shown {
     height: 100%;
   }
 
-  .nav-shown {
+  .navigation-wrapper .nav-shown {
     width: auto;
   }
 
-  .nav-shown {
+  .navigation-wrapper .nav-shown {
     text-align: left;
   }
 }
 
 @media screen and (min-width: 768px) {
-    .nav-shown {
+    .navigation-wrapper .nav-shown {
         background: none;
     }
 }
 
+.navigation-wrapper .nav-shown .closing-button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.75rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 @media (min-width: 768px) {
 
-  .md\:m-0 {
-    margin: 0px;
+  .navigation-wrapper .nav-shown .closing-button {
+    display: none;
+  }
+
+  .md\:block {
+    display: block;
   }
 
   .md\:inline-block {
@@ -617,40 +648,11 @@ Ensure the default browser behavior of the `hidden` attribute.
     display: none;
   }
 
-  .md\:border-none {
-    border-style: none;
-  }
-
-  .md\:p-0 {
-    padding: 0px;
-  }
-
-  .md\:pr-2 {
-    padding-right: 0.5rem;
-  }
-
-  .md\:pr-3 {
-    padding-right: 0.75rem;
-  }
-
-  .md\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
   }
-
-  .md\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  .md\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
 }
+
+
 

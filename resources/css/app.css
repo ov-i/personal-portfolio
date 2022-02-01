@@ -25,22 +25,26 @@
     @apply mt-5 md:m-0 text-center;
 }
 
-.nav-items .nav-item {
-    @apply border-b border-white p-3 md:p-0 md:pr-3 md:text-lg md:inline-block md:border-none;
+.navigation-wrapper .nav-items .nav-item {
+    @apply border-b border-white p-3 md:p-0 md:pr-6 md:text-lg md:inline-block md:border-none;
 }
 
-.nav-shown {
+.navigation-wrapper .nav-items .nav-item:last-child {
+    padding-right: 0;
+}
+
+.navigation-wrapper .nav-shown {
     @apply absolute top-0 right-0 w-screen p-2 font-primary font-normal
         bg-dark-700 z-10 h-screen text-white md:relative md:w-auto md:h-full opacity-95 text-center md:text-left;
 }
 
 @media screen and (min-width: 768px) {
-    .nav-shown {
+    .navigation-wrapper .nav-shown {
         background: none;
     }
 }
 
-.nav-shown .closing-button {
+.navigation-wrapper .nav-shown .closing-button {
     @apply flex justify-end p-3 text-white text-4xl md:hidden;
 }
 
