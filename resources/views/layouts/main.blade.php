@@ -40,8 +40,8 @@
         <!-- nav section -->
         <nav class="navigation-wrapper" id="primary-navigation" aria-label="navigation" role="navigation">
             <!-- application brand -->
-            <div class="font-medium">
-                <a href="#" class="text-2xl md:text-3xl text-white" role="link">
+            <div class="">
+                <a href="#" class="font-medium text-2xl md:text-3xl text-white" role="link">
                     Bartosz Pazdur
                 </a>
             </div>
@@ -61,16 +61,24 @@
                 <!-- nav items -->
                 <ul class="nav-items" id="nav-list" role="list">
                     <li class="nav-item" role="listitem">
-                        <a href="#">start</a>
+                        <a href="#" class="nav-link" role="link" aria-labelledby="navigation link">
+                            start
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#">o mnie</a>
+                    <li class="nav-item" role="listitem">
+                        <a href="#" class="nav-link" role="link" aria-labelledby="navigation link">
+                            o mnie
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#">projekty</a>
+                    <li class="nav-item" role="listitem">
+                        <a href="#" class="nav-link" role="link" aria-labelledby="navigation link">
+                            projekty
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#">blog</a>
+                    <li class="nav-item" role="listitem">
+                        <a href="#" class="nav-link" role="link" aria-labelledby="navigation link">
+                            blog
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -93,9 +101,9 @@
                 </div>
             </div>
         </nav>
-        <section>
-            <article>
-                <p>Bartosz Pazdur</p>
+        <section class="header-jumbotron" id="header-jumbotron">
+            <article class="jumbotron-wrapper" id="jumbotron-wrapper">
+                <p class="">Bartosz Pazdur</p>
                 <h1>Web Developer</h1>
                 <span>"admin, think, improve."</span>
             </article>

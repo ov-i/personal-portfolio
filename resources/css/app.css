@@ -18,7 +18,7 @@
 }
 
 .navigation-wrapper {
-    @apply px-4 py-3 flex justify-between items-center;
+    @apply px-4 py-7 flex justify-between items-center;
 }
 
 .navigation-wrapper .nav-items {
@@ -27,6 +27,14 @@
 
 .navigation-wrapper .nav-items .nav-item {
     @apply border-b border-white p-3 md:p-0 md:pr-6 md:text-lg md:inline-block md:border-none;
+}
+
+.navigation-wrapper .nav-items .nav-item .nav-link {
+    @apply font-normal font-primary transition duration-300 ease-in;
+}
+
+.navigation-wrapper .nav-items .nav-item .nav-link:hover {
+    @apply text-accent;
 }
 
 .navigation-wrapper .nav-items .nav-item:last-child {
