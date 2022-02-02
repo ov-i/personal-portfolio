@@ -123,7 +123,7 @@
     </header>
 
     <!-- main content -->
-    <main class="w-2/4 mx-auto py-20 md:py-24" id="main-content" aria-label="Główna treść" role="main">
+    <main class="md:w-2/4 md:mx-auto" id="main-content" aria-label="Główna treść" role="main">
         @yield('content')
     </main>
 

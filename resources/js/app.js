@@ -1,6 +1,9 @@
 require('./bootstrap');
 import Vue from 'vue'
 import '@iconify/iconify'
+import SectionHeader from "./components/SectionHeader";
+
+Vue.component('sectionheader', SectionHeader)
 
 const app = new Vue({
   el: '#app',
@@ -9,7 +12,7 @@ const app = new Vue({
     navShown: false
   }),
   methods: {
-  }
+  },
 })
 
 const showNavButton = document.querySelector('#show-nav-button');

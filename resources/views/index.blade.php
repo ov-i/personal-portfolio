@@ -4,16 +4,12 @@
 
 @section('content')
     <!-- section about me -->
-    <section class="font-primary" aria-label="sectio nabout me" id="about-me">
+    <section class="font-primary py-12 md:py-24" aria-label="sectio nabout me" id="about-me">
         <!-- about me heading -->
-        <article aria-label="about me heading" id="about-me-heading">
-            <h2>O mnie</h2>
-            <span>Poznaj mnie</span>
-            <div class="divider w-8 p-1 bg-accent"></div>
-        </article>
+        <SectionHeader title="poznaj mnie" header="o mnie"></SectionHeader>
 
         <!-- about me content -->
-        <section aria-label="Treść główna sekcji o mnie" id="about-me-content" role="contentinfo">
+        <section aria-label="main content" id="about-me-content" role="contentinfo">
             <article>
                 <h2 class="font-medium">
                     Jestem
