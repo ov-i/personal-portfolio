@@ -4,14 +4,14 @@
 
 @section('content')
     <!-- section about me -->
-    <section class="main-content main-section mt-10 px-3" aria-label="section about me" id="about-me">
+    <section class="main-content main-section md:py-20 px-3" aria-label="section about me" id="about-me">
         <!-- about me heading -->
         <SectionHeader title="poznaj mnie" header="o mnie"></SectionHeader>
 
         <!-- about me content -->
         <section aria-label="main content" id="about-me-content" role="contentinfo" class="pt-12">
-            <div class="about-me-wrapper flex flex-col justify-evenly items-center lg:items-start lg:grid lg:grid-flow-col lg:grid-col-2">
-                <article class="md:w-11/12 2xl:w-10/12 retina:w-11/12">
+            <div class="about-me-wrapper flex flex-col justify-evenly items-center md:items-start md:grid md:grid-flow-col md:grid-col-2">
+                <article class="md:w-11/12 2xl:w-11/12 retina:w-11/12">
                     <h2 class="font-medium text-lg md:text-2xl 2xl:text-3xl">
                         Jestem
                         <span class="text-accent font-semibold">Bartosz Pazdur</span>,
@@ -29,7 +29,7 @@
                 </article>
 
                 <!-- about me info -->
-                <article class="mt-10 lg:mt-0 w-2/3 md:w-full mx-auto text-center">
+                <article class="mt-10 md:mt-0 w-2/3 md:w-full mx-auto text-center">
                     <div class="info">
                         <!-- single info -->
                         <div class="single-info">
@@ -72,7 +72,7 @@
                 </article>
             </div>
 
-            <article class="showing-off mt-12 md:mt-16 lg:my-20 w-full flex justify-evenly md:justify-between items-center flex-col md:flex-row text-center">
+            <article class="showing-off mt-12 md:mt-20 w-full flex justify-evenly md:justify-between items-center flex-col md:flex-row text-center">
                 <div class="single-off border-b py-4 md:py-0 md:py-0 md:pr-6 border-dark-50 md:w-full md:border-b-0 md:border-r">
                     <h3 class="font-medium text-5xl md:text-5xl">6</h3>
                     <p class="tracking-wide pt-2 font-medium text-sm ">Lat doświadczenia</p>
@@ -90,7 +90,7 @@
     </section>
 
     <!-- section projects -->
-    <section aria-label="Moje projekty" id="project-section" class="main-section bg-background-accent mt-12 md:mt-15 py-5">
+    <section aria-label="Moje projekty" id="project-section" class="main-section bg-background-accent ">
         <SectionHeader title="czym się zajmuję" header="projekty"></SectionHeader>
 
         <!-- projects -->
