@@ -107,3 +107,7 @@
         font-medium uppercase flex text-center justify-evenly md:justify-center items-center block
         md:w-full;
 }
+
+.main-section .projects {
+    @apply px-3 pt-12 flex justify-evenly flex-col md:grid md:grid-cols-2 md:items-center md:gap-4 retina:gap-6;
+}

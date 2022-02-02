@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
     .about-heading {
-        @apply relative text-center z-10 font-semibold;
+        @apply relative text-center z-10 font-semibold mt-10 md:mt-0;
     }
 
     .about-header {

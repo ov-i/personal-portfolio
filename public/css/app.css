@@ -467,6 +467,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-2 {
   margin-top: 0.5rem;
 }
+.mt-20 {
+  margin-top: 5rem;
+}
+.mb-20 {
+  margin-bottom: 5rem;
+}
 .flex {
   display: flex;
 }
@@ -565,6 +571,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-0 {
   padding: 0px;
 }
+.p-1 {
+  padding: 0.25rem;
+}
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -573,9 +582,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 .px-2 {
   padding-left: 0.5rem;
@@ -584,6 +593,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 .pt-12 {
   padding-top: 3rem;
@@ -602,6 +623,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pt-4 {
   padding-top: 1rem;
+}
+.pt-20 {
+  padding-top: 5rem;
+}
+.pb-3 {
+  padding-bottom: 0.75rem;
 }
 .text-center {
   text-align: center;
@@ -1074,6 +1101,44 @@ Ensure the default browser behavior of the `hidden` attribute.
   .main-section .info .info-action .single-info-button {
     justify-content: center;
   }
+}
+
+.main-section .projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 3rem;
+}
+
+@media (min-width: 768px) {
+
+  .main-section .projects {
+    display: grid;
+  }
+
+  .main-section .projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .main-section .projects {
+    align-items: center;
+  }
+
+  .main-section .projects {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1870px) {
+
+  .main-section .projects {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
 
   .md\:mt-0 {
     margin-top: 0px;
@@ -1099,8 +1164,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     display: none;
   }
 
-  .md\:w-9\/12 {
-    width: 75%;
+  .md\:w-11\/12 {
+    width: 91.666667%;
   }
 
   .md\:w-full {
@@ -1109,14 +1174,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:w-auto {
     width: auto;
-  }
-
-  .md\:w-10\/12 {
-    width: 83.333333%;
-  }
-
-  .md\:w-11\/12 {
-    width: 91.666667%;
   }
 
   .md\:grid-flow-col {
@@ -1157,6 +1214,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-right: 1.5rem;
   }
 
+  .md\:pb-0 {
+    padding-bottom: 0px;
+  }
+
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -1188,10 +1249,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 1536px) {
-
-  .\32xl\:w-10\/12 {
-    width: 83.333333%;
-  }
 
   .\32xl\:w-11\/12 {
     width: 91.666667%;

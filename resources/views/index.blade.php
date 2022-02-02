@@ -72,7 +72,7 @@
                 </article>
             </div>
 
-            <article class="showing-off mt-12 md:mt-20 w-full flex justify-evenly md:justify-between items-center flex-col md:flex-row text-center">
+            <article class="showing-off mb-20 md:mb-0 mt-12 md:mt-20 w-full flex justify-evenly md:justify-between items-center flex-col md:flex-row text-center">
                 <div class="single-off border-b py-4 md:py-0 md:py-0 md:pr-6 border-dark-50 md:w-full md:border-b-0 md:border-r">
                     <h3 class="font-medium text-5xl md:text-5xl">6</h3>
                     <p class="tracking-wide pt-2 font-medium text-sm ">Lat doświadczenia</p>
@@ -90,11 +90,11 @@
     </section>
 
     <!-- section projects -->
-    <section aria-label="Moje projekty" id="project-section" class="main-section bg-background-accent ">
+    <section aria-label="Moje projekty" id="project-section" class="main-section bg-background-accent py-1 md:py-20">
         <SectionHeader title="czym się zajmuję" header="projekty"></SectionHeader>
 
         <!-- projects -->
-        <article class="projects main-content px-3 py-10 flex justify-evenly flex-col md:justify-between md:flex-row">
+        <article class="projects main-content pb-3 md:pb-0">
             <!-- single project -->
             <div class="project bg-white p-4 rounded-md shadow-md mb-3 md:mb-0">
                 <span class="px-2 py-1 text-sm text-white rounded-full bg-accent">javascipt</span>
