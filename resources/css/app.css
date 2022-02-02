@@ -88,3 +88,12 @@
     @apply italic font-light text-center md:text-right text-sm
     md:text-lg leading-loose md:leading-extra-loose capitalize;
 }
+
+/* Main content */
+.main-content {
+    @apply md:w-2/4 md:mx-auto;
+}
+
+.main-content .main-section {
+    @apply font-primary pt-12 md:pt-24
+}

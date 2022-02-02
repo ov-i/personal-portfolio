@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- section about me -->
-    <section class="font-primary py-12 md:py-24" aria-label="sectio nabout me" id="about-me">
+    <section class="main-section" aria-label="section about me" id="about-me">
         <!-- about me heading -->
         <SectionHeader title="poznaj mnie" header="o mnie"></SectionHeader>
 
@@ -61,12 +61,9 @@
     </section>
 
     <!-- section projects -->
-    <section aria-label="Moje projekty" id="project-section">
-        <article>
-            <h2 class="uppercase">projekty</h2>
-            <span>Czym się zajmuję?</span>
-            <div class="divider w-8 p-1 bg-accent"></div>
-        </article>
+    <section aria-label="Moje projekty" id="project-section" class="main-section">
+        <SectionHeader title="czym się zajmuję" header="projekty"></SectionHeader>
+
         <!-- projects -->
         <article class="projects">
 
@@ -170,12 +167,8 @@
     </section>
 
     <!-- section blog -->
-    <section>
-        <article>
-            <h2 class="uppercase">mój blog</h2>
-            <span>Wpisy z bloga</span>
-            <div class="divider w-8 p-1 bg-accent"></div>
-        </article>
+    <section class="main-section">
+        <Sectionheader title="wpisy z bloga" header="mój blog"></Sectionheader>
         <!-- posts -->
         <article class="posts">
             <!-- single post -->
