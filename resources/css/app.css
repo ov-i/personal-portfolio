@@ -91,7 +91,7 @@
 
 /* Main content */
 .main-content {
-    @apply xl:w-2/4 md:w-3/4 md:mx-auto;
+    @apply retina:w-1/2 retinax2:w-5/12 2xl:w-8/12 xl:w-9/12 md:w-11/12 md:mx-auto;
 }
 
 .main-content .main-section {
@@ -104,5 +104,6 @@
 
 .main-section .info .info-action .single-info-button {
     @apply p-3 rounded-full text-white bg-accent w-2/3 md:w-1/2 mx-auto
-        font-medium uppercase flex text-center justify-evenly md:justify-center items-center block;
+        font-medium uppercase flex text-center justify-evenly md:justify-center items-center block
+        lg:w-full;
 }

@@ -23,6 +23,10 @@ module.exports = {
       'background-accent': '#EFEFEF',
     },
     extend: {
+        screens: {
+            'retina': '1870px',
+            'retinax2': '2300px'
+        },
         backgroundImage: {
             'hero-background': 'url("/img/background.jpg");',
         },

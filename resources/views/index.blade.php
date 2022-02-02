@@ -9,77 +9,79 @@
         <SectionHeader title="poznaj mnie" header="o mnie"></SectionHeader>
 
         <!-- about me content -->
-        <section aria-label="main content" id="about-me-content" role="contentinfo" class="pt-12 flex justify-evenly flex-col items-start">
-            <article class="flex-shrink-0">
-                <h2 class="font-medium text-lg md:text-3xl">
-                    Jestem
-                    <span class="text-accent font-semibold">Bartosz Pazdur</span>,
-                    Web Developer.
-                </h2>
-                <p class="font-normal leading-7 md:leading-8 tracking-wide text-sm md:text-base text-justify pt-6">
-                    Na co dzień tworzę, oraz rozwijam nowe projekty z wykorzystaniem nowoczesnych technologii.
-                    Jestem również pracownikiem w przedsiębiorstwie Encode IT Rafał Jaseniuk na stanowisku Full Stack
-                    Web Developera.
-                </p>
-                <p class="font-normal leading-7 md:leading-8 tracking-wide text-sm md:text-base text-justify pt-6">
-                    Poza pracą jako programista, interesuję się elektroniką w odniesieniu do budowy robotów
-                    z wykorzystaniem Arduino UNO, zabawą z RasberryPi i tym podobnych.
-                </p>
-            </article>
+        <section aria-label="main content" id="about-me-content" role="contentinfo" class="pt-12">
+            <div class="about-me-wrapper flex flex-col justify-evenly items-center lg:items-start lg:grid lg:grid-flow-col lg:grid-col-2">
+                <article class="md:w-11/12 2xl:w-10/12 retina:w-11/12">
+                    <h2 class="font-medium text-lg md:text-2xl 2xl:text-3xl">
+                        Jestem
+                        <span class="text-accent font-semibold">Bartosz Pazdur</span>,
+                        Web Developer.
+                    </h2>
+                    <p class="font-normal leading-7 md:leading-8 tracking-wide text-sm md:text-base text-justify pt-6">
+                        Na co dzień tworzę, oraz rozwijam nowe projekty z wykorzystaniem nowoczesnych technologii.
+                        Jestem również pracownikiem w przedsiębiorstwie Encode IT Rafał Jaseniuk na stanowisku Full Stack
+                        Web Developera.
+                    </p>
+                    <p class="font-normal leading-7 md:leading-8 tracking-wide text-sm md:text-base text-justify pt-6">
+                        Poza pracą jako programista, interesuję się elektroniką w odniesieniu do budowy robotów
+                        z wykorzystaniem Arduino UNO, zabawą z RasberryPi i tym podobnych.
+                    </p>
+                </article>
 
-            <!-- about me info -->
-            <article class="mt-10 w-2/3 mx-auto text-center">
-                <div class="info">
-                    <!-- single info -->
-                    <div class="single-info">
-                        <p class="font-medium text-sm md:text-base">
-                            Imię i nazwiska
-                            <span class="font-normal">Bartosz Pazdur</span>
-                        </p>
+                <!-- about me info -->
+                <article class="mt-10 lg:mt-0 w-2/3 md:w-full mx-auto text-center">
+                    <div class="info">
+                        <!-- single info -->
+                        <div class="single-info">
+                            <p class="font-medium text-sm md:text-base">
+                                Imię i nazwiska
+                                <span class="font-normal">Bartosz Pazdur</span>
+                            </p>
+                        </div>
+                        <!-- single info -->
+                        <div class="single-info">
+                            <p class="font-medium text-sm md:text-base">
+                                Email
+                                <a href="mailto: b.pazdur@yahoo.com" class="text-accent font-semibold">
+                                    b.pazdur@yahoo.com
+                                </a>
+                            </p>
+                        </div>
+                        <!-- single info -->
+                        <div class="single-info">
+                            <p class="font-medium text-sm md:text-base">
+                                Wiek
+                                <span class="font-normal">{{ date('Y') - 1998 }}</span>
+                            </p>
+                        </div>
+                        <!-- single info -->
+                        <div class="single-info">
+                            <p class="font-medium text-sm md:text-base">
+                                Kraj
+                                <span class="font-normal">Polska</span>
+                            </p>
+                        </div>
+                        <!-- info action -->
+                        <div class="info-action border-none pt-8">
+                            <button class="single-info-button">
+                                <span class="iconify mr-2 text-center" data-icon="el:download-alt"></span>
+                                Ściągnij CV
+                            </button>
+                        </div>
                     </div>
-                    <!-- single info -->
-                    <div class="single-info">
-                        <p class="font-medium text-sm md:text-base">
-                            Email
-                            <a href="mailto: b.pazdur@yahoo.com" class="text-accent font-semibold">
-                                b.pazdur@yahoo.com
-                            </a>
-                        </p>
-                    </div>
-                    <!-- single info -->
-                    <div class="single-info">
-                        <p class="font-medium text-sm md:text-base">
-                            Wiek
-                            <span class="font-normal">{{ date('Y') - 1998 }}</span>
-                        </p>
-                    </div>
-                    <!-- single info -->
-                    <div class="single-info">
-                        <p class="font-medium text-sm md:text-base">
-                            Kraj
-                            <span class="font-normal">Polska</span>
-                        </p>
-                    </div>
-                    <!-- info action -->
-                    <div class="info-action border-none pt-8">
-                        <button class="single-info-button">
-                            <span class="iconify mr-2 text-center" data-icon="el:download-alt"></span>
-                            Ściągnij CV
-                        </button>
-                    </div>
-                </div>
-            </article>
+                </article>
+            </div>
 
-            <article class="showing-off mt-12 w-full flex justify-evenly md:justify-between items-center flex-col md:flex-row text-center">
-                <div class="single-off border-b py-2 md:py-0 md:pr-6 border-dark-50 md:w-full md:border-b-0 md:border-r">
+            <article class="showing-off mt-12 md:mt-16 lg:my-20 w-full flex justify-evenly md:justify-between items-center flex-col md:flex-row text-center">
+                <div class="single-off border-b py-4 md:py-0 md:py-0 md:pr-6 border-dark-50 md:w-full md:border-b-0 md:border-r">
                     <h3 class="font-medium text-5xl md:text-5xl">6</h3>
                     <p class="tracking-wide pt-2 font-medium text-sm ">Lat doświadczenia</p>
                 </div>
-                <div class="single-off border-b py-2 md:py-0 border-dark-50 md:w-full md:border-b-0 md:border-r">
+                <div class="single-off border-b py-4 md:py-0 md:py-0 border-dark-50 md:w-full md:border-b-0 md:border-r">
                     <h3 class="font-medium text-5xl md:text-5xl">30</h3>
                     <p class="tracking-wide pt-2 font-medium text-sm ">Zadowolonych klientów</p>
                 </div>
-                <div class="single-off py-2 md:w-full">
+                <div class="single-off py-4 md:py-0 md:w-full">
                     <h3 class="font-medium text-5xl md:text-5xl pl-6">100+</h3>
                     <p class="tracking-wide pt-2 font-medium text-sm ">Stworzonych projektów</p>
                 </div>
