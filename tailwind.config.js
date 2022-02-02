@@ -16,9 +16,11 @@ module.exports = {
       'dark': {
           '700': '#000000',
           '300': 'rgba(0, 0, 0, 0.6)',
-          '100': '#8C8C8C'
+          '100': '#8C8C8C',
+          '50': '#CBCBCB',
       },
-      'dirty-white': '#EBEBEB'
+      'dirty-white': '#EBEBEB',
+      'background-accent': '#EFEFEF',
     },
     extend: {
         backgroundImage: {

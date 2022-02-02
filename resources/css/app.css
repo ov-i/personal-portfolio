@@ -91,9 +91,18 @@
 
 /* Main content */
 .main-content {
-    @apply md:w-2/4 md:mx-auto;
+    @apply xl:w-2/4 md:w-3/4 md:mx-auto;
 }
 
 .main-content .main-section {
-    @apply font-primary pt-12 md:pt-24
+    @apply font-primary pt-7 md:pt-10
+}
+
+.main-section .info .single-info {
+    @apply py-4 border-b border-dirty-white;
+}
+
+.main-section .info .info-action .single-info-button {
+    @apply p-3 rounded-full text-white bg-accent w-2/3 md:w-1/2 mx-auto
+        font-medium uppercase flex text-center justify-evenly md:justify-center items-center block;
 }

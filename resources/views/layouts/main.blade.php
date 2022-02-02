@@ -123,7 +123,7 @@
     </header>
 
     <!-- main content -->
-    <main class="main-content" id="main-content" aria-label="Główna treść" role="main">
+    <main class="main" id="main-content" aria-label="Główna treść" role="main">
         @yield('content')
     </main>
 

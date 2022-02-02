@@ -32,11 +32,11 @@ export default {
     }
 
     .about-header {
-        @apply opacity-20 uppercase text-dark-100 md:text-9xl text-7xl;
+        @apply opacity-20 uppercase text-dark-100 md:text-8xl text-7xl;
     }
 
     .about-title {
-        @apply absolute capitalize z-20 text-dark-700 top-1/2 left-1/2 md:text-4xl
-            text-3xl transform -translate-x-1/2 -translate-y-1/2 opacity-90 font-semibold;
+        @apply absolute capitalize z-20 text-dark-700 top-1/2 left-1/2 md:text-3xl
+            text-xl transform -translate-x-1/2 -translate-y-1/2 opacity-90 font-semibold;
     }
 </style>
