@@ -4,9 +4,9 @@
 
 @section('content')
     <!-- section about me -->
-    <section class="font-primary" aria-label="sekcja o mnie">
+    <section class="font-primary" aria-label="sectio nabout me" id="about-me">
         <!-- about me heading -->
-        <article aria-label="o mnie nagłówek" id="about-me-heading">
+        <article aria-label="about me heading" id="about-me-heading">
             <h2>O mnie</h2>
             <span>Poznaj mnie</span>
             <div class="divider w-8 p-1 bg-accent"></div>
