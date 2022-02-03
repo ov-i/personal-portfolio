@@ -26,15 +26,11 @@
 }
 
 .navigation-wrapper .nav-items .nav-item {
-    @apply border-b border-white p-3 md:p-0 md:pr-7 md:text-xl md:inline-block md:border-none;
+    @apply border-b border-white p-3 md:p-0 md:pr-7 md:text-xl 2xl:text-2xl md:inline-block md:border-none;
 }
 
 .navigation-wrapper .nav-items .nav-item .nav-link {
-    @apply font-normal font-primary transition duration-300 ease-in;
-}
-
-.navigation-wrapper .nav-items .nav-item .nav-link:hover {
-    @apply text-accent;
+    @apply font-normal font-primary transition duration-500 ease-in hover:border-b hover:border-white;
 }
 
 .navigation-wrapper .nav-items .nav-item:last-child {
@@ -77,11 +73,12 @@
 }
 
 .header-jumbotron .jumbotron-wrapper .jumbotron-profession {
-    @apply font-medium text-4xl md:text-5xl lg:text-6xl text-center md:leading-extra-loose lg:leading-12;
+    @apply font-medium text-4xl md:text-5xl lg:text-6xl retina:text-7xl text-center md:leading-extra-loose lg:leading-12;
 }
 
 .header-jumbotron .jumbotron-wrapper .jumbotron-name {
-    @apply font-semibold text-3xl md:text-4xl lg:text-5xl text-center md:leading-extra-loose lg:leading-12;
+    @apply font-semibold text-3xl md:text-4xl lg:text-5xl
+        retina:text-6xl text-center md:leading-extra-loose lg:leading-12;
 }
 
 .header-jumbotron .jumbotron-wrapper .jumbotron-motto {
@@ -105,7 +102,7 @@
 .main-section .info .info-action .single-info-button {
     @apply p-3 rounded-full text-white bg-accent w-2/3 md:w-1/2 mx-auto
         font-medium uppercase flex text-center justify-evenly md:justify-center items-center block
-        md:w-full;
+        md:w-full transition duration-500 hover:bg-accent-darken ease-linear hover:shadow-md;
 }
 
 .main-section .projects {

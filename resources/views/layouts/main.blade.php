@@ -41,7 +41,7 @@
         <nav class="navigation-wrapper" id="primary-navigation" aria-label="navigation" role="navigation">
             <!-- application brand -->
             <div class="">
-                <a href="#" class="font-medium text-2xl md:text-3xl text-white" role="link">
+                <a href="#" class="font-medium text-2xl md:text-3xl 2xl:text-4xl text-white" role="link">
                     Bartosz Pazdur
                 </a>
             </div>

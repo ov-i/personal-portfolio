@@ -12,6 +12,7 @@ module.exports = {
     },
     colors: {
       'accent': '#006BC7',
+      'accent-darken': '#014eaf',
       'white': '#FFFFFF',
       'dark': {
           '700': '#000000',

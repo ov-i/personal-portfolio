@@ -452,6 +452,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mr-2 {
   margin-right: 0.5rem;
 }
+.mb-20 {
+  margin-bottom: 5rem;
+}
 .mt-12 {
   margin-top: 3rem;
 }
@@ -466,12 +469,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .mt-2 {
   margin-top: 0.5rem;
-}
-.mt-20 {
-  margin-top: 5rem;
-}
-.mb-20 {
-  margin-bottom: 5rem;
 }
 .flex {
   display: flex;
@@ -571,9 +568,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-0 {
   padding: 0px;
 }
-.p-1 {
-  padding: 0.25rem;
-}
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -582,29 +576,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-.py-20 {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
-.py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 .pt-12 {
   padding-top: 3rem;
@@ -621,14 +599,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pl-6 {
   padding-left: 1.5rem;
 }
-.pt-4 {
-  padding-top: 1rem;
-}
-.pt-20 {
-  padding-top: 5rem;
-}
 .pb-3 {
   padding-bottom: 0.75rem;
+}
+.pt-4 {
+  padding-top: 1rem;
 }
 .text-center {
   text-align: center;
@@ -797,6 +772,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
+@media (min-width: 1536px) {
+
+  .navigation-wrapper .nav-items .nav-item {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
 .navigation-wrapper .nav-items .nav-item .nav-link {
   font-family: Poppins;
   font-weight: 400;
@@ -804,13 +787,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
+  transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
 .navigation-wrapper .nav-items .nav-item .nav-link:hover {
-  --tw-text-opacity: 1;
-  color: rgb(0 107 199 / var(--tw-text-opacity));
+  border-bottom-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
 .navigation-wrapper .nav-items .nav-item:last-child {
@@ -955,6 +939,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
+@media (min-width: 1870px) {
+
+  .header-jumbotron .jumbotron-wrapper .jumbotron-profession {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+}
+
 .header-jumbotron .jumbotron-wrapper .jumbotron-name {
   text-align: center;
   font-size: 1.875rem;
@@ -983,6 +975,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .header-jumbotron .jumbotron-wrapper .jumbotron-name {
     line-height: 5rem;
+  }
+}
+
+@media (min-width: 1870px) {
+
+  .header-jumbotron .jumbotron-wrapper .jumbotron-name {
+    font-size: 3.75rem;
+    line-height: 1;
   }
 }
 
@@ -1086,6 +1086,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-transform: uppercase;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+  transition-timing-function: linear;
+}
+
+.main-section .info .info-action .single-info-button:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(1 78 175 / var(--tw-bg-opacity));
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 @media (min-width: 768px) {
@@ -1144,12 +1158,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-top: 0px;
   }
 
-  .md\:mt-20 {
-    margin-top: 5rem;
-  }
-
   .md\:mb-0 {
     margin-bottom: 0px;
+  }
+
+  .md\:mt-20 {
+    margin-top: 5rem;
   }
 
   .md\:block {
@@ -1258,12 +1272,25 @@ Ensure the default browser behavior of the `hidden` attribute.
     font-size: 1.875rem;
     line-height: 2.25rem;
   }
+
+  .\32xl\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
 }
 
 @media (min-width: 1870px) {
 
   .retina\:w-11\/12 {
     width: 91.666667%;
+  }
+}
+
+@media (min-width: 2300px) {
+
+  .retinax2\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 }
 
