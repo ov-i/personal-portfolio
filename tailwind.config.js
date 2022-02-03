@@ -13,6 +13,7 @@ module.exports = {
     colors: {
       'accent': '#006BC7',
       'accent-darken': '#014eaf',
+      'blured-accent': 'rgba(0,107,199,0.30)',
       'white': '#FFFFFF',
       'dark': {
           '700': '#000000',
@@ -20,6 +21,7 @@ module.exports = {
           '100': '#8C8C8C',
           '50': '#CBCBCB',
       },
+      'red': '#950000',
       'dirty-white': '#EBEBEB',
       'background-accent': '#EFEFEF',
     },
@@ -34,6 +36,12 @@ module.exports = {
         lineHeight: {
             'extra-loose': '3rem',
             '12': '5rem'
+        },
+        width: {
+            'tile': '200px'
+        },
+        height: {
+            'tile': '200px'
         }
     },
   },

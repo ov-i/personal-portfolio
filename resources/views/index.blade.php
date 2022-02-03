@@ -79,11 +79,11 @@
                 </div>
                 <div class="single-off border-b py-4 md:py-0 md:py-0 border-dark-50 md:w-full md:border-b-0 md:border-r">
                     <h3 class="font-medium text-5xl md:text-5xl">30</h3>
-                    <p class="tracking-wide pt-2 font-medium text-sm ">Zadowolonych klientów</p>
+                    <p class="tracking-wide pt-2 font-medium text-sm">Zadowolonych klientów</p>
                 </div>
                 <div class="single-off py-4 md:py-0 md:w-full">
                     <h3 class="font-medium text-5xl md:text-5xl pl-6">100+</h3>
-                    <p class="tracking-wide pt-2 font-medium text-sm ">Stworzonych projektów</p>
+                    <p class="tracking-wide pt-2 font-medium text-sm">Stworzonych projektów</p>
                 </div>
             </article>
         </section>
@@ -99,58 +99,63 @@
             <div class="project bg-white p-4 rounded-md shadow-md mb-3 md:mb-0">
                 <span class="px-2 py-1 text-sm text-white rounded-full bg-accent">javascipt</span>
                 <div class="project-info flex justify-between items-center border-b border-dirty-white pt-4">
+                    <!-- project title -->
                     <div class="project-title font-primary">
-                        <h3 class="heading text-lg text-dark-300 font-medium">Projekt CRM</h3>
+                        <a href="#" class="decoration-0">
+                            <h3 class="heading">Projekt CRM</h3>
+                        </a>
                     </div>
+                    <!-- project socials -->
                     <div class="project-socials flex justify-around items-center">
-                        <div class="social text-lg">
+                        <div class="social">
                             <span class="iconify" data-icon="akar-icons:github-fill"></span>
                         </div>
-                        <div class="social  text-lg ml-2">
+                        <div class="social ml-3">
                             <span class="iconify" data-icon="whh:website"></span>
                         </div>
                     </div>
                 </div>
-                <div class="project-description py-4">
-                    <p class="font-normal text-justify text-dark-100">
+                <!-- project description -->
+                <div class="project-description pt-4 pb-5">
+                    <p class="font-normal text-justify  text-dark-100">
                         Projekt koncentrujący się na stworzeniu systemu CRM do
                         użytku własnego w celu prowadzenia kursów z zakresu programowania.
                     </p>
                 </div>
-                <div class="flex justify-between items-center">
+                <div class="call-to-action flex justify-between items-center">
                     <div></div>
-                    <a class="text-right font-normal text-accent cursor-pointer" href="#">Zobacz więcej</a>
+                    <a class="see-more" href="#">Zobacz więcej</a>
                 </div>
             </div>
         </article>
     </section>
 
     <!-- section blog -->
-    <section class="main-section mt-14 md:mt-20">
+    <section class="main-section py-14 md:py-20">
         <Sectionheader title="wpisy z bloga" header="mój blog"></Sectionheader>
         <!-- posts -->
-        <article class="posts">
+        <article class="main-content py-14 flex justify-evenly flex-col md:grid md:grid-cols-2 md:gap-7 md:gap-y-8 posts items-end justify-end md:w-7/12 lg:w-6/12 xl:w-5/12 retina:w-4/12 retinax2:w-3/12">
             <!-- single post -->
-            <div class="post">
-                <span class="uppercase font-primary font-semibold">
+            <div class="mx-auto bg-accent-darken w-tile h-tile my-5 md:my-0 flex justify-center items-center rounded-md shadow-md text-white text-center transition duration-200 ease-linear hover:shadow-2xl">
+                <span class="uppercase font-primary font-semibold lg:text-xl">
                     Bezpieczeństwo
                 </span>
             </div>
             <!-- single post -->
-            <div class="post">
-                <span class="uppercase font-primary font-semibold">
+            <div class="mx-auto bg-red w-tile h-tile my-10 md:my-0 flex justify-center items-center rounded-md shadow-md text-white text-center transition duration-200 ease-linear hover:shadow-2xl">
+                <span class="uppercase font-primary font-semibold lg:text-xl">
                     Programowanie
                 </span>
             </div>
             <!-- single post -->
-            <div class="post">
-                <span class="uppercase font-primary font-semibold">
+            <div class="mx-auto bg-accent-darken md:bg-red w-tile h-tile my-10 md:my-0 flex justify-center items-center rounded-md shadow-md text-white text-center transition duration-200 ease-linear hover:shadow-2xl">
+                <span class="uppercase font-primary font-semibold lg:text-xl">
                     ITTalks
                 </span>
             </div>
             <!-- single post -->
-            <div class="post">
-                <span class="uppercase font-primary font-semibold">
+            <div class="mx-auto bg-red md:bg-accent-darken  w-tile h-tile my-10 md:my-0 flex justify-center items-center rounded-md shadow-md text-white text-center transition duration-200 ease-linear hover:shadow-2xl">
+                <span class="uppercase font-primary font-semibold lg:text-xl">
                     kursy
                 </span>
             </div>
