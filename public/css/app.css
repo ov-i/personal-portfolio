@@ -475,8 +475,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-2 {
   margin-top: 0.5rem;
 }
+.inline-block {
+  display: inline-block;
+}
 .flex {
   display: flex;
+}
+.grid {
+  display: grid;
 }
 .hidden {
   display: none;
@@ -510,8 +516,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.flex-row {
+  flex-direction: row;
+}
 .flex-col {
   flex-direction: column;
+}
+.items-start {
+  align-items: flex-start;
 }
 .items-end {
   align-items: flex-end;
@@ -533,6 +551,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .justify-evenly {
   justify-content: space-evenly;
+}
+.gap-5 {
+  gap: 1.25rem;
 }
 .scroll-smooth {
   scroll-behavior: smooth;
@@ -564,6 +585,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
+.border-dark-300 {
+  border-color: rgba(0, 0, 0, 0.6);
+}
 .bg-background-accent {
   --tw-bg-opacity: 1;
   background-color: rgb(239 239 239 / var(--tw-bg-opacity));
@@ -584,6 +608,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(149 0 0 / var(--tw-bg-opacity));
 }
+.bg-dark-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+.bg-dark-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(140 140 140 / var(--tw-bg-opacity));
+}
 .p-4 {
   padding: 1rem;
 }
@@ -592,6 +624,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-0 {
   padding: 0px;
+}
+.p-5 {
+  padding: 1.25rem;
+}
+.p-3 {
+  padding: 0.75rem;
 }
 .px-3 {
   padding-left: 0.75rem;
@@ -612,6 +650,26 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-14 {
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
+}
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.py-7 {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
 }
 .py-10 {
   padding-top: 2.5rem;
@@ -673,6 +731,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .font-medium {
   font-weight: 500;
@@ -1336,16 +1398,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 100%;
   }
 
-  .md\:w-6\/12 {
-    width: 50%;
+  .md\:w-7\/12 {
+    width: 58.333333%;
   }
 
   .md\:w-auto {
     width: auto;
-  }
-
-  .md\:w-7\/12 {
-    width: 58.333333%;
   }
 
   .md\:grid-flow-col {
@@ -1356,8 +1414,16 @@ Ensure the default browser behavior of the `hidden` attribute.
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:flex-col {
+    flex-direction: column;
   }
 
   .md\:items-start {
@@ -1370,10 +1436,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:gap-7 {
     gap: 1.75rem;
-  }
-
-  .md\:gap-y-7 {
-    row-gap: 1.75rem;
   }
 
   .md\:gap-y-8 {
@@ -1448,10 +1510,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 @media (min-width: 1024px) {
 
-  .lg\:w-5\/12 {
-    width: 41.666667%;
-  }
-
   .lg\:w-6\/12 {
     width: 50%;
   }
@@ -1463,10 +1521,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 1280px) {
-
-  .xl\:w-4\/12 {
-    width: 33.333333%;
-  }
 
   .xl\:w-5\/12 {
     width: 41.666667%;
@@ -1496,20 +1550,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 91.666667%;
   }
 
-  .retina\:w-3\/12 {
-    width: 25%;
-  }
-
   .retina\:w-4\/12 {
     width: 33.333333%;
   }
 }
 
 @media (min-width: 2300px) {
-
-  .retinax2\:w-2\/12 {
-    width: 16.666667%;
-  }
 
   .retinax2\:w-3\/12 {
     width: 25%;

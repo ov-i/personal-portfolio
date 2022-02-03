@@ -34,14 +34,14 @@
                         <!-- single info -->
                         <div class="single-info">
                             <p class="font-medium text-sm md:text-base">
-                                Imię i nazwiska
+                                Imię i nazwisko:
                                 <span class="font-normal">Bartosz Pazdur</span>
                             </p>
                         </div>
                         <!-- single info -->
                         <div class="single-info">
                             <p class="font-medium text-sm md:text-base">
-                                Email
+                                Email:
                                 <a href="mailto: b.pazdur@yahoo.com" class="text-accent font-semibold">
                                     b.pazdur@yahoo.com
                                 </a>
@@ -50,14 +50,14 @@
                         <!-- single info -->
                         <div class="single-info">
                             <p class="font-medium text-sm md:text-base">
-                                Wiek
+                                Wiek:
                                 <span class="font-normal">{{ date('Y') - 1998 }}</span>
                             </p>
                         </div>
                         <!-- single info -->
                         <div class="single-info">
                             <p class="font-medium text-sm md:text-base">
-                                Kraj
+                                Kraj:
                                 <span class="font-normal">Polska</span>
                             </p>
                         </div>

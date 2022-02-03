@@ -128,54 +128,67 @@
     </main>
 
     <!-- footer section -->
-    <footer class="footer-section" id="footer-section" aria-label="footer section">
+    <footer class="footer-section bg-background-accent" id="footer-section" aria-label="footer section">
         <!-- footer primary section -->
-        <section class="footer-primary">
+        <section class="footer-primary main-content md:flex-col flex-row items-center justify-evenly md:grid md:grid-cols-3 md:items-start text-center font-primary py-10">
             <!-- single footer widget -->
-            <div class="widget footer-info">
-                <h3>Mapa strony</h3>
-                <div class="footer-list">
+            <div class="widget footer-info py-5 md:py-0">
+                <h3 class="text-2xl font-medium">Mapa strony</h3>
+                <div class="footer-list pt-2">
                     <ul>
-                        <li>
+                        <li class="leading-7">
                             <a href="#">start</a>
                         </li>
-                        <li>
+                        <li class="leading-7">
                             <a href="#">o mnie</a>
                         </li>
-                        <li>
+                        <li class="leading-7">
                             <a href="#">projekty</a>
                         </li>
-                        <li>
+                        <li class="leading-7">
                             <a href="#">blog</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="widget footer-info">
-                <h3>Ostatnie posty</h3>
-                <div class="footer-list">
+            <div class="widget footer-info py-5 md:py-0">
+                <h3 class="text-2xl font-medium">Ostatnie posty</h3>
+                <div class="footer-list pt-2">
                     <ul>
-                        <li>Jak działają hasła maskowane?</li>
-                        <li>Manadżery haseł</li>
-                        <li>Uwierzytelnianie dwuskładnikowe</li>
+                        <li class="leading-7">Jak działają hasła maskowane?</li>
+                        <li class="leading-7">Manadżery haseł</li>
+                        <li class="leading-7">Uwierzytelnianie dwuskładnikowe</li>
                     </ul>
                 </div>
             </div>
-            <div class="widget footer-info">
-                <h3>Dostępne kategorie</h3>
-                <div class="footer-list">
+            <div class="widget footer-info py-5 md:py-0">
+                <h3 class="text-2xl font-medium">Dostępne kategorie</h3>
+                <div class="footer-list pt-2">
                     <ul>
-                        <li>Bezpieczeństwo</li>
-                        <li>Programowanie</li>
-                        <li>ITTalks</li>
-                        <li>kursy</li>
+                        <li class="leading-7">Bezpieczeństwo</li>
+                        <li class="leading-7">Programowanie</li>
+                        <li class="leading-7">ITTalks</li>
+                        <li class="leading-7">kursy</li>
                     </ul>
                 </div>
             </div>
         </section>
-        <section class="footer-secondary">
-            <div class="copyright">
-                Bartosz Pazdur &copy; {{ date('Y') }}
+        <section class="footer-secondary bg-dark-100">
+            <div class="main-content flex flex-col text-white md:flex-row justify-evenly md:justify-between items-center p-5">
+                <div class="copyright text-base font-medium font-primary">
+                    &copy; Bartosz Pazdur {{ date('Y') }} - All rights reserved
+                </div>
+                <div class="socials">
+                    <div class="social px-2 inline-block">
+                        <span class="iconify leading-0" data-icon="akar-icons:facebook-fill"></span>
+                    </div>
+                    <div class="social px-2 inline-block">
+                        <span class="iconify leading-0" data-icon="akar-icons:github-fill"></span>
+                    </div>
+                    <div class="social px-2 inline-block">
+                        <span class="iconify leading-0" data-icon="akar-icons:linkedin-fill"></span>
+                    </div>
+                </div>
             </div>
         </section>
     </footer>
