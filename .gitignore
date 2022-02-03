@@ -1,8 +1,10 @@
 /node_modules
 /public/hot
 public/attachments
+public/cv
 /storage/*.key
 storage/attachments
+storage/cv
 /vendor
 .env
 .env.backup
@@ -14,3 +16,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+

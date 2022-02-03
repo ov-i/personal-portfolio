@@ -106,7 +106,7 @@
 }
 
 .main-section .projects {
-    @apply px-3 pt-12 flex justify-evenly flex-row md:grid md:grid-cols-2 md:items-center md:gap-2 lg:gap-3 retina:gap-6;
+    @apply px-3 pt-12 flex justify-evenly flex-col md:grid md:grid-cols-2 md:items-start     md:gap-2 lg:gap-3 retina:gap-6;
 }
 
 .main-section .projects .project .project-title .heading {

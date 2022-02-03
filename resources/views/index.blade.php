@@ -63,10 +63,10 @@
                         </div>
                         <!-- info action -->
                         <div class="info-action border-none pt-8">
-                            <button class="single-info-button">
+                            <a href="{{ route('home.download') }}" class="single-info-button">
                                 <span class="iconify mr-2 text-center" data-icon="el:download-alt"></span>
                                 Ściągnij CV
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -95,38 +95,44 @@
 
         <!-- projects -->
         <article class="projects main-content pb-3 md:pb-0">
-            <!-- single project -->
-            <div class="project bg-white p-4 rounded-md shadow-md mb-3 md:mb-0">
-                <span class="px-2 py-1 text-sm text-white rounded-full bg-accent">javascipt</span>
-                <div class="project-info flex justify-between items-center border-b border-dirty-white pt-4">
-                    <!-- project title -->
-                    <div class="project-title font-primary">
-                        <a href="#" class="decoration-0">
-                            <h3 class="heading">Projekt CRM</h3>
-                        </a>
-                    </div>
-                    <!-- project socials -->
-                    <div class="project-socials flex justify-around items-center">
-                        <div class="social">
-                            <span class="iconify" data-icon="akar-icons:github-fill"></span>
+
+            @foreach($projects as $project)
+                <!-- single project -->
+                <div class="project bg-white p-4 rounded-md shadow-md mb-3 md:mb-0">
+                    <span class="px-2 py-1 text-sm text-white rounded-full bg-accent">{{ $project->language }}</span>
+                    <div class="project-info flex justify-between items-center border-b border-dirty-white pt-4">
+                        <!-- project title -->
+                        <div class="project-title font-primary">
+                            <a href="#" class="decoration-0">
+                                <h3 class="heading">{{ $project->project_name }}</h3>
+                            </a>
                         </div>
-                        <div class="social ml-3">
-                            <span class="iconify" data-icon="whh:website"></span>
+                        <!-- project socials -->
+                        <div class="project-socials flex justify-around items-center">
+                            <div class="social">
+                                <a href="{{ $project->repository_url }}">
+                                    <span class="iconify" data-icon="akar-icons:github-fill"></span>
+                                </a>
+                            </div>
+                            <div class="social ml-3">
+                                <a href="{{ $project->website_url }}">
+                                    <span class="iconify" data-icon="whh:website"></span>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    <!-- project description -->
+                    <div class="project-description pt-4 pb-5">
+                        <p class="font-normal text-justify  text-dark-100">
+                            {{ $project->description }}
+                        </p>
+                    </div>
+                    <div class="call-to-action flex justify-between items-center">
+                        <div></div>
+                        <a class="see-more" href="#">Zobacz więcej</a>
+                    </div>
                 </div>
-                <!-- project description -->
-                <div class="project-description pt-4 pb-5">
-                    <p class="font-normal text-justify  text-dark-100">
-                        Projekt koncentrujący się na stworzeniu systemu CRM do
-                        użytku własnego w celu prowadzenia kursów z zakresu programowania.
-                    </p>
-                </div>
-                <div class="call-to-action flex justify-between items-center">
-                    <div></div>
-                    <a class="see-more" href="#">Zobacz więcej</a>
-                </div>
-            </div>
+            @endforeach
         </article>
     </section>
 

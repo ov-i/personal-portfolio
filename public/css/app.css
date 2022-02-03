@@ -481,9 +481,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .flex {
   display: flex;
 }
-.grid {
-  display: grid;
-}
 .hidden {
   display: none;
 }
@@ -516,20 +513,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
 .flex-row {
   flex-direction: row;
 }
 .flex-col {
   flex-direction: column;
-}
-.items-start {
-  align-items: flex-start;
 }
 .items-end {
   align-items: flex-end;
@@ -551,9 +539,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .justify-evenly {
   justify-content: space-evenly;
-}
-.gap-5 {
-  gap: 1.25rem;
 }
 .scroll-smooth {
   scroll-behavior: smooth;
@@ -585,9 +570,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
-.border-dark-300 {
-  border-color: rgba(0, 0, 0, 0.6);
-}
 .bg-background-accent {
   --tw-bg-opacity: 1;
   background-color: rgb(239 239 239 / var(--tw-bg-opacity));
@@ -608,10 +590,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(149 0 0 / var(--tw-bg-opacity));
 }
-.bg-dark-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
 .bg-dark-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(140 140 140 / var(--tw-bg-opacity));
@@ -627,9 +605,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-5 {
   padding: 1.25rem;
-}
-.p-3 {
-  padding: 0.75rem;
 }
 .px-3 {
   padding-left: 0.75rem;
@@ -651,29 +626,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
 }
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-}
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-.py-7 {
-  padding-top: 1.75rem;
-  padding-bottom: 1.75rem;
-}
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
 }
 .pt-12 {
   padding-top: 3rem;
@@ -1227,7 +1186,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .main-section .projects {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1245,7 +1204,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 
   .main-section .projects {
-    align-items: center;
+    align-items: flex-start;
   }
 
   .main-section .projects {

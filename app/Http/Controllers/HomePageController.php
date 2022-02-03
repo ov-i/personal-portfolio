@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Attachment;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Project;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class HomePageController extends Controller
 {
     public function index()
     {
-        $attachment = Attachment::find(1);
+        $projects = Project::get()->sortBy('created_at')->take(4);
 
-        return view('index')->with('attachment', $attachment);
+        return view('index')->with('projects', $projects);
     }
 
-    public function store_file(Request $request)
+    public function download(): BinaryFileResponse
     {
-        $file = $request->file('attachment');
-        $file->storeAs('', $file->getClientOriginalName());
+        return response()->download(public_path() . '/cv/' . 'cv.pdf');
     }
 }
