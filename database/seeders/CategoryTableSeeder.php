@@ -28,7 +28,13 @@ class CategoryTableSeeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'wydarzenia',
+            'name' => 'ITTalks',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+
+        DB::table('categories')->insert([
+            'name' => 'kursy',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
