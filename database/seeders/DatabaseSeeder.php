@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
             CommentTableSeeder::class,
             TagTableSeeder::class,
             ProjectTableSeeder::class,
+            AboutMeTableSeeder::class,
+            TestimonialTableSeeder::class,
         ]);
     }
 }
