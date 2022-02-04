@@ -15,8 +15,8 @@ class CreateAboutMeTable extends Migration
     {
         Schema::create('about_me', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('about_work', 200);
-            $table->string('about_interest', 200);
+            $table->string('about_work', 250);
+            $table->string('about_interest', 250);
             $table->string('email');
             $table->string('cv_url');
             $table->timestamps();
