@@ -18,13 +18,10 @@
                         Web Developer.
                     </h2>
                     <p class="font-normal leading-7 md:leading-8 tracking-wide text-sm md:text-base text-justify pt-6">
-                        Na co dzień tworzę, oraz rozwijam nowe projekty z wykorzystaniem nowoczesnych technologii.
-                        Jestem również pracownikiem w przedsiębiorstwie Encode IT Rafał Jaseniuk na stanowisku Full Stack
-                        Web Developera.
+                        {{ $about_me->about_work }}
                     </p>
                     <p class="font-normal leading-7 md:leading-8 tracking-wide text-sm md:text-base text-justify pt-6">
-                        Poza pracą jako programista, interesuję się elektroniką w odniesieniu do budowy robotów
-                        z wykorzystaniem Arduino UNO, zabawą z RasberryPi i tym podobnych.
+                        {{ $about_me->about_interest }}
                     </p>
                 </article>
 
@@ -42,8 +39,8 @@
                         <div class="single-info">
                             <p class="font-medium text-sm md:text-base">
                                 Email:
-                                <a href="mailto: b.pazdur@yahoo.com" class="text-accent font-semibold">
-                                    b.pazdur@yahoo.com
+                                <a href="mailto: {{ $about_me->email }}" class="text-accent font-semibold">
+                                    {{ $about_me->email }}
                                 </a>
                             </p>
                         </div>
@@ -72,19 +69,13 @@
                 </article>
             </div>
 
-            <article class="showing-off mb-20 md:mb-0 mt-12 md:mt-20 w-full flex justify-evenly md:justify-between items-center flex-col md:flex-row text-center">
-                <div class="single-off border-b py-4 md:py-0 md:py-0 md:pr-6 border-dark-50 md:w-full md:border-b-0 md:border-r">
-                    <h3 class="font-medium text-5xl md:text-5xl">6</h3>
-                    <p class="tracking-wide pt-2 font-medium text-sm ">Lat doświadczenia</p>
+            <article class="showing-off">
+                @foreach($testimonials as $testimonial)
+                <div class="single-off">
+                    <h3 class="value">{{ $testimonial->value }}</h3>
+                    <p class="name">{{ $testimonial->name }}</p>
                 </div>
-                <div class="single-off border-b py-4 md:py-0 md:py-0 border-dark-50 md:w-full md:border-b-0 md:border-r">
-                    <h3 class="font-medium text-5xl md:text-5xl">30</h3>
-                    <p class="tracking-wide pt-2 font-medium text-sm">Zadowolonych klientów</p>
-                </div>
-                <div class="single-off py-4 md:py-0 md:w-full">
-                    <h3 class="font-medium text-5xl md:text-5xl pl-6">100+</h3>
-                    <p class="tracking-wide pt-2 font-medium text-sm">Stworzonych projektów</p>
-                </div>
+                @endforeach
             </article>
         </section>
     </section>
@@ -140,31 +131,15 @@
     <section class="main-section py-14 md:py-20">
         <Sectionheader title="wpisy z bloga" header="mój blog"></Sectionheader>
         <!-- posts -->
-        <article class="main-content py-14 flex justify-evenly flex-col md:grid md:grid-cols-2 md:gap-7 md:gap-y-8 posts items-end justify-end md:w-7/12 lg:w-6/12 xl:w-5/12 retina:w-4/12 retinax2:w-3/12">
-            <!-- single post -->
-            <div class="mx-auto bg-accent-darken w-tile h-tile my-5 md:my-0 flex justify-center items-center rounded-md shadow-md text-white text-center transition duration-200 ease-linear hover:shadow-2xl">
-                <span class="uppercase font-primary font-semibold lg:text-xl">
-                    Bezpieczeństwo
-                </span>
-            </div>
-            <!-- single post -->
-            <div class="mx-auto bg-red w-tile h-tile my-10 md:my-0 flex justify-center items-center rounded-md shadow-md text-white text-center transition duration-200 ease-linear hover:shadow-2xl">
-                <span class="uppercase font-primary font-semibold lg:text-xl">
-                    Programowanie
-                </span>
-            </div>
-            <!-- single post -->
-            <div class="mx-auto bg-accent-darken md:bg-red w-tile h-tile my-10 md:my-0 flex justify-center items-center rounded-md shadow-md text-white text-center transition duration-200 ease-linear hover:shadow-2xl">
-                <span class="uppercase font-primary font-semibold lg:text-xl">
-                    ITTalks
-                </span>
-            </div>
-            <!-- single post -->
-            <div class="mx-auto bg-red md:bg-accent-darken  w-tile h-tile my-10 md:my-0 flex justify-center items-center rounded-md shadow-md text-white text-center transition duration-200 ease-linear hover:shadow-2xl">
-                <span class="uppercase font-primary font-semibold lg:text-xl">
-                    kursy
-                </span>
-            </div>
+        <article class="main-content section-blog py-14 flex justify-evenly flex-col md:grid md:grid-cols-2 capitalize md:gap-7 md:gap-y-8 posts items-end justify-end md:w-7/12 lg:w-6/12 xl:w-5/12 retina:w-4/12 retinax2:w-3/12">
+            @foreach($categories as $category)
+                <!-- single post -->
+                <div class="blog-category">
+                    <span class="uppercase font-primary font-semibold lg:text-xl">
+                        {{ $category->name }}
+                    </span>
+                </div>
+           @endforeach
         </article>
     </section>
 @endsection

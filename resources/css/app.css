@@ -6,10 +6,6 @@
   @apply hidden;
 }
 
-.material-padding {
-    padding: 22px 21px 0 21px;
-}
-
 /*
     TOP CONTENT
 */
@@ -95,6 +91,24 @@
     @apply font-primary pt-7 md:pt-10
 }
 
+.showing-off {
+    @apply mb-20 md:mb-0 mt-12 md:mt-20 w-full flex justify-evenly
+        md:justify-between items-center flex-col md:flex-row text-center;
+}
+
+.showing-off .single-off {
+    @apply border-b last:border-b-0 py-4 md:py-0 first:md:pr-6
+        last:md:pr-0 border-dark-50 md:w-full md:border-b-0 md:border-r last:border-none
+}
+
+.showing-off .single-off .value {
+    @apply font-medium text-5xl md:text-5xl;
+}
+
+.showing-off .single-off .name {
+    @apply tracking-wide pt-2 font-medium text-sm;
+}
+
 .main-section .info .single-info {
     @apply py-4 border-b border-dirty-white;
 }
@@ -106,7 +120,7 @@
 }
 
 .main-section .projects {
-    @apply px-3 pt-12 flex justify-evenly flex-col md:grid md:grid-cols-2 md:items-start     md:gap-2 lg:gap-3 retina:gap-6;
+    @apply px-3 pt-12 flex justify-evenly flex-col md:grid md:grid-cols-2 md:items-start  md:gap-2 lg:gap-3 retina:gap-6;
 }
 
 .main-section .projects .project .project-title .heading {
@@ -121,4 +135,13 @@
 
 .main-section .projects .project .project-socials .social {
     @apply text-xl lg:text-2xl cursor-pointer transition duration-300 hover:text-accent-darken;
+}
+
+.main-section .section-blog .blog-category {
+    @apply mx-auto first:bg-accent-darken first:md:bg-red last:bg-red md:bg-accent-darken bg-accent-darken w-tile h-tile
+    my-5 md:my-0 flex justify-center items-center rounded-md shadow-md text-white text-center transition duration-200 ease-linear hover:shadow-2xl;
+}
+
+.main-section .section-blog .blog-category:nth-child(2) {
+    @apply bg-red md:bg-accent-darken;
 }
