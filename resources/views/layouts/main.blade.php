@@ -165,10 +165,9 @@
                 <h3 class="text-2xl font-medium">Dostępne kategorie</h3>
                 <div class="footer-list pt-2">
                     <ul>
-                        <li class="leading-7">Bezpieczeństwo</li>
-                        <li class="leading-7">Programowanie</li>
-                        <li class="leading-7">ITTalks</li>
-                        <li class="leading-7">kursy</li>
+                        @foreach($categories as $category)
+                            <li class="capitalize leading-7">{{ $category->name }}</li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
