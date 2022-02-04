@@ -29,7 +29,7 @@
                 <article class="mt-10 md:mt-0 w-2/3 md:w-full mx-auto text-center">
                     <div class="info">
                         <!-- single info -->
-                        <div class="single-info">O
+                        <div class="single-info">
                             <p class="font-medium text-sm md:text-base">
                                 Imię i nazwisko:
                                 <span class="font-normal">Bartosz Pazdur</span>
