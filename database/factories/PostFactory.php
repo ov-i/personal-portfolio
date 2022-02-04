@@ -16,7 +16,7 @@ class PostFactory extends Factory
         return [
             'user_id' => 1,
             'category_id' => $this->faker->numberBetween(1, 3),
-            'title' => $this->faker->text(100),
+            'title' => $this->faker->realTextBetween(1, 30),
             'slug' => $this->faker->slug(3),
             'description' => $this->faker->text(),
             'content' => $this->faker->sentences(100, true),

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head class="scroll-smooth">
+<html lang="{{ app()->getLocale() }}" class="scroll-smooth">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -61,22 +61,22 @@
                 <!-- nav items -->
                 <ul class="nav-items" id="nav-list" role="list">
                     <li class="nav-item" role="listitem">
-                        <a href="#" class="nav-link" role="link" aria-labelledby="navigation link">
+                        <a href="/" class="nav-link" role="link" aria-labelledby="navigation link">
                             start
                         </a>
                     </li>
                     <li class="nav-item" role="listitem">
-                        <a href="#" class="nav-link" role="link" aria-labelledby="navigation link">
+                        <a href="#about-me" class="nav-link" role="link" aria-labelledby="navigation link">
                             o mnie
                         </a>
                     </li>
                     <li class="nav-item" role="listitem">
-                        <a href="#" class="nav-link" role="link" aria-labelledby="navigation link">
+                        <a href="#projects" class="nav-link" role="link" aria-labelledby="navigation link">
                             projekty
                         </a>
                     </li>
                     <li class="nav-item" role="listitem">
-                        <a href="#" class="nav-link" role="link" aria-labelledby="navigation link">
+                        <a href="#blog" class="nav-link" role="link" aria-labelledby="navigation link">
                             blog
                         </a>
                     </li>
@@ -155,9 +155,9 @@
                 <h3 class="text-2xl font-medium">Ostatnie posty</h3>
                 <div class="footer-list pt-2">
                     <ul>
-                        <li class="leading-7">Jak działają hasła maskowane?</li>
-                        <li class="leading-7">Manadżery haseł</li>
-                        <li class="leading-7">Uwierzytelnianie dwuskładnikowe</li>
+                        @foreach($posts as $post)
+                            <li class="leading-7 capitalize">{{ $post->title }}</li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

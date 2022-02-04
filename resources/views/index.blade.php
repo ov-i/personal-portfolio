@@ -9,7 +9,7 @@
         <SectionHeader title="poznaj mnie" header="o mnie"></SectionHeader>
 
         <!-- about me content -->
-        <section aria-label="main content" id="about-me-content" role="contentinfo" class="pt-12">
+        <section aria-label="main content" id="about-me" role="contentinfo" class="pt-12">
             <div class="about-me-wrapper flex flex-col justify-evenly items-center md:items-start md:grid md:grid-flow-col md:grid-col-2">
                 <article class="md:w-11/12 2xl:w-11/12 retina:w-11/12">
                     <h2 class="font-medium text-lg md:text-2xl 2xl:text-3xl retinax2:text-4xl">
@@ -81,7 +81,7 @@
     </section>
 
     <!-- section projects -->
-    <section aria-label="Moje projekty" id="project-section" class="main-section bg-background-accent py-1 md:py-20">
+    <section aria-label="Moje projekty" id="projects" class="main-section bg-background-accent py-1 md:py-20">
         <SectionHeader title="czym się zajmuję" header="projekty"></SectionHeader>
 
         <!-- projects -->
@@ -128,7 +128,7 @@
     </section>
 
     <!-- section blog -->
-    <section class="main-section py-14 md:py-20">
+    <section class="main-section py-14 md:py-20" id="blog">
         <Sectionheader title="wpisy z bloga" header="mój blog"></Sectionheader>
         <!-- posts -->
         <article class="main-content section-blog py-14 flex justify-evenly flex-col md:grid md:grid-cols-2 capitalize md:gap-7 md:gap-y-8 posts items-end justify-end md:w-7/12 lg:w-6/12 xl:w-5/12 retina:w-4/12 retinax2:w-3/12">
