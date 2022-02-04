@@ -16,5 +16,3 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomePageController::class, 'index'])->name('home.index');
 Route::get('/download_cv', [HomePageController::class, 'download'])->name('home.download');
-Route::post('/store', [HomePageController::class, 'store_file'])->name('home.store_file');
-

@@ -10,7 +10,7 @@
 
         <!-- about me content -->
         <section aria-label="main content" id="about-me" role="contentinfo" class="pt-12">
-            <div class="about-me-wrapper flex flex-col justify-evenly items-center md:items-start md:grid md:grid-flow-col md:grid-col-2">
+            <div class="about-me-wrapper flex flex-col justify-evenly items-center md:items-start md:grid md:grid-flow-col md:grid-col-2 py-5 md:py-5">
                 <article class="md:w-11/12 2xl:w-11/12 retina:w-11/12">
                     <h2 class="font-medium text-lg md:text-2xl 2xl:text-3xl retinax2:text-4xl">
                         Jestem
