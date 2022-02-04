@@ -26,7 +26,7 @@
                 </article>
 
                 <!-- about me info -->
-                <article class="mt-10 md:mt-0 w-2/3 md:w-full mx-auto text-center">
+                <article class="mt-10 md:mt-0 w-2/3 md:w-full mx-auto text-center md:text-left">
                     <div class="info">
                         <!-- single info -->
                         <div class="single-info">
@@ -39,7 +39,7 @@
                         <div class="single-info">
                             <p class="font-medium text-sm md:text-base">
                                 Email:
-                                <a href="mailto: {{ $about_me->email }}" class="text-accent font-semibold">
+                                <a href="mailto: {{ $about_me->email }}" class="text-accent font-semibold hover:text-accent-darken transition duration-200 ease-in">
                                     {{ $about_me->email }}
                                 </a>
                             </p>
