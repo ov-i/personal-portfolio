@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\PostCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomePageController::class, 'index'])->name('home.index');
 Route::get('/download_cv', [HomePageController::class, 'download'])->name('home.download');
+
+// Blog section
+Route::get("/blog", [BlogController::class, 'index'])
+    ->name('blog.index');
