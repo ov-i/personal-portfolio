@@ -38,10 +38,10 @@
     <header aria-label="banner" role="banner" class="header-wrapper" id="primary-heading">
 
         <!-- nav section -->
-        <nav class="navigation-wrapper" id="primary-navigation" aria-label="navigation" role="navigation">
+        <nav class="navigation-wrapper bg-white text-dark-700" id="primary-navigation" aria-label="navigation" role="navigation">
             <!-- application brand -->
             <div class="">
-                <a href="#" class="font-medium text-2xl md:text-3xl 2xl:text-4xl text-white" role="link">
+                <a href="#" class="font-medium text-2xl md:text-3xl" role="link">
                     Bartosz Pazdur
                 </a>
             </div>
@@ -178,7 +178,7 @@
                 <div class="copyright text-base font-medium font-primary">
                     &copy; Bartosz Pazdur {{ date('Y') }} - All rights reserved
                 </div>
-                <div class="socials">
+                <div class="socials pt-2 md:pt-0">
                     <div class="social px-2 inline-block">
                         <span class="iconify leading-0" data-icon="akar-icons:facebook-fill"></span>
                     </div>

@@ -18,7 +18,7 @@
 }
 
 .navigation-wrapper {
-    @apply px-5 py-7 flex justify-between items-center;
+    @apply px-5 py-6 flex justify-between items-center fixed w-full z-20 shadow-md;
 }
 
 .navigation-wrapper .nav-items {
@@ -26,11 +26,11 @@
 }
 
 .navigation-wrapper .nav-items .nav-item {
-    @apply border-b border-white p-3 md:p-0 md:pr-7 md:text-xl 2xl:text-2xl md:inline-block md:border-none;
+    @apply border-b border-white p-3 md:p-0 md:pr-7 md:text-xl md:inline-block md:border-none;
 }
 
 .navigation-wrapper .nav-items .nav-item .nav-link {
-    @apply font-normal font-primary transition duration-500 ease-in hover:border-b hover:border-white;
+    @apply font-normal font-primary transition duration-300 ease-linear hover:border-b hover:border-accent-darken;
 }
 
 .navigation-wrapper .nav-items .nav-item:last-child {
@@ -39,7 +39,7 @@
 
 .navigation-wrapper .nav-shown {
     @apply absolute top-0 right-0 w-screen py-2 font-primary font-normal
-        bg-dark-700 z-10 h-screen text-white md:relative md:w-auto md:h-full opacity-95 text-center md:text-left;
+        bg-dark-700 z-10 h-screen md:relative text-white md:text-dark-700 md:w-auto md:h-full opacity-95 text-center md:text-left;
 }
 
 @media screen and (min-width: 768px) {
@@ -58,7 +58,7 @@
 }
 
 .navigation-wrapper .socials .social {
-    @apply md:inline-block p-3 text-white text-2xl;
+    @apply md:inline-block p-3 text-2xl cursor-pointer hover:text-accent transition duration-200 ease-in;
 }
 
 /* jumbotron */
