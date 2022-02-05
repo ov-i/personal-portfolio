@@ -476,23 +476,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-1\/4 {
   width: 25%;
 }
-.w-screen {
-  width: 100vw;
+.w-7\/12 {
+  width: 58.333333%;
 }
 .w-5\/12 {
   width: 41.666667%;
 }
-.w-11\/12 {
-  width: 91.666667%;
-}
-.w-9\/12 {
-  width: 75%;
-}
-.w-8\/12 {
-  width: 66.666667%;
-}
-.w-7\/12 {
-  width: 58.333333%;
+.w-screen {
+  width: 100vw;
 }
 .-translate-x-1\/2 {
   --tw-translate-x: -50%;
@@ -554,17 +545,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-border-opacity: 1;
   border-color: rgb(235 235 235 / var(--tw-border-opacity));
 }
-.border-white {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
-.border-dark-100 {
-  --tw-border-opacity: 1;
-  border-color: rgb(140 140 140 / var(--tw-border-opacity));
-}
 .border-background-accent {
   --tw-border-opacity: 1;
   border-color: rgb(239 239 239 / var(--tw-border-opacity));
+}
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 .bg-background-accent {
   --tw-bg-opacity: 1;
@@ -660,21 +647,17 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
-}
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
 }
 .font-medium {
   font-weight: 500;
