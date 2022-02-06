@@ -13,11 +13,11 @@
                     <article class="post pb-10 first:pt-0 pt-10 last:border-none border-b border-background-accent">
                         <div class="post-title">
                             <a href="">
-                                <h1 class="text-3xl font-medium">{{ $post->title }}</h1>
+                                <h1 class="text-3xl font-medium text-dark-200">{{ $post->title }}</h1>
                             </a>
                         </div>
-                        <div class="post-info">
-                            <div class="author">
+                        <div class="post-info flex flex-row font-light italic text-sm items-center">
+                            <div class="author mr-2">
                                 @foreach($post->users()->get() as $author)
                                     @if($author->toggle_nick_display)
                                         <span>{{ $author->nick }}</span>
@@ -26,12 +26,16 @@
                                     @endif
                                 @endforeach
                             </div>
-                            <div class="created_at">
-                                <span>{{ $post->created_at }}</span>
+                            <div class="created_at mr-2">
+                                <span>
+                                    {{ date('m', strtotime($post->created_at)) }}.
+                                    {{ date('d', strtotime($post->created_at)) }}.
+                                    {{ date('Y', strtotime($post->created_at)) }}r.
+                                </span>
                             </div>
                             <div class="tags">
                                 @foreach($post->tags()->get() as $tag)
-                                    <span class="font-light italic">{{ $tag->name }}</span>
+                                    <span class="font-light italic">#{{ $tag->name }}</span>
                                 @endforeach
                             </div>
                         </div>
