@@ -457,6 +457,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: auto;
   margin-bottom: auto;
 }
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -474,6 +478,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .mr-4 {
   margin-right: 1rem;
+}
+.ml-1 {
+  margin-left: 0.25rem;
+}
+.mr-1 {
+  margin-right: 0.25rem;
 }
 .inline-block {
   display: inline-block;
@@ -693,6 +703,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pb-14 {
   padding-bottom: 3.5rem;
 }
+.pt-20 {
+  padding-top: 5rem;
+}
+.pt-7 {
+  padding-top: 1.75rem;
+}
+.pt-3 {
+  padding-top: 0.75rem;
+}
+.pt-5 {
+  padding-top: 1.25rem;
+}
+.pb-7 {
+  padding-bottom: 1.75rem;
+}
 .text-center {
   text-align: center;
 }
@@ -766,6 +791,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .tracking-wide {
   letter-spacing: 0.025em;
 }
+.tracking-widest {
+  letter-spacing: 0.1em;
+}
 .text-accent {
   --tw-text-opacity: 1;
   color: rgb(0 107 199 / var(--tw-text-opacity));
@@ -793,6 +821,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-dark-150 {
   --tw-text-opacity: 1;
   color: rgb(126 126 126 / var(--tw-text-opacity));
+}
+.text-accent-darken {
+  --tw-text-opacity: 1;
+  color: rgb(1 78 175 / var(--tw-text-opacity));
 }
 .decoration-0 {
   text-decoration-thickness: 0px;
@@ -1654,6 +1686,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:mb-0 {
     margin-bottom: 0px;
+  }
+
+  .md\:mr-2 {
+    margin-right: 0.5rem;
   }
 
   .md\:block {

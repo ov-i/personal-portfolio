@@ -10,14 +10,14 @@
             </div>
             <div class="post-wrapper">
                 @foreach($posts as $post)
-                    <article class="post pb-10 first:pt-0 pt-10 last:border-none border-b border-background-accent">
+                    <article class="post pb-7 first:pt-0 pt-10 last:border-none border-b border-background-accent">
                         <div class="post-title">
                             <a href="">
                                 <h1 class="text-3xl font-medium text-dark-200">{{ $post->title }}</h1>
                             </a>
                         </div>
                         <div class="post-info flex flex-row font-light italic text-sm items-center">
-                            <div class="author mr-2">
+                            <div class="author md:mr-2 mr-1">
                                 @foreach($post->users()->get() as $author)
                                     @if($author->toggle_nick_display)
                                         <span>{{ $author->nick }}</span>
@@ -26,7 +26,7 @@
                                     @endif
                                 @endforeach
                             </div>
-                            <div class="created_at mr-2">
+                            <div class="created_at md:mr-2 mr-1">
                                 <span>
                                     {{ date('m', strtotime($post->created_at)) }}.
                                     {{ date('d', strtotime($post->created_at)) }}.
@@ -34,12 +34,42 @@
                                 </span>
                             </div>
                             <div class="tags">
-                                @foreach($post->tags()->get() as $tag)
-                                    <span class="font-light italic">#{{ $tag->name }}</span>
+                                @foreach($post->tags()->get()->take(2) as $tag)
+                                    <span class="font-light italic text-xs md:text-base">#{{ $tag->name }}</span>
                                 @endforeach
                             </div>
                         </div>
-                        <p class="font-light italic">{{ $post->description }}</p>
+                        <div class="post-body">
+                            <div class="call-to-action pt-8 flex flex-row items-center">
+                                <div class="action">
+                                    <div class="inner-action flex items-center flex-row mx-2">
+                                        <span class="iconify text-2xl" data-icon="fa-regular:comment"></span>
+                                        <p class="counter ml-1 font-light italic font-primary text-sm">14</p>
+                                    </div>
+                                </div>
+                                <div class="action">
+                                    <div class="inner-action flex items-center flex-row mx-2">
+                                        <span class="iconify text-2xl" data-icon="flat-color-icons:like"></span>
+                                        <p class="counter ml-1 font-light italic font-primary text-sm">22</p>
+                                    </div>
+                                </div>
+                                <div class="action">
+                                    <div class="inner-action flex items-center flex-row mx-2">
+                                        <span class="iconify text-2xl" data-icon="ci:share-outline"></span>
+                                        <p class="counter ml- font-light italic font-primary text-sm">3</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post-description">
+                                <p class="leading-8 tracking-widest font-regular text-dark-200 text-sm pt-4 text-justify">
+                                    {{ $post->description }}
+                                </p>
+                            </div>
+
+                            <div class="read-more pt-7">
+                                <a href="#" class="text-accent-darken font-medium">Czytaj artykuł &raquo;</a>
+                            </div>
+                        </div>
                     </article>
                 @endforeach
             </div>
