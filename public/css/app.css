@@ -476,8 +476,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-1\/4 {
   width: 25%;
 }
-.w-7\/12 {
-  width: 58.333333%;
+.w-full {
+  width: 100%;
 }
 .w-5\/12 {
   width: 41.666667%;
@@ -565,6 +565,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(0 107 199 / var(--tw-bg-opacity));
 }
+.bg-blog-accent {
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 23 60 / var(--tw-bg-opacity));
+}
 .bg-dark-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(140 140 140 / var(--tw-bg-opacity));
@@ -622,6 +626,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pb-5 {
   padding-bottom: 1.25rem;
+}
+.pt-20 {
+  padding-top: 5rem;
 }
 .pt-2 {
   padding-top: 0.5rem;
@@ -846,8 +853,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-align: center;
   font-family: Poppins;
   font-weight: 400;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
   opacity: 0.95;
 }
 
@@ -867,11 +872,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .navigation-wrapper .nav-shown {
     text-align: left;
-  }
-
-  .navigation-wrapper .nav-shown {
-    --tw-text-opacity: 1;
-    color: rgb(0 0 0 / var(--tw-text-opacity));
   }
 }
 
@@ -1497,6 +1497,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 58.333333%;
   }
 
+  .md\:w-10\/12 {
+    width: 83.333333%;
+  }
+
   .md\:w-auto {
     width: auto;
   }
@@ -1586,6 +1590,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:leading-8 {
     line-height: 2rem;
+  }
+
+  .md\:text-dark-700 {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
   }
 }
 

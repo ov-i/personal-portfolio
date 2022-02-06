@@ -35,7 +35,7 @@
 
 .navigation-wrapper .nav-shown {
     @apply absolute top-0 right-0 w-screen py-2 font-primary font-normal
-        bg-dark-700 z-10 h-screen md:relative text-white md:text-dark-700 md:w-auto md:h-full opacity-95 text-center md:text-left;
+        bg-dark-700 z-10 h-screen md:relative md:w-auto md:h-full opacity-95 text-center md:text-left;
 }
 
 @media screen and (min-width: 768px) {

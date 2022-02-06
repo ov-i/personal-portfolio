@@ -52,7 +52,7 @@
             </div>
 
             <!-- nav list -->
-            <div class="nav-shown hidden md:block text-center" id="nav-list">
+            <div class="nav-shown text-white md:text-dark-700 hidden md:block text-center" id="nav-list">
                 <!-- closing button -->
                 <div class="closing-button" role="button" id="close-nav">
                     <span class="iconify border-2 border-white" data-icon="clarity:times-line"></span>

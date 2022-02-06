@@ -24,6 +24,7 @@ module.exports = {
       'red': '#950000',
       'dirty-white': '#EBEBEB',
       'background-accent': '#EFEFEF',
+      'blog-accent': 'rgb(23, 23, 60)',
     },
     extend: {
         screens: {

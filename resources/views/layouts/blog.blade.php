@@ -33,8 +33,54 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body class="antialiased">
-    <div id="app" class="app">
-        <main class="main-content">
+
+    <div id="app" class="app" role="application" aria-label="application main wrapper">
+        <header aria-label="banner" role="banner" class="" id="primary-heading">
+
+            <!-- nav section -->
+            <nav class="navigation-wrapper bg-blog-accent text-white" id="primary-navigation" aria-label="navigation" role="navigation">
+                <!-- application brand -->
+                <div class="">
+                    <a href="#" class="font-medium text-2xl md:text-3xl" role="link">
+                        Bartosz Pazdur
+                    </a>
+                </div>
+
+                <!-- nav toggle -->
+                <div class="text-dark md:hidden" id="show-nav-button">
+                    <span class="iconify text-3xl" data-icon="clarity:bars-line"></span>
+                </div>
+
+                <!-- nav list -->
+                <div class="nav-shown text-white hidden md:block text-center" id="nav-list">
+                    <!-- closing button -->
+                    <div class="closing-button" role="button" id="close-nav">
+                        <span class="iconify border-2 border-white" data-icon="clarity:times-line"></span>
+                    </div>
+
+                    <!-- nav items -->
+                    <ul class="nav-items" id="nav-list" role="list">
+                        <li class="nav-item" role="listitem">
+                            <a href="/" class="nav-link" role="link" aria-labelledby="navigation link">
+                                start
+                            </a>
+                        </li>
+                        <li class="nav-item" role="listitem">
+                            <a href="#about-me" class="nav-link" role="link" aria-labelledby="navigation link">
+                                o mnie
+                            </a>
+                        </li>
+                        <li class="nav-item" role="listitem">
+                            <a href="#projects" class="nav-link" role="link" aria-labelledby="navigation link">
+                                projekty
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main-content" role="main">
             @yield('content')
         </main>
     </div>
