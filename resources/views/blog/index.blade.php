@@ -11,21 +11,30 @@
             <div class="post-wrapper">
                 @foreach($posts as $post)
                     <article class="post pb-10 first:pt-0 pt-10 last:border-none border-b border-background-accent">
-                        @foreach($post->tags()->get() as $tag)
-                            <div>
-                                <p class="font-light italic">{{ $tag->name }}</p>
+                        <div class="post-title">
+                            <a href="">
+                                <h1 class="text-3xl font-medium">{{ $post->title }}</h1>
+                            </a>
+                        </div>
+                        <div class="post-info">
+                            <div class="author">
+                                @foreach($post->users()->get() as $author)
+                                    @if($author->toggle_nick_display)
+                                        <span>{{ $author->nick }}</span>
+                                    @else()
+                                        <span>{{ $author->firstname . ' ' . $author->lastname }}</span>
+                                    @endif
+                                @endforeach
                             </div>
-                        @endforeach
-                        <a href="">
-                            <h1 class="text-3xl font-medium">{{ $post->title }}</h1>
-                        </a>
-                        @foreach($post->users()->get() as $author)
-                            @if($author->toggle_nick_display)
-                                <span>{{ $author->nick }}</span>
-                            @else()
-                                <span>{{ $author->firstname . ' ' . $author->lastname }}</span>
-                            @endif
-                        @endforeach
+                            <div class="created_at">
+                                <span>{{ $post->created_at }}</span>
+                            </div>
+                            <div class="tags">
+                                @foreach($post->tags()->get() as $tag)
+                                    <span class="font-light italic">{{ $tag->name }}</span>
+                                @endforeach
+                            </div>
+                        </div>
                         <p class="font-light italic">{{ $post->description }}</p>
                     </article>
                 @endforeach
