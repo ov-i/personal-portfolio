@@ -140,7 +140,7 @@
             </nav>
         </header>
 
-        <main class="main-content" role="main">
+        <main class="main-content pb-3" role="main">
             @yield('content')
         </main>
     </div>

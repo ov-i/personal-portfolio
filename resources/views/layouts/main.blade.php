@@ -38,7 +38,7 @@
     <header aria-label="banner" role="banner" class="header-wrapper" id="primary-heading">
 
         <!-- nav section -->
-        <nav class="navigation-wrapper bg-white text-dark-700" id="primary-navigation" aria-label="navigation" role="navigation">
+        <nav class="navigation-wrapper fixed bg-white text-dark-700" id="primary-navigation" aria-label="navigation" role="navigation">
             <!-- application brand -->
             <div class="">
                 <a href="#" class="font-medium text-2xl md:text-3xl" role="link">

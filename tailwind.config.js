@@ -18,6 +18,8 @@ module.exports = {
       'dark': {
           '700': '#000000',
           '300': 'rgba(0, 0, 0, 0.6)',
+          '200': '#515151',
+          '150': '#7E7E7E',
           '100': '#8C8C8C',
           '50': '#CBCBCB',
       },
@@ -25,6 +27,7 @@ module.exports = {
       'dirty-white': '#EBEBEB',
       'background-accent': '#EFEFEF',
       'blog-accent': 'rgb(23, 23, 60)',
+      'blog-dirty-white': '#A7A7A7',
     },
     extend: {
         screens: {
