@@ -3,7 +3,7 @@
 @section('title', 'Blog')
 
 @section('content')
-    <section class="md:w-10/12 w-full font-primary flex flex-row md:flex-col justify-evenly md:justify-between items-center md:items-start pt-20">
+    <section class="md:w-10/12 w-full font-primary flex flex-row md:flex-col justify-evenly md:justify-between items-center md:items-start pt-20 md:pt-32">
         <div class="post-wrapper">
             @foreach($posts as $post)
                 <article class="post py-10 border-b border-background-accent">

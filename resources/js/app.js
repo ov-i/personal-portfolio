@@ -9,9 +9,12 @@ const app = new Vue({
   el: '#app',
   delimiters: ['<%', '%>'],
   data: () => ({
-    navShown: false
+    dialog: false
   }),
   methods: {
+      toggleDialog() {
+          this.dialog = !this.dialog
+      }
   },
 })
 
