@@ -6,6 +6,10 @@
   @apply hidden;
 }
 
+::selection {
+    @apply bg-blog-accent text-white;
+}
+
 /*
     TOP CONTENT
 */

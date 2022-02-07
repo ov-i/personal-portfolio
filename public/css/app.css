@@ -547,11 +547,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-full {
   width: 100%;
 }
-.w-1\/2 {
-  width: 50%;
-}
 .w-2\/12 {
   width: 16.666667%;
+}
+.w-1\/2 {
+  width: 50%;
 }
 .w-screen {
   width: 100vw;
@@ -723,23 +723,23 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pb-5 {
   padding-bottom: 1.25rem;
 }
-.pt-10 {
-  padding-top: 2.5rem;
-}
 .pb-10 {
   padding-bottom: 2.5rem;
 }
 .pb-7 {
   padding-bottom: 1.75rem;
 }
+.pt-10 {
+  padding-top: 2.5rem;
+}
 .pt-7 {
   padding-top: 1.75rem;
 }
-.pb-14 {
-  padding-bottom: 3.5rem;
-}
 .pr-2 {
   padding-right: 0.5rem;
+}
+.pb-14 {
+  padding-bottom: 3.5rem;
 }
 .pt-5 {
   padding-top: 1.25rem;
@@ -863,13 +863,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(1 78 175 / var(--tw-text-opacity));
 }
-.text-dark-150 {
-  --tw-text-opacity: 1;
-  color: rgb(126 126 126 / var(--tw-text-opacity));
-}
 .text-red {
   --tw-text-opacity: 1;
   color: rgb(149 0 0 / var(--tw-text-opacity));
+}
+.text-dark-150 {
+  --tw-text-opacity: 1;
+  color: rgb(126 126 126 / var(--tw-text-opacity));
 }
 .decoration-0 {
   text-decoration-thickness: 0px;
@@ -911,6 +911,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 [v-cloak] {
   display: none;
+}
+
+::-moz-selection {
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 23 60 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+::selection {
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 23 60 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 /*
@@ -2002,20 +2016,20 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-bottom: 0px;
   }
 
-  .md\:pt-14 {
-    padding-top: 3.5rem;
-  }
-
-  .md\:pl-32 {
-    padding-left: 8rem;
-  }
-
   .md\:pb-10 {
     padding-bottom: 2.5rem;
   }
 
   .md\:pt-0 {
     padding-top: 0px;
+  }
+
+  .md\:pt-14 {
+    padding-top: 3.5rem;
+  }
+
+  .md\:pl-32 {
+    padding-left: 8rem;
   }
 
   .md\:text-left {
