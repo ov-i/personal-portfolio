@@ -62,10 +62,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="post-description py-7">
-                            <p class="leading-8 tracking-widest font-regular text-dark-200 text-sm pt-4 text-justify px-2 md:px-0">
-                                {{ $post->content }}
-                            </p>
+                        <div class="post-content py-7">
+                            {!! $post->content !!}
                         </div>
                     </div>
                 </article>

@@ -162,3 +162,7 @@
 .post-wrapper .post-title .post-title-header {
     @apply text-3xl font-medium text-dark-200 hover:text-blog-accent transition duration-200 ease-linear;
 }
+
+.post-body .post-content > p {
+    @apply leading-8 tracking-widest font-normal text-dark-200 text-sm pt-4 pb-4 text-justify px-2 md:px-0;
+}
