@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -26,11 +27,13 @@ class BlogController extends Controller
     {
         $categories = Category::get();
         $tags = Tag::get();
+        $comments = $post->comments()->get();
 
         return view('blog.show', compact([
             'post',
             'categories',
-            'tags'
+            'tags',
+            'comments'
         ]));
     }
 }
