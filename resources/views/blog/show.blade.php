@@ -106,7 +106,7 @@
                         </div>
                         <div class="call-to-action md:flex md:justify-between md:items-center">
                             <div></div>
-                            <button :disabled="comment.length === 0" class="p-3 disabled:bg-transparent disabled:border disabled:text-dark-100 disabled:border-blog-accent tracking-widest text-xs font-medium text-white bg-blog-accent rounded-md uppercase mt-3 lg:mt-6 hover:bg-blog-accent-lighten transition duration-200 ease-linear">
+                            <button :disabled="comment.length === 0" class="comment-btn">
                                 skomentuj
                             </button>
                         </div>
@@ -114,7 +114,7 @@
                 @endauth
                 @guest()
                     <div class="user-not-signed py-12">
-                        <a href="" class="text-center rounded-md mx-auto p-3 bg-blog-accent hover:bg-blog-accent-lighten transition duration-200 ease-linear text-white text-sm uppercase">
+                        <a href="" class="login-route">
                             Dołącz do dyskusji
                         </a>
                     </div>

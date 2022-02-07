@@ -163,6 +163,18 @@
     @apply text-3xl font-medium text-dark-200 hover:text-blog-accent transition duration-200 ease-linear;
 }
 
+.comments .comment-form .call-to-action .comment-btn {
+    @apply p-3 disabled:bg-transparent disabled:border disabled:text-dark-100 disabled:border-blog-accent
+    tracking-widest text-xs font-medium text-white bg-blog-accent rounded-md uppercase mt-3
+    lg:mt-6 hover:bg-blog-accent-lighten transition duration-200 ease-linear;
+}
+
+.comments .user-not-signed .login-route {
+    @apply text-center rounded-md mx-auto p-3 bg-blog-accent
+    hover:bg-blog-accent-lighten transition duration-200 ease-linear text-white text-sm uppercase;
+}
+
+/* post content styles */
 .post-body .post-content > p {
     @apply leading-8 tracking-widest font-normal text-dark-200 text-sm pt-4 pb-4 text-justify md:text-left px-2 md:px-0 break-words;
 }

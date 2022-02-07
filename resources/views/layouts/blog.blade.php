@@ -41,7 +41,7 @@
             <nav class="navigation-wrapper items-center bg-blog-accent text-white relative" id="primary-navigation" aria-label="navigation" role="navigation">
                 <!-- application brand -->
                 <div class="">
-                    <a href="#" class="font-medium text-2xl md:text-3xl" role="link">
+                    <a href="{{ route('home.index') }}" class="font-medium text-2xl md:text-3xl" role="link">
                         Bartosz Pazdur
                     </a>
                 </div>
