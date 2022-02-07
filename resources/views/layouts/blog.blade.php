@@ -152,7 +152,7 @@
                             @foreach($categories as $category)
                                 <li class="font-light italic text-base text-dark-150 leading-7">
                                     <a href="{{ route('blog.categories', ['category' => $category->id]) }}">
-                                        {{ $category->name }}
+                                        {{ $category->name }} ({{ $category->posts()->count() }})
                                     </a>
                                 </li>
                             @endforeach
@@ -165,7 +165,7 @@
                             @foreach($tags as $tag)
                                 <li class="font-light italic text-base text-dark-150 leading-7">
                                     <a href="">
-                                        #{{ $tag->name }}
+                                        #{{ $tag->name }} ({{ $tag->posts()->count() }})
                                     </a>
                                 </li>
                             @endforeach
