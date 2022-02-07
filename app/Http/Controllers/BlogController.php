@@ -36,4 +36,20 @@ class BlogController extends Controller
             'comments'
         ]));
     }
+
+    public function categories(Category $category)
+    {
+        $posts = Post::get();
+        $categories_posts = $category->posts()->paginate(10);
+        $categories = Category::get();
+        $tags = Tag::get();
+
+        return view('blog.categories', compact([
+            'category',
+            'categories_posts',
+            'categories',
+            'tags',
+            'posts'
+        ]));
+    }
 }

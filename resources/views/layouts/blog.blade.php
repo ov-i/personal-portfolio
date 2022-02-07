@@ -61,7 +61,7 @@
                     <!-- nav items -->
                     <ul class="nav-items" id="nav-list" role="list">
                         <li class="nav-item" role="listitem">
-                            <a href="/" class="nav-link" role="link" aria-labelledby="navigation link">
+                            <a href="{{ route('blog.index') }}" class="nav-link" role="link" aria-labelledby="navigation link">
                                 wpisy
                             </a>
                         </li>
@@ -141,7 +141,48 @@
         </header>
 
         <main class="main-content pb-3" role="main">
-            @yield('content')
+            <div class="font-primary flex flex-col md:flex-row items-start justify-evenly md:justify-between pt-10 md:pt-14 px-3 md:px-0">
+                @yield('content')
+
+                <section class="sidebars w-1/2 md:pl-32 mx-auto">
+                    <!-- all categories -->
+                    <div class="sidebar pb-14">
+                        <h3 class="font-normal text-lg text-dark-200 leading-8 pb-3 md:text-xl tracking-wide">Wszystkie kategorie</h3>
+                        <ul>
+                            @foreach($categories as $category)
+                                <li class="font-light italic text-base text-dark-150 leading-7">
+                                    <a href="{{ route('blog.categories', ['category' => $category->id]) }}">
+                                        {{ $category->name }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    <div class="sidebar pb-14">
+                        <h3 class="font-normal text-lg text-dark-200 leading-8 pb-3 md:text-xl tracking-wide">Wszystkie tagi</h3>
+                        <ul>
+                            @foreach($tags as $tag)
+                                <li class="font-light italic text-base text-dark-150 leading-7">
+                                    <a href="">
+                                        #{{ $tag->name }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="sidebar pb-14">
+                        <h3 class="font-normal text-lg text-dark-200 leading-8 pb-3 md:text-xl tracking-wide">Topowi autorzy</h3>
+                        <ul>
+                            <li class="font-light italic text-base text-dark-150 leading-7">
+                                <a href="">
+                                    overmind
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
         </main>
     </div>
 
