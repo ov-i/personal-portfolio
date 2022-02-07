@@ -33,11 +33,11 @@
                             @endforeach
                         </div>
                         <div class="created_at md:mr-2 mr-1">
-                                <span>
-                                    {{ date('m', strtotime($post->created_at)) }}.
-                                    {{ date('d', strtotime($post->created_at)) }}.
-                                    {{ date('Y', strtotime($post->created_at)) }}r.
-                                </span>
+                            <span>
+                                {{ date('m', strtotime($post->created_at)) }}.
+                                {{ date('d', strtotime($post->created_at)) }}.
+                                {{ date('Y', strtotime($post->created_at)) }}r.
+                            </span>
                         </div>
                         <div class="tags">
                             @foreach($post->tags()->get()->take(2) as $tag)
