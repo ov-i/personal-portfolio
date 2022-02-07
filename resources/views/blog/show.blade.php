@@ -56,7 +56,9 @@
                         <div class="action">
                             <div class="inner-action flex items-center flex-row mx-2">
                                 <span class="iconify text-2xl" data-icon="flat-color-icons:like"></span>
-                                <p class="counter ml-1 font-light italic font-primary text-sm">22</p>
+                                <p class="counter ml-1 font-light italic font-primary text-sm">
+                                    {{ $post->likes }}
+                                </p>
                             </div>
                         </div>
                         <div class="action">
