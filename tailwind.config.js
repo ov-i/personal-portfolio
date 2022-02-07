@@ -27,6 +27,7 @@ module.exports = {
       'dirty-white': '#EBEBEB',
       'background-accent': '#EFEFEF',
       'blog-accent': 'rgb(23, 23, 60)',
+      'blog-accent-lighten': 'rgb(35,35,56)',
       'blog-dirty-white': '#A7A7A7',
     },
     extend: {
@@ -49,5 +50,9 @@ module.exports = {
         }
     },
   },
-  plugins: [],
+  plugins: [
+      require('@tailwindcss/forms')({
+          strategy: 'class',
+      }),
+  ],
 }

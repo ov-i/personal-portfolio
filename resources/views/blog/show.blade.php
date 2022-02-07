@@ -69,7 +69,7 @@
                     </div>
                 </article>
             </div>
-            <article class="comments" role="article">
+            <article class="comments pb-20 md:pb-0" role="article">
                 <div class="comments-heading pb-4">
                     <h2 class="comments-header text-2xl">Dyskusja ({{ $comments->count() }})</h2>
                 </div>
@@ -85,6 +85,26 @@
                 </div>
                 @endforeach
 
+{{--                @auth()--}}
+                    <div class="comment-form pt-10 pb-0 md:pb-10">
+                        <div class="comment-form-inner relative">
+                            <textarea
+                                name="new_comment"
+                                id="comment" rows="7"
+                                class="form-textarea w-full block rounded-sm shadow-md text-sm tracking-widest"
+                                placeholder="Co Ci chodzi po głowie?"></textarea>
+                            <p class="counter text-xs font-normal text-dark-200 absolute bottom-2 right-2">
+                                Liczba słów 0/200
+                            </p>
+                        </div>
+                        <div class="call-to-action flex justify-between items-center">
+                            <div></div>
+                            <button class="p-3 tracking-widest text-xs font-medium text-white bg-blog-accent rounded-md uppercase mt-3 hover:bg-blog-accent-lighten transition duration-200 ease-linear">
+                                skomentuj
+                            </button>
+                        </div>
+                    </div>
+{{--                @endauth--}}
             </article>
         </section>
         <section class="sidebars w-1/2 md:pl-32 mx-auto">
