@@ -88,7 +88,7 @@
                 </div>
                 @endforeach
 
-{{--                @auth()--}}
+                @auth()
                     <div class="comment-form pt-10 pb-0 md:pb-10">
                         <div class="comment-form-inner relative">
                             <textarea
@@ -111,7 +111,14 @@
                             </button>
                         </div>
                     </div>
-{{--                @endauth--}}
+                @endauth
+                @guest()
+                    <div class="user-not-signed py-12">
+                        <a href="" class="text-center rounded-md mx-auto p-3 bg-blog-accent hover:bg-blog-accent-lighten transition duration-200 ease-linear text-white text-sm uppercase">
+                            Dołącz do dyskusji
+                        </a>
+                    </div>
+                @endguest
             </article>
         </section>
         <section class="sidebars w-1/2 md:pl-32 mx-auto">
