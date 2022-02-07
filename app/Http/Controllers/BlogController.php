@@ -24,6 +24,13 @@ class BlogController extends Controller
 
     public function show(Post $post)
     {
-        return view('blog.show')->with('post', $post);
+        $categories = Category::get();
+        $tags = Tag::get();
+
+        return view('blog.show', compact([
+            'post',
+            'categories',
+            'tags'
+        ]));
     }
 }
