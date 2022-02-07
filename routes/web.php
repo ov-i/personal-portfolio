@@ -22,3 +22,5 @@ Route::get('/download_cv', [HomePageController::class, 'download'])->name('home.
 // Blog section
 Route::get("/blog", [BlogController::class, 'index'])
     ->name('blog.index');
+
+Route::get('/blog/posts/{post}', [BlogController::class, 'show'])->name('blog.show');

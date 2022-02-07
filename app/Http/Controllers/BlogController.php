@@ -21,4 +21,9 @@ class BlogController extends Controller
             'tags'
         ]));
     }
+
+    public function show(Post $post)
+    {
+        return view('blog.show')->with('post', $post);
+    }
 }

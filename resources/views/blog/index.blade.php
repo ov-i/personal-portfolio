@@ -12,8 +12,10 @@
                 @foreach($posts as $post)
                     <article class="post pb-7 first:pt-0 pt-10 last:border-none border-b border-background-accent">
                         <div class="post-title">
-                            <a href="">
-                                <h1 class="text-3xl font-medium text-dark-200">{{ $post->title }}</h1>
+                            <a href="{{ route('blog.show', ['post' => $post->id]) }}">
+                                <h1 class="post-title-header">
+                                    {{ $post->title }}
+                                </h1>
                             </a>
                         </div>
                         <div class="post-info flex flex-row font-light italic text-sm items-center">
