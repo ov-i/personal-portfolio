@@ -70,14 +70,21 @@
                 </article>
             </div>
             <article class="comments" role="article">
-                <div class="comments-heading">
-                    <h3 class="comments-header text-2xl">Dyskusja ({{ $comments->count() }})</h3>
+                <div class="comments-heading pb-4">
+                    <h2 class="comments-header text-2xl">Dyskusja ({{ $comments->count() }})</h2>
                 </div>
                 @foreach($comments as $comment)
-                <div class="comment " role="note">
-                    {{ $comment->comment }}
+                <div class="comment py-4 border-b border-dirty-white first:pt-5 last:border-none font-primary" role="note">
+                    <div class="comment-info">
+                        <h3 class="text-base font-medium text-dark-200">{{ $comment->author }}</h3>
+                        <p class="font-light italic text-dark-200 text-sm">{{ $comment->created_at }}</p>
+                    </div>
+                    <div class="comment-content py-4 font-normal text-dark-200 leading-7 tracking-widest text-dark-3 text-sm">
+                        {{ $comment->comment }}
+                    </div>
                 </div>
                 @endforeach
+
             </article>
         </section>
         <section class="sidebars w-1/2 md:pl-32 mx-auto">

@@ -657,6 +657,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
 .pt-12 {
   padding-top: 3rem;
 }
@@ -701,6 +705,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pt-5 {
   padding-top: 1.25rem;
+}
+.pb-4 {
+  padding-bottom: 1rem;
 }
 .text-center {
   text-align: center;
@@ -806,6 +813,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-dark-150 {
   --tw-text-opacity: 1;
   color: rgb(126 126 126 / var(--tw-text-opacity));
+}
+.text-dark-300 {
+  color: rgba(0, 0, 0, 0.6);
 }
 .decoration-0 {
   text-decoration-thickness: 0px;
@@ -1684,6 +1694,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .first\:pt-0:first-child {
   padding-top: 0px;
+}
+
+.first\:pt-4:first-child {
+  padding-top: 1rem;
+}
+
+.first\:pt-5:first-child {
+  padding-top: 1.25rem;
+}
+
+.first\:pt-6:first-child {
+  padding-top: 1.5rem;
 }
 
 .last\:border-none:last-child {
