@@ -19,7 +19,7 @@ class BlogController extends Controller
         return view('blog.index', compact([
             'posts',
             'categories',
-            'tags'
+            'tags',
         ]));
     }
 

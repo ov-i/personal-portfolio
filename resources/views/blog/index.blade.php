@@ -46,7 +46,9 @@
                                 <div class="action">
                                     <div class="inner-action flex items-center flex-row mx-2">
                                         <span class="iconify text-2xl" data-icon="fa-regular:comment"></span>
-                                        <p class="counter ml-1 font-light italic font-primary text-sm">14</p>
+                                        <p class="counter ml-1 font-light italic font-primary text-sm">
+                                            {{ $post->comments()->get()->count() }}
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="action">
@@ -58,7 +60,6 @@
                                 <div class="action">
                                     <div class="inner-action flex items-center flex-row mx-2">
                                         <span class="iconify text-2xl" data-icon="ci:share-outline"></span>
-                                        <p class="counter ml- font-light italic font-primary text-sm">3</p>
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +70,9 @@
                             </div>
 
                             <div class="read-more pt-7">
-                                <a href="#" class="text-accent-darken font-medium">Czytaj artykuł &raquo;</a>
+                                <a href="{{ route('blog.show', ['post' => $post->id]) }}" class="text-accent-darken font-medium">
+                                    Czytaj artykuł &raquo;
+                                </a>
                             </div>
                         </div>
                     </article>
