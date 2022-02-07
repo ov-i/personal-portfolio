@@ -39,7 +39,6 @@ class BlogController extends Controller
 
     public function categories(Category $category)
     {
-        $posts = Post::get();
         $categories_posts = $category->posts()->paginate(10);
         $categories = Category::get();
         $tags = Tag::get();
@@ -49,7 +48,21 @@ class BlogController extends Controller
             'categories_posts',
             'categories',
             'tags',
-            'posts'
+        ]));
+    }
+
+    public function tags(Tag $tag)
+    {
+        $posts = Post::get();
+        $tags_posts = $tag->posts()->paginate(10);
+        $categories = Category::get();
+        $tags = Tag::get();
+
+        return view('blog.tags', compact([
+            'tag',
+            'tags_posts',
+            'categories',
+            'tags',
         ]));
     }
 }

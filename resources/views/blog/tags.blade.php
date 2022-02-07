@@ -1,19 +1,19 @@
 @extends('layouts.blog')
 
-@section('title', 'Kategorie')
+@section('title', 'Tagi')
 
 @section('content')
     <section class="w-full font-primary">
         <div class="posts-heading pb-10 text-xl text-blog-dirty-white">
             <h2 class="font-normal">
-                Wpisy z kategorią:
-                <span class="font-light italic font-sm capitalize text-dark-200">
-                    "{{ $category->name }}"
+                Wpisy z tagami
+                <span class="font-light italic font-sm text-dark-200 lowercase">
+                    "#{{ $tag->name }}"
                 </span>
             </h2>
         </div>
         <div class="post-wrapper">
-            @foreach($categories_posts as $post)
+            @foreach($tags_posts as $post)
                 <article class="post pb-7 first:pt-0 pt-10 last:border-none border-b border-background-accent">
                     <div class="post-title">
                         <a href="{{ route('blog.show', ['post' => $post->id]) }}">
@@ -33,11 +33,11 @@
                             @endforeach
                         </div>
                         <div class="created_at md:mr-2 mr-1">
-                            <span>
-                                {{ date('m', strtotime($post->created_at)) }}.
-                                {{ date('d', strtotime($post->created_at)) }}.
-                                {{ date('Y', strtotime($post->created_at)) }}r.
-                            </span>
+                                <span>
+                                    {{ date('m', strtotime($post->created_at)) }}.
+                                    {{ date('d', strtotime($post->created_at)) }}.
+                                    {{ date('Y', strtotime($post->created_at)) }}r.
+                                </span>
                         </div>
                         <div class="tags">
                             @foreach($post->tags()->get()->take(2) as $tag)
@@ -82,6 +82,6 @@
                 </article>
             @endforeach
         </div>
-        {{ $categories_posts->links() }}
+        {{ $tags_posts->links() }}
     </section>
 @endsection

@@ -26,3 +26,5 @@ Route::get("/blog", [BlogController::class, 'index'])
 Route::get('/blog/posts/{post}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/blog/categories/{category}/posts', [BlogController::class, 'categories'])
     ->name('blog.categories');
+
+Route::get('/blog/tags/{tag}/posts', [BlogController::class, 'tags'])->name('blog.tags');
