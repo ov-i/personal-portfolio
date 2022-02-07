@@ -14,6 +14,7 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
+            'thumbnail_url' => $this->faker->imageUrl('1860', '1240', 'office'),
             'user_id' => $this->faker->numberBetween(1, 20),
             'category_id' => $this->faker->numberBetween(1, 3),
             'title' => $this->faker->realTextBetween(1, 30),

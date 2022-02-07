@@ -34,7 +34,7 @@
 </head>
 <body class="antialiased">
 
-    <div id="app" class="app" role="application" aria-label="application main wrapper">
+    <div id="app" class="app" role="application" v-cloak aria-label="application main wrapper">
         <header aria-label="banner" role="banner" class="" id="primary-heading">
 
             <!-- nav section -->

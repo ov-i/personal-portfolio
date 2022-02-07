@@ -10,27 +10,27 @@ module.exports = {
     fontFamily: {
       'primary': ['Poppins']
     },
-    colors: {
-      'accent': '#006BC7',
-      'accent-darken': '#014eaf',
-      'blured-accent': 'rgba(0,107,199,0.30)',
-      'white': '#FFFFFF',
-      'dark': {
-          '700': '#000000',
-          '300': 'rgba(0, 0, 0, 0.6)',
-          '200': '#515151',
-          '150': '#7E7E7E',
-          '100': '#8C8C8C',
-          '50': '#CBCBCB',
-      },
-      'red': '#950000',
-      'dirty-white': '#EBEBEB',
-      'background-accent': '#EFEFEF',
-      'blog-accent': 'rgb(23, 23, 60)',
-      'blog-accent-lighten': 'rgb(35,35,56)',
-      'blog-dirty-white': '#A7A7A7',
-    },
     extend: {
+        colors: {
+            'accent': '#006BC7',
+            'accent-darken': '#014eaf',
+            'blured-accent': 'rgba(0,107,199,0.30)',
+            'white': '#FFFFFF',
+            'dark': {
+                '700': '#000000',
+                '300': 'rgba(0, 0, 0, 0.6)',
+                '200': '#515151',
+                '150': '#7E7E7E',
+                '100': '#8C8C8C',
+                '50': '#CBCBCB',
+            },
+            'red': '#950000',
+            'dirty-white': '#EBEBEB',
+            'background-accent': '#EFEFEF',
+            'blog-accent': 'rgb(23, 23, 60)',
+            'blog-accent-lighten': 'rgb(35,35,56)',
+            'blog-dirty-white': '#A7A7A7',
+        },
         screens: {
             'retina': '1870px',
             'retinax2': '2300px'

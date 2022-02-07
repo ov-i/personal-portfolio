@@ -9,11 +9,16 @@ const app = new Vue({
   el: '#app',
   delimiters: ['<%', '%>'],
   data: () => ({
-    dialog: false
+    dialog: false,
+    comment_length: 0,
+    comment: ''
   }),
   methods: {
       toggleDialog() {
           this.dialog = !this.dialog
+      },
+      increaseCounter() {
+          this.comment_length = this.comment.length
       }
   },
 })

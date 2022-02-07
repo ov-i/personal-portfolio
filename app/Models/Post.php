@@ -14,6 +14,7 @@ class Post extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'thumbnail_url',
         'user_id',
         'category_id',
         'title',

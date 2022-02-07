@@ -13,6 +13,9 @@
             </div>
             <div class="post-wrapper">
                 <article class="post pb-7 first:pt-0 pt-10 last:border-none border-b border-background-accent">
+                    <div class="posts-thumbnail pb-14">
+                        <img src="{{ $post->thumbnail_url }}" alt="thumbnail">
+                    </div>
                     <div class="post-title">
                         <h1 class="post-title-header">
                             {{ $post->title }}
@@ -63,7 +66,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="post-content py-7">
+                        <div class="post-content py-3 md:py-5">
                             {!! $post->content !!}
                         </div>
                     </div>
@@ -92,14 +95,18 @@
                                 name="new_comment"
                                 id="comment" rows="7"
                                 class="form-textarea w-full block rounded-sm shadow-md text-sm tracking-widest"
-                                placeholder="Co Ci chodzi po głowie?"></textarea>
-                            <p class="counter text-xs font-normal text-dark-200 absolute bottom-2 right-2">
-                                Liczba słów 0/200
+                                placeholder="Co Ci chodzi po głowie?"
+                                @input="increaseCounter()"
+                                v-model="comment"
+                                maxlength="300"
+                            ></textarea>
+                            <p class="counter text-xs font-normal text-dark-200 md:absolute md:bottom-2 md:right-2 z-20 text-right md:text-left pt-2 md:pt-0" :class="{'text-red': comment_length >= 300}">
+                                Liczba słów: <% comment_length %>/300
                             </p>
                         </div>
-                        <div class="call-to-action flex justify-between items-center">
+                        <div class="call-to-action md:flex md:justify-between md:items-center">
                             <div></div>
-                            <button class="p-3 tracking-widest text-xs font-medium text-white bg-blog-accent rounded-md uppercase mt-3 hover:bg-blog-accent-lighten transition duration-200 ease-linear">
+                            <button :disabled="comment.length === 0" class="p-3 disabled:bg-transparent disabled:border disabled:text-dark-100 disabled:border-blog-accent tracking-widest text-xs font-medium text-white bg-blog-accent rounded-md uppercase mt-3 lg:mt-6 hover:bg-blog-accent-lighten transition duration-200 ease-linear">
                                 skomentuj
                             </button>
                         </div>
