@@ -12,6 +12,10 @@
             </div>
             <div class="administration-panel">
                 <h1>Hej admin</h1>
+
+                <div class="content">
+                    <router-view></router-view>
+                </div>
             </div>
         </div>
     </section>

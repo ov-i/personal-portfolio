@@ -34,7 +34,7 @@
 </head>
 <body class="antialiased bg-admin-dirt-white overflow-y-hidden">
     <div id="admin" class="app" role="application" v-cloak aria-label="application main wrapper">
-        <App></App>
+{{--        <App></App>--}}
     </div>
 
     <script src="{{ asset('js/admin.js') }}"></script>
