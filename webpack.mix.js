@@ -17,3 +17,6 @@ mix.js('resources/js/app.js', 'public/js')
         require('tailwindcss'),
     ])
     .sourceMaps()
+
+mix.js('resources/js/admin.js', 'public/js/admin')
+    .vue({ version: 3 })

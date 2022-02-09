@@ -8,6 +8,6 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return response()->json(['status' => 'ok']);
+        return view('admin.index');
     }
 }
