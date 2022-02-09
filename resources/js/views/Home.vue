@@ -1,5 +1,8 @@
 <template>
-    <h1>Home</h1>
+    <section class="content">
+        <h1>Hej admin</h1>
+
+    </section>
 </template>
 
 <script>
