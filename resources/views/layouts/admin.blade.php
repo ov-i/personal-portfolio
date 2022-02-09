@@ -32,7 +32,7 @@
     <!-- custom styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body class="antialiased">
+<body class="antialiased bg-admin-dirt-white overflow-y-hidden">
     <div id="admin" class="app" role="application" v-cloak aria-label="application main wrapper">
         <App></App>
     </div>

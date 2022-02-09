@@ -30,6 +30,7 @@ module.exports = {
             'blog-accent': 'rgb(23, 23, 60)',
             'blog-accent-lighten': 'rgb(35,35,56)',
             'blog-dirty-white': '#A7A7A7',
+            'admin-dirt-white': '#F9F9F9',
         },
         screens: {
             'retina': '1870px',
