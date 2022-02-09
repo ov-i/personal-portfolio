@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PostCategoryController;
@@ -28,3 +29,7 @@ Route::get('/blog/categories/{category}/posts', [BlogController::class, 'categor
     ->name('blog.categories');
 
 Route::get('/blog/tags/{tag}/posts', [BlogController::class, 'tags'])->name('blog.tags');
+
+Route::controller(AdminController::class)->prefix('admin')->group(function () {
+    Route::get('/', 'index');
+});
