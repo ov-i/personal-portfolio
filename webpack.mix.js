@@ -18,5 +18,5 @@ mix.js('resources/js/app.js', 'public/js')
     ])
     .sourceMaps()
 
-mix.js('resources/js/admin.js', 'public/js/admin')
-    .vue({ version: 3 })
+mix.js('resources/js/admin.js', 'public/js')
+    .vue()

@@ -34,9 +34,9 @@
 </head>
 <body class="antialiased">
     <div id="admin" class="app" role="application" v-cloak aria-label="application main wrapper">
+        <App></App>
     </div>
-    <script src="https://unpkg.com/vue@next"></script>
-    <script src="https://unpkg.com/vuex@4.0.0/dist/vuex.global.js"></script>
-    <script src="{{ asset('js/admin/admin.js') }}"></script>
+
+    <script src="{{ asset('js/admin.js') }}"></script>
 </body>
 </html>
