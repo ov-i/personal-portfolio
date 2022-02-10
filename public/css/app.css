@@ -609,6 +609,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .justify-evenly {
   justify-content: space-evenly;
 }
+.self-start {
+  align-self: flex-start;
+}
 .overflow-y-hidden {
   overflow-y: hidden;
 }
@@ -680,9 +683,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-5 {
   padding: 1.25rem;
-}
-.p-2 {
-  padding: 0.5rem;
 }
 .p-3 {
   padding: 0.75rem;
@@ -1962,8 +1962,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     display: none;
   }
 
-  .md\:w-4\/12 {
-    width: 33.333333%;
+  .md\:w-2\/12 {
+    width: 16.666667%;
   }
 
   .md\:w-11\/12 {

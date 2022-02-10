@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[v-cloak] {
+    @apply hidden;
+}
+
+.router-link-exact-active {
+    @apply bg-white text-dark-700 rounded-md;
+}
+
+a {
+    @apply text-white;
+}
