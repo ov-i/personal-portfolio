@@ -30,7 +30,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&family=Roboto+Condensed&display=swap" rel="stylesheet">
 
     <!-- custom styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 </head>
 <body class="antialiased bg-admin-dirt-white overflow-y-hidden">
     <div id="admin" class="app" role="application" v-cloak aria-label="application main wrapper">

@@ -18,5 +18,10 @@ mix.js('resources/js/app.js', 'public/js')
     ])
     .sourceMaps()
 
+// Admin section
 mix.js('resources/js/admin.js', 'public/js')
     .vue()
+    .postCss('resources/css/admin.css', 'public/css', [
+        require('tailwindcss'),
+    ])
+    .sourceMaps()
