@@ -6,7 +6,7 @@
                     <SidebarItemWrapper />
                 </div>
             </div>
-            <div class="administration-panel">
+            <div class="administration-panel w-full">
                 <router-view></router-view>
             </div>
         </div>

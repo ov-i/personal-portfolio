@@ -544,6 +544,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .flex {
   display: flex;
 }
+.table {
+  display: table;
+}
 .grid {
   display: grid;
 }
@@ -651,8 +654,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded-sm {
   border-radius: 0.125rem;
 }
+.rounded-lg {
+  border-radius: 0.5rem;
+}
 .border-2 {
   border-width: 2px;
+}
+.border {
+  border-width: 1px;
 }
 .border-b {
   border-bottom-width: 1px;
@@ -699,6 +708,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-dark-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(140 140 140 / var(--tw-bg-opacity));
+}
+.bg-accent-darken {
+  --tw-bg-opacity: 1;
+  background-color: rgb(1 78 175 / var(--tw-bg-opacity));
+}
+.bg-red {
+  --tw-bg-opacity: 1;
+  background-color: rgb(149 0 0 / var(--tw-bg-opacity));
 }
 .p-4 {
   padding: 1rem;
@@ -829,6 +846,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pb-0 {
   padding-bottom: 0px;
+}
+.text-left {
+  text-align: left;
 }
 .text-center {
   text-align: center;
