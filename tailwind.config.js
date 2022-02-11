@@ -15,6 +15,7 @@ module.exports = {
             'accent': '#006BC7',
             'accent-darken': '#014eaf',
             'blured-accent': 'rgba(0,107,199,0.30)',
+            'blured-blog-accent': 'rgba(23, 23, 60, 0.30)',
             'white': '#FFFFFF',
             'dark': {
                 '700': '#000000',
