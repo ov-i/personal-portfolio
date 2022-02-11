@@ -13,3 +13,7 @@
 a {
     @apply text-white;
 }
+
+.diver {
+    height: 60px;
+}

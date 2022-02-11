@@ -490,6 +490,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .left-1\/2 {
   left: 50%;
 }
+.bottom-0 {
+  bottom: 0px;
+}
 .z-20 {
   z-index: 20;
 }
@@ -546,6 +549,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-screen {
   height: 100vh;
+}
+.h-3\/4 {
+  height: 75%;
 }
 .w-full {
   width: 100%;
@@ -684,8 +690,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-5 {
   padding: 1.25rem;
 }
-.p-3 {
-  padding: 0.75rem;
+.p-2 {
+  padding: 0.5rem;
 }
 .px-3 {
   padding-left: 0.75rem;
@@ -726,6 +732,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 .pt-12 {
   padding-top: 3rem;
@@ -950,6 +960,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 a {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.diver {
+    height: 60px;
+}
+
+.first\:mt-3:first-child {
+  margin-top: 0.75rem;
 }
 
 .first\:pt-0:first-child {
