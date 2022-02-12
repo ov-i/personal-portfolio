@@ -4,7 +4,9 @@ import '@iconify/iconify'
 import SectionHeader from "./components/SectionHeader";
 
 const app = createApp({
-  delimiters: ['<%', '%>'],
+  compilerOptions: {
+      delimiters: ["${", "}"]
+  },
   data: () => ({
     dialog: false,
     comment_length: 0,
