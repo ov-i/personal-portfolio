@@ -33,4 +33,7 @@ Route::get('/blog/tags/{tag:name}/posts', [BlogController::class, 'tags'])->name
 Route::controller(AdminController::class)->prefix('admin')->group(function () {
     Route::get('/', 'index');
     Route::get('/{wildcard}', 'index');
+    Route::get('/{wildcard}/{current}', 'index');
+    Route::get('/{wildcard}/{current}/edit', 'index');
+    Route::get('/{wildcard}/{current}/show', 'index');
 });

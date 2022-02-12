@@ -22,6 +22,7 @@
     "dependencies": {
         "@iconify/iconify": "^2.1.2",
         "@tailwindcss/forms": "^0.4.0",
+        "@tinymce/tinymce-vue": "^4.0.5",
         "vue": "^3.2.29",
         "vue-router": "^4.0.12",
         "vuex": "^4.0.2"
