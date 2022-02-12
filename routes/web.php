@@ -24,7 +24,7 @@ Route::get('/download_cv', [HomePageController::class, 'download'])->name('home.
 Route::get("/blog", [BlogController::class, 'index'])
     ->name('blog.index');
 
-Route::get('/blog/posts/{post}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blog/posts/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/blog/categories/{category}/posts', [BlogController::class, 'categories'])
     ->name('blog.categories');
 

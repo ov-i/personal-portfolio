@@ -16,7 +16,7 @@
             @foreach($categories_posts as $post)
                 <article class="post pb-7 first:pt-0 pt-10 last:border-none border-b border-background-accent">
                     <div class="post-title">
-                        <a href="{{ route('blog.show', ['post' => $post->id]) }}">
+                        <a href="{{ route('blog.show', ['post' => $post->slug]) }}">
                             <h1 class="post-title-header">
                                 {{ $post->title }}
                             </h1>
