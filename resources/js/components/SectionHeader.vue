@@ -13,9 +13,16 @@
 <script>
 export default {
     name: "SectionHeader",
-    setup({ header, title }) {
-      return { header, title }
-    },
+    props: {
+        header: {
+            type: String,
+            required: true
+        },
+        title: {
+            type: String,
+            required: true
+        },
+    }
 }
 </script>
 

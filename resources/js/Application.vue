@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { Icon } from '@iconify/vue2'
+import { Icon } from '@iconify/vue'
 import SidebarItemWrapper from "./components/SidebarItems/SidebarItemWrapper";
 
 export default {

@@ -6,7 +6,7 @@
     <!-- section about me -->
     <section class="main-content main-section md:py-20 px-3" aria-label="section about me" id="about-me">
         <!-- about me heading -->
-        <SectionHeader title="poznaj mnie" header="o mnie"></SectionHeader>
+        <section-header title="poznaj mnie" header="o mnie"></section-header>
 
         <!-- about me content -->
         <section aria-label="main content" id="about-me" role="contentinfo" class="pt-12">

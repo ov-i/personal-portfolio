@@ -1,9 +1,7 @@
 require('./bootstrap');
-import { createApp } from 'vue'
+import Vue, { createApp } from 'vue'
 import '@iconify/iconify'
 import SectionHeader from "./components/SectionHeader";
-
-Vue.component('sectionheader', SectionHeader)
 
 const app = createApp({
   delimiters: ['<%', '%>'],
@@ -12,6 +10,9 @@ const app = createApp({
     comment_length: 0,
     comment: ''
   }),
+  components: {
+      SectionHeader
+  },
   methods: {
       toggleDialog() {
           this.dialog = !this.dialog
@@ -20,7 +21,11 @@ const app = createApp({
           this.comment_length = this.comment.length
       }
   },
-}).mount('#app')
+})
+
+app.component('sectionheader', SectionHeader)
+
+app.mount('#app')
 
 const showNavButton = document.querySelector('#show-nav-button');
 const mobileNav = document.querySelector('#nav-list')
