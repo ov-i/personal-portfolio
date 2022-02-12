@@ -14,16 +14,16 @@
 
 <script>
 import { items } from './items'
-import { Icon } from "@iconify/vue2";
+import { Icon } from "@iconify/vue";
 
 export default {
     name: "SidebarItem",
     components: {
-        Icon,
+        Icon
     },
-    data: () => ({
-        items,
-    })
+    setup() {
+        return { items }
+    }
 }
 </script>
 

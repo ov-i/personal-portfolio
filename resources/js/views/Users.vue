@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { Icon } from '@iconify/vue2'
+import { Icon } from '@iconify/vue'
 
 export default {
     name: "Users",

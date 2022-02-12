@@ -14,14 +14,14 @@
 export default {
     name: "SectionHeader",
     props: {
+        header: {
+            type: String,
+            required: true
+        },
         title: {
             type: String,
             required: true
         },
-        header: {
-            type: String,
-            required: true
-        }
     }
 }
 </script>

@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    name: "AdminCounter",
+    name: 'AdminCounter',
     props: ['number', 'content']
 }
 </script>
