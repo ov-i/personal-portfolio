@@ -8,9 +8,9 @@
         <!-- admin-counter -->
         <article class="admin-counter pt-7">
             <div class="counters grid grid-rows-3 md:grid-cols-3 md:grid-rows-none items-center w-full md:justify-between gap-10">
-                <AdminCounter number="30" content="użytkowników" />
-                <AdminCounter number="120" content="wpisów" />
-                <AdminCounter number="45" content="komentarzy" />
+                <admin-counter number="30" content="użytkowników" />
+                <admin-counter number="120" content="wpisów" />
+                <admin-counter number="45" content="komentarzy" />
             </div>
         </article>
 

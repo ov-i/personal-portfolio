@@ -9,10 +9,8 @@
 
 <script>
 export default {
-    setup({ number, content }) {
-
-        return { number, content }
-    }
+    name: 'AdminCounter',
+    props: ['number', 'content']
 }
 </script>
 
