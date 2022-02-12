@@ -1,6 +1,6 @@
 <template>
     <div class="actions">
-        <SidebarItem />
+        <sidebar-item />
     </div>
 </template>
 
