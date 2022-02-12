@@ -562,6 +562,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-3\/4 {
   height: 75%;
 }
+.h-full {
+  height: 100%;
+}
 .w-full {
   width: 100%;
 }

@@ -22,7 +22,7 @@ export default {
     components: {
         Icon,
         SidebarItemWrapper,
-    }
+    },
 }
 </script>
 
