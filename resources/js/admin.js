@@ -1,14 +1,13 @@
 import { createApp } from 'vue';
 import App from "./Application";
-import { createRouter, createWebHistory } from 'vue-router'
-import { routes } from "./routes/routes";
+import { router } from './routes/index'
+import { store } from "./store";
 
+// application init
 const app = createApp(App)
 
-Vue.component('app', App)
-Vue.use(VueRouter);
+// plugins
+app.use(router)
+app.use(store)
 
-const router = new VueRouter({
-    routes,
-    mode: 'history',
-})
+app.mount('#admin')
