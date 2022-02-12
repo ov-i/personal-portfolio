@@ -134,7 +134,7 @@
         <article class="main-content section-blog py-14 flex justify-evenly flex-col md:grid md:grid-cols-2 capitalize md:gap-7 md:gap-y-8 posts items-end justify-end md:w-7/12 lg:w-6/12 xl:w-5/12 retina:w-4/12 retinax2:w-3/12">
             @foreach($categories as $category)
                 <!-- single post -->
-                <a class="blog-category cursor-pointer" href="{{ route('blog.categories', ['category' => $category->id]) }}">
+                <a class="blog-category cursor-pointer" href="{{ route('blog.categories', ['category' => $category->name]) }}">
                     <span class="uppercase font-primary font-semibold lg:text-xl">
                         {{ $category->name }}
                     </span>

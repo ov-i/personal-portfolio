@@ -25,10 +25,10 @@ Route::get("/blog", [BlogController::class, 'index'])
     ->name('blog.index');
 
 Route::get('/blog/posts/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
-Route::get('/blog/categories/{category}/posts', [BlogController::class, 'categories'])
+Route::get('/blog/categories/{category:name}/posts', [BlogController::class, 'categories'])
     ->name('blog.categories');
 
-Route::get('/blog/tags/{tag}/posts', [BlogController::class, 'tags'])->name('blog.tags');
+Route::get('/blog/tags/{tag:name}/posts', [BlogController::class, 'tags'])->name('blog.tags');
 
 Route::controller(AdminController::class)->prefix('admin')->group(function () {
     Route::get('/', 'index');
