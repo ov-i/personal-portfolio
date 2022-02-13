@@ -148,13 +148,16 @@
                     <!-- search action -->
                     <div class="sidebar pb-11">
                         <h3 class="font-normal text-lg text-dark-200 leading-8 pb-3 md:text-xl tracking-wide">Wyszukiwarka</h3>
-                        <form action="" method="post">
+                        <form action="{{ route('blog.search') }}" method="post">
                             @csrf
 
                             <div class="input-group relative">
-                                <span class="iconify absolute top-1/2 left-2 -translate-y-1/2 text-2xl" data-icon="akar-icons:search"></span>
+                                <span class="iconify absolute top-1/2 left-2 -translate-y-1/2 text-xl" data-icon="akar-icons:search"></span>
                                 <input type="text" name="search" id="search" class="block rounded-sm pl-9 py-3 border border-dirty-white text-lg outline-blog-accent" placeholder="czego szukasz?">
                             </div>
+                            @if(isset($notfound))
+                                <p class="text-xs text-red tracking-wide">{{ $notfound }}</p>
+                            @endif
                             <button class="font-medium uppercase text-sm text-white bg-blog-accent rounded-sm py-3 px-2 mt-2">
                                 wyszukaj
                             </button>

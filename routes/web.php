@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PostCategoryController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,8 @@ Route::get('/download_cv', [HomePageController::class, 'download'])->name('home.
 // Blog section
 Route::get("/blog", [BlogController::class, 'index'])
     ->name('blog.index');
+
+Route::post('/blog/search', [SearchController::class, '__invoke'])->name('blog.search');
 
 Route::get('/blog/wpisy/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/blog/kategoria/{category:name}/wpisy', [BlogController::class, 'categories'])
