@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\API\Admin;
 
+use App\Actions\CreateUser;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateUserRequest;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
 {
@@ -25,12 +29,15 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param CreateUser $createUser
+     * @param  Request  $request
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request, CreateUser $createUser): JsonResponse
     {
-        //
+        $user = $createUser($request->all());
+
+        return response()->json(['error' => false, 'user' => $user], 201);
     }
 
     /**
