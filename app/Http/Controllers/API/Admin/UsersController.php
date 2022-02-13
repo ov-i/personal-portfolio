@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -12,7 +13,7 @@ class UsersController extends Controller
      * Display a listing of the resource.
      *
      */
-    public function index(User $user)
+    public function index(User $user): JsonResponse
     {
         $users = $user->get();
         if (count($users) === 0)
