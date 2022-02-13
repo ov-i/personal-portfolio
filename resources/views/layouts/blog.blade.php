@@ -145,6 +145,22 @@
                 @yield('content')
 
                 <section class="sidebars w-1/2 md:pl-32 mx-auto">
+                    <!-- search action -->
+                    <div class="sidebar pb-11">
+                        <h3 class="font-normal text-lg text-dark-200 leading-8 pb-3 md:text-xl tracking-wide">Wyszukiwarka</h3>
+                        <form action="" method="post">
+                            @csrf
+
+                            <div class="input-group relative">
+                                <span class="iconify absolute top-1/2 left-2 -translate-y-1/2 text-2xl" data-icon="akar-icons:search"></span>
+                                <input type="text" name="search" id="search" class="block rounded-sm pl-9 py-3 border border-dirty-white text-lg outline-blog-accent" placeholder="czego szukasz?">
+                            </div>
+                            <button class="font-medium uppercase text-sm text-white bg-blog-accent rounded-sm py-3 px-2 mt-2">
+                                wyszukaj
+                            </button>
+                        </form>
+                    </div>
+
                     <!-- all categories -->
                     <div class="sidebar pb-14">
                         <h3 class="font-normal text-lg text-dark-200 leading-8 pb-3 md:text-xl tracking-wide">Wszystkie kategorie</h3>
