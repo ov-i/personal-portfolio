@@ -1,17 +1,11 @@
-import { createStore } from "vuex";
+import { createLogger, createStore } from "vuex";
+import { users } from './modules/users'
+
+const { NODE_ENV } = process.env
 
 export const store = createStore({
-    state() {
-        return {
-            count: 0
-        }
+    modules: {
+        users,
     },
-
-    actions: {
-
-    },
-
-    mutations: {
-
-    }
+    plugins: NODE_ENV !== 'production' ? [createLogger()] : []
 })

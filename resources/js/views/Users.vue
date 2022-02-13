@@ -57,10 +57,13 @@
 <script>
 import { Icon } from '@iconify/vue'
 
+
 export default {
     name: "Users",
     components: {
         Icon,
+    },
+    setup() {
     }
 }
 </script>
