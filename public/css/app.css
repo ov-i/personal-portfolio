@@ -425,14 +425,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   opacity: 1;
 }
 
-.form-input::-webkit-datetime-edit-fields-wrapper {
-  padding: 0;
-}
-
-.form-input::-webkit-date-and-time-value {
-  min-height: 1.5em;
-}
-
 *, ::before, ::after {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -794,10 +786,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
 .pt-12 {
   padding-top: 3rem;
 }
@@ -855,20 +843,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pb-0 {
   padding-bottom: 0px;
 }
-.pb-1 {
-  padding-bottom: 0.25rem;
-}
 .pb-11 {
   padding-bottom: 2.75rem;
-}
-.pr-4 {
-  padding-right: 1rem;
-}
-.pl-5 {
-  padding-left: 1.25rem;
-}
-.pl-7 {
-  padding-left: 1.75rem;
 }
 .pl-9 {
   padding-left: 2.25rem;
@@ -2026,6 +2002,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:text-blog-accent:hover {
   --tw-text-opacity: 1;
   color: rgb(23 23 60 / var(--tw-text-opacity));
+}
+
+.focus\:outline:focus {
+  outline-style: solid;
+}
+
+.focus\:outline-1:focus {
+  outline-width: 1px;
 }
 
 @media (min-width: 768px) {

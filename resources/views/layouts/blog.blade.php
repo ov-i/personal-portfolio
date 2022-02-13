@@ -153,7 +153,7 @@
 
                             <div class="input-group relative">
                                 <span class="iconify absolute top-1/2 left-2 -translate-y-1/2 text-xl" data-icon="akar-icons:search"></span>
-                                <input type="text" name="search" id="search" class="block rounded-sm pl-9 py-3 border border-dirty-white text-lg outline-blog-accent" placeholder="czego szukasz?">
+                                <input type="text" name="search" id="search" class="block rounded-sm pl-9 py-3 border border-dirty-white text-lg outline-blog-accent font-light" placeholder="czego szukasz?">
                             </div>
                             @if(isset($notfound))
                                 <p class="text-xs text-red tracking-wide">{{ $notfound }}</p>
