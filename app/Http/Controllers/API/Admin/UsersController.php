@@ -16,9 +16,9 @@ class UsersController extends Controller
     {
         $users = $user->get();
         if (count($users) === 0)
-            return response()->json(['error' => true, 'users' => []]);
+            return response()->json(['error' => true, 'users' => []], 404);
 
-        return response()->json(['error' => false], $users);
+        return response()->json(['error' => false, 'users' => $users], 200);
     }
 
     /**
