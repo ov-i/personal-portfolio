@@ -6,6 +6,7 @@ import * as getters from './getters'
 
 export const store = createStore({
     state: {
+        requestUrl: '',
         fetchErrors: [
             {
                 error: '',
