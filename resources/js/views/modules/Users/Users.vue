@@ -13,7 +13,6 @@
                         <th class="p-3">imię</th>
                         <th class="p-3">nazwisko</th>
                         <th class="p-3">zablokowany</th>
-                        <th class="p-3">role</th>
                         <th class="p-3"></th>
                     </tr>
                 </thead>
@@ -23,8 +22,10 @@
                         <td class="p-3">{{ user.firstname }}</td>
                         <td class="p-3">{{ user.lastname }}</td>
                         <td class="p-3">{{ user.banned ? 'tak' : 'nie' }}</td>
-                        <td class="p-3">['admin', 'user']</td>
                         <td class="p-3 flex items-center">
+                            <router-link :to="{name: 'UserShow', params: {id: user.id}}" class="bg-dirty-white text-dark-300 flex block mx-auto rounded-md text-white p-2 items-center">
+                                <Icon icon="akar-icons:eye" class="text-xl"/>
+                            </router-link>
                             <router-link :to="{name: 'UserEdit', params: {id: user.id}}" class="bg-accent-darken flex block mx-auto rounded-md text-white p-2 items-center">
                                 <Icon icon="akar-icons:edit" class="text-xl"></Icon>
                             </router-link>

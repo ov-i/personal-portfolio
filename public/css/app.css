@@ -722,6 +722,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(140 140 140 / var(--tw-bg-opacity));
 }
+.bg-dirty-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(235 235 235 / var(--tw-bg-opacity));
+}
 .p-4 {
   padding: 1rem;
 }
@@ -986,6 +990,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-dark-150 {
   --tw-text-opacity: 1;
   color: rgb(126 126 126 / var(--tw-text-opacity));
+}
+.text-dark-300 {
+  color: rgba(0, 0, 0, 0.6);
 }
 .decoration-0 {
   text-decoration-thickness: 0px;

@@ -14,7 +14,7 @@ export default [
         component: UserEdit
     },
     {
-        path: '/admin/users/:slug/show',
+        path: '/admin/users/:id/show',
         name: 'UserShow',
         component: UserShow
     },
