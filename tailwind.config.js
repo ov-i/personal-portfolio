@@ -26,6 +26,7 @@ module.exports = {
                 '50': '#CBCBCB',
             },
             'red': '#950000',
+            'red-darken': '#6f0101',
             'dirty-white': '#EBEBEB',
             'background-accent': '#EFEFEF',
             'blog-accent': 'rgb(23, 23, 60)',

@@ -12,7 +12,7 @@ export const fetchUsers = async ({ getters, commit, dispatch }) => {
 
     try {
         const users = await axios.get(endpoint);
-        commit('FETCH_USERS', users.data)
+        commit('FETCH_USERS', users.data.users)
     } catch (error) {
         dispatch('notFoundException', 'Problem z przetworzeniem danych');
     }
@@ -31,13 +31,8 @@ export const fetchUserData = async ({ commit, dispatch, getters }, id) => {
     const endpoint = `${getters.getRequestUrl}/users/${id}`
 
     try {
-        const user = await axios.get(endpoint, {
-            params: {
-                'user': id
-            }
-        })
-        commit('FETCH_USER', user.data);
-        console.log(user.data)
+        const user = await axios.get(endpoint)
+        commit('FETCH_USER', user.data.user);
     } catch (error) {
         dispatch('notFoundException', `Brak użytkownika o id: ${id}`)
     }
