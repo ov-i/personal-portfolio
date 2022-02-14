@@ -9,8 +9,7 @@
 
 <script>
 export default {
-    name: "UserEdit"
-
+    name: "UserEdit",
 }
 </script>
 

@@ -27,17 +27,18 @@ export const fetchUsers = async ({ getters, commit, dispatch }) => {
  * @param id
  * @returns {Promise<void>}
  */
-export const fetchUserData = async ({ commit, dispatch, getters }, user) => {
-    const endpoint = `${getters.getRequestUrl}/users/${user.id}`
+export const fetchUserData = async ({ commit, dispatch, getters }, id) => {
+    const endpoint = `${getters.getRequestUrl}/users/${id}`
 
     try {
-        const { data } = await axios.get(endpoint, {
+        const user = await axios.get(endpoint, {
             params: {
-                'user': user.id
+                'user': id
             }
         })
-        commit('FETCH_USER', data);
+        commit('FETCH_USER', user.data);
+        console.log(user.data)
     } catch (error) {
-        dispatch('notFoundException', `Brak użytkownika o id: ${user.id}`)
+        dispatch('notFoundException', `Brak użytkownika o id: ${id}`)
     }
 }
