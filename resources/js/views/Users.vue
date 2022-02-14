@@ -56,7 +56,7 @@
 
 <script>
 import { Icon } from '@iconify/vue'
-
+import { mapActions } from 'vuex'
 
 export default {
     name: "Users",
@@ -64,6 +64,14 @@ export default {
         Icon,
     },
     setup() {
+        return {
+            ...mapActions([
+                'fetchUsers'
+            ])
+        }
+    },
+    async created() {
+        await this.fetchUsers()
     }
 }
 </script>
