@@ -7,8 +7,10 @@ import axios from 'axios'
  * @param dispatch
  * @returns {Promise<void>}
  */
-export const fetchUsers = async ({ state, commit, dispatch }) => {
-    const users = await axios.get('http://localhost:8000/api/users');
+export const fetchUsers = async ({ getters, commit, dispatch }) => {
+    const endpoint = `${getters.getRequestUrl}/users`
+
+    const users = await axios.get(endpoint);
     const { data } = users
 
     if (data.length === 0) {
