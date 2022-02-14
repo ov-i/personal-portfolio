@@ -41,7 +41,6 @@
 
 <script>
 import { Icon } from '@iconify/vue'
-import { computed } from 'vue'
 import { mapGetters } from 'vuex'
 
 export default {
