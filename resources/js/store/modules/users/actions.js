@@ -31,8 +31,12 @@ export const fetchUserData = async ({ commit, dispatch, getters }, user) => {
     const endpoint = `${getters.getRequestUrl}/users/${user.id}`
 
     try {
-        const user = await axios.get(endpoint)
-        commit('FETCH_USER');
+        const { data } = await axios.get(endpoint, {
+            params: {
+                'user': user.id
+            }
+        })
+        commit('FETCH_USER', data);
     } catch (error) {
         dispatch('notFoundException', `Brak użytkownika o id: ${user.id}`)
     }
