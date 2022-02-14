@@ -1,6 +1,13 @@
 import axios from 'axios'
 
-export const fetchUsers = async ({ state, commit, dispatch, getters }) => {
+/**
+ * Fetches users from laravel API
+ * @param state
+ * @param commit
+ * @param dispatch
+ * @returns {Promise<void>}
+ */
+export const fetchUsers = async ({ commit, dispatch }) => {
     const users = await axios.get('http://localhost:8000/api/users');
     const { data } = users
 
