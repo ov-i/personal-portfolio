@@ -6,6 +6,6 @@ export const FETCH_USER = (state, user) => {
     state.user = user
 }
 
-export const DELETE_USER = (state, user) => {
-    state.users.splice(user.id, 1)
+export const DELETE_USER = (state, id) => {
+    state.users.splice(id, 1)
 }

@@ -32,7 +32,18 @@ export const fetchUserData = async ({ commit, dispatch, getters }, id) => {
 
     try {
         const user = await axios.get(endpoint)
-        commit('FETCH_USER', user.data.user);
+        commit('FETCH_USER', user.data);
+    } catch (error) {
+        dispatch('notFoundException', `Brak użytkownika o id: ${id}`)
+    }
+}
+
+export const deleteUser = async({ commit, dispatch, getters }, {id, user_id}) => {
+    const endpoint = `${getters.getRequestUrl}/users/${user_id}`
+
+    try {
+        await axios.delete(endpoint)
+        commit('DELETE_USER', id)
     } catch (error) {
         dispatch('notFoundException', `Brak użytkownika o id: ${id}`)
     }

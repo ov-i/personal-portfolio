@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\Admin;
 
 use App\Actions\CreateUser;
+use App\Actions\DeleteUser;
 use App\Actions\ShowUser;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -70,10 +71,13 @@ class UsersController extends Controller
      * Remove the specified resource from storage.
      *
      * @param User $user
-     * @return \Illuminate\Http\Response
+     * @param DeleteUser $deleteUser
+     * @return JsonResponse
      */
-    public function destroy(User $user)
+    public function destroy(User $user, DeleteUser $deleteUser): JsonResponse
     {
-        //
+        $deleteUser($user);
+
+        return response()->json(['error' => false, 'message' => "Użytkownik $user->email usunięty"], 200);
     }
 }

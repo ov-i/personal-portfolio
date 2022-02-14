@@ -544,6 +544,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .inline-block {
   display: inline-block;
 }
+.inline {
+  display: inline;
+}
 .flex {
   display: flex;
 }
@@ -708,9 +711,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(140 140 140 / var(--tw-bg-opacity));
 }
-.bg-red {
+.bg-red-darken {
   --tw-bg-opacity: 1;
-  background-color: rgb(149 0 0 / var(--tw-bg-opacity));
+  background-color: rgb(111 1 1 / var(--tw-bg-opacity));
 }
 .bg-dirty-white {
   --tw-bg-opacity: 1;
@@ -720,9 +723,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(1 78 175 / var(--tw-bg-opacity));
 }
-.bg-red-darken {
+.bg-red {
   --tw-bg-opacity: 1;
-  background-color: rgb(111 1 1 / var(--tw-bg-opacity));
+  background-color: rgb(149 0 0 / var(--tw-bg-opacity));
 }
 .p-4 {
   padding: 1rem;
@@ -1017,6 +1020,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .outline-blog-accent {
   outline-color: rgb(23, 23, 60);
 }
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
 .transition {
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -1124,6 +1130,16 @@ a {
 .hover\:bg-blog-accent-lighten:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(35 35 56 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-accent:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 107 199 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-red-darken:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(111 1 1 / var(--tw-bg-opacity));
 }
 
 .hover\:text-accent-darken:hover {
