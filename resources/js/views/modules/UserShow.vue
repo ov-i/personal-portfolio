@@ -20,7 +20,7 @@ export default {
         if(isNaN(id) || id === undefined)
             return console.log('id jest puste. Użyj innej metody')
 
-        this.fetchUserData(id);
+        await this.fetchUserData(id);
     }
 }
 </script>
