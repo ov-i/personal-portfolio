@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\Admin;
 
 use App\Actions\CreateUser;
+use App\Actions\ShowUser;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -17,6 +18,7 @@ class UsersController extends Controller
     public function index(User $user): JsonResponse
     {
         $users = $user->get();
+
         if (count($users) === 0)
             return response()->json(['error' => true, 'users' => []], 404);
 
@@ -40,19 +42,23 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @param ShowUser $showUser
+     * @return JsonResponse
      */
-    public function show(User $user)
+    public function show(User $user, ShowUser $showUser): JsonResponse
     {
-        //
+        $user = $showUser($user->id);
+        $roles = $user->roles()->get();
+
+        return response()->json(['error' => false, 'user' => $user, 'roles' => $roles], 200);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -63,7 +69,7 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)

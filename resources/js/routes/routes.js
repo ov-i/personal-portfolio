@@ -1,17 +1,13 @@
 import Home from "../views/Home";
-import Users from "../views/Users";
+import Users from "../views/modules/Users/Users";
 import PostModule from "./modules/Posts";
+import UserModule from "./modules/User";
 
 export const routes = [
     {
         path: '/admin/',
         name: 'Home',
         component: Home
-    },
-    {
-        path: '/admin/users',
-        name: 'Users',
-        component: Users
     },
     {
         path: '/admin/categories',
@@ -39,5 +35,6 @@ export const routes = [
         component: Users
     },
 
+    ...UserModule,
     ...PostModule
 ];
