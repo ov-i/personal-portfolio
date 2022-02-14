@@ -5,7 +5,7 @@ import * as getters from './getters'
 export const users = {
     state: () => ({
         users: [],
-        roles: []
+        user: [],
     }),
     mutations,
     actions,
