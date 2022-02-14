@@ -5,7 +5,7 @@
             <h2 class="admin-header font-semibold text-dark-200 text-2xl" role="heading">Użytkownicy</h2>
         </article>
 
-        <div class="users w-full mt-10 h-72 overflow-scroll">
+        <div class="users w-full mt-10 h-96 overflow-scroll">
             <table class="users-table w-full text-left border border-dark-20 bg-white shadow-md">
                 <thead>
                     <tr>
@@ -18,31 +18,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="p-3">overmind</td>
-                        <td class="p-3">Bartosz</td>
-                        <td class="p-3">Pazdur</td>
-                        <td class="p-3">nie</td>
+                    <tr v-for="user in getUsers.users" :key="user.id">
+                        <td class="p-3">{{ user.nick }}</td>
+                        <td class="p-3">{{ user.firstname }}</td>
+                        <td class="p-3">{{ user.lastname }}</td>
+                        <td class="p-3">{{ user.banned ? 'tak' : 'nie' }}</td>
                         <td class="p-3">['admin', 'user']</td>
                         <td class="p-3 flex items-center">
-                            <button class="bg-accent-darken flex block mx-auto rounded-md text-white p-2 items-center">
+                            <router-link :to="{name: 'UserEdit', params: {id: user.id}}" class="bg-accent-darken flex block mx-auto rounded-md text-white p-2 items-center">
                                 <Icon icon="akar-icons:edit" class="text-xl"></Icon>
-                            </button>
-                            <button class="bg-red flex block mx-auto rounded-md text-white p-2 items-center">
-                                <Icon icon="fluent:delete-20-regular" class="text-xl"></Icon>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="p-3">króliczek</td>
-                        <td class="p-3">Aleksandra</td>
-                        <td class="p-3">Piąta</td>
-                        <td class="p-3">nie</td>
-                        <td class="p-3">['admin', 'user']</td>
-                        <td class="p-3 flex items-center">
-                            <button class="bg-accent-darken flex block mx-auto rounded-md text-white p-2 items-center">
-                                <Icon icon="akar-icons:edit" class="text-xl"></Icon>
-                            </button>
+                            </router-link>
                             <button class="bg-red flex block mx-auto rounded-md text-white p-2 items-center">
                                 <Icon icon="fluent:delete-20-regular" class="text-xl"></Icon>
                             </button>
@@ -56,23 +41,17 @@
 
 <script>
 import { Icon } from '@iconify/vue'
-import { mapActions } from 'vuex'
+import { computed } from 'vue'
+import { mapGetters } from 'vuex'
 
 export default {
     name: "Users",
     components: {
         Icon,
     },
-    setup() {
-        return {
-            ...mapActions([
-                'fetchUsers'
-            ])
-        }
+    computed: {
+        ...mapGetters(['getUsers']),
     },
-    async created() {
-        await this.fetchUsers()
-    }
 }
 </script>
 

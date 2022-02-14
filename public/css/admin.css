@@ -538,6 +538,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ml-1 {
   margin-left: 0.25rem;
 }
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
 .block {
   display: block;
 }
@@ -564,6 +567,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-3\/4 {
   height: 75%;
+}
+.h-80 {
+  height: 20rem;
+}
+.h-96 {
+  height: 24rem;
 }
 .w-full {
   width: 100%;

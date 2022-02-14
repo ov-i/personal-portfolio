@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import { Icon } from '@iconify/vue'
 import SidebarItemWrapper from "./components/SidebarItems/SidebarItemWrapper";
 
@@ -23,6 +24,12 @@ export default {
         Icon,
         SidebarItemWrapper,
     },
+    setup() {
+        return { ...mapActions(['fetchUsers']) }
+    },
+    async created() {
+        await this.fetchUsers()
+    }
 }
 </script>
 

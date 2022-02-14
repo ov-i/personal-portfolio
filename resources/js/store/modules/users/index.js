@@ -4,16 +4,8 @@ import * as getters from './getters'
 
 export const users = {
     state: () => ({
-        users: [
-            {
-                nick: '',
-                email: '',
-                firstname: '',
-                lastname: '',
-                banned: false,
-                toggle_nick_display: false
-            }
-        ]
+        users: [],
+        roles: []
     }),
     mutations,
     actions,
