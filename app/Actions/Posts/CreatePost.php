@@ -40,6 +40,6 @@ class CreatePost
             response()->json(['error' => false, 'post' => $post, 'attachments' => $post_attachments], 201);
         }
 
-        response()->json(['error' => false, 'post' => $post]);
+        return $post;
     }
 }
