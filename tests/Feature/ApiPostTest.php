@@ -70,15 +70,12 @@ class ApiPostTest extends TestCase
     {
         $response= $this->get('/api/posts');
 
-        if ($response->status() !== 200)
-            $response->assertJsonFragment([
-                'error' => true,
-                'posts' => [],
-            ]);
-
-        $response->assertJsonFragment([
-            'error' => false
-        ]);
+        if ($response->status() === 404) {
+            $response->assertNotFound();
+        } else {
+            $response->assertOk();
+            $response->assertJsonFragment(['error' => false]);
+        }
     }
 
     /**
