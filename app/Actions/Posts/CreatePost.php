@@ -15,9 +15,9 @@ class CreatePost
      *
      * @description If tags or attachments were not passed in request, create just pure post
      * @param array $data
-     * @return Post | null
+     * @return Post| MessageBag|array
      */
-    public function __invoke(array $data): Post | MessageBag
+    public function __invoke(array $data): Post | MessageBag | array
     {
         $validator = Validator::make($data, [
             'likes' => ['integer'],
@@ -41,13 +41,13 @@ class CreatePost
         if ($tags !== null) {
             $post_tags = $post->tags()->sync($tags);
 
-            response()->json(['error' => false, 'post' => $post, 'tags' => $post_tags], 201);
+            return ['post' => $post, 'tags' => $post_tags["attached"]];
         }
 
         if ($attachments !== null) {
             $post_attachments = $post->attachments()->sync($attachments);
 
-            response()->json(['error' => false, 'post' => $post, 'attachments' => $post_attachments], 201);
+            return ['post' => $post, 'attachments' => $post_attachments["attached"]];
         }
 
         return $post;

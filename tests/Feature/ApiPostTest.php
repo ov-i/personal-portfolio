@@ -2,7 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Models\Post;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Testing\TestResponse;
 use Tests\TestCase;
 
 class ApiPostTest extends TestCase
@@ -26,6 +28,23 @@ class ApiPostTest extends TestCase
             'content' => $this->faker->realText(2000),
             ...$addons,
         ];
+    }
+
+    /**
+     * Asserts bad request
+     *
+     * @param TestResponse $response
+     * @param array $addons
+     * @return void
+     */
+    private function assertBadRequest(TestResponse $response, array $addons = []): void {
+        if ($response->status() === 400) {
+            $response->assertStatus(400);
+            $response->assertJsonFragment(['error' => true]);
+        } else {
+            $response->assertStatus(201);
+            $response->assertJsonFragment(['error' => false, 'post' => [], ...$addons]);
+        }
     }
 
     /**
@@ -72,11 +91,7 @@ class ApiPostTest extends TestCase
     {
         $response = $this->post('/api/posts', self::createPost());
 
-        if ($response->status() === 400) {
-            $response->assertStatus(400);
-        } else {
-            $response->assertStatus(201);
-        }
+        self::assertBadRequest($response);
     }
 
     /**
@@ -91,11 +106,9 @@ class ApiPostTest extends TestCase
             ['tags' => [1, 2, 3]]
         ));
 
-        if ($response->status() === 400) {
-            $response->assertStatus(400);
-        } else {
-            $response->assertStatus(201);
-        }
+        self::assertBadRequest($response, [
+            'tags' => [$this->faker->numberBetween()]]
+        );
     }
 
     /**
@@ -110,10 +123,8 @@ class ApiPostTest extends TestCase
             ['attachments' => [1, 2, 3]]
         ));
 
-        if ($response->status() === 400) {
-            $response->assertStatus(400);
-        } else {
-            $response->assertStatus(201);
-        }
+        self::assertBadRequest($response, [
+            'attachments' => [$this->faker->numberBetween()]]
+        );
     }
 }

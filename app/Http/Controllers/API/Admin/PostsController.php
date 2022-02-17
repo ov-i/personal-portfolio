@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 
 class PostsController extends Controller
 {
@@ -33,10 +34,10 @@ class PostsController extends Controller
     public function store(Request $request, CreatePost $createPost): JsonResponse
     {
         $post = $createPost($request->all());
-        if (!$post instanceof Post)
+        if ($post instanceof MessageBag)
             return response()->json(['error' => true, 'message' => $post], 400);
 
-        return response()->json(['error' => false, 'post' => $post], 201);
+        return response()->json(['error' => false, ...$post], 201);
     }
 
     /**
