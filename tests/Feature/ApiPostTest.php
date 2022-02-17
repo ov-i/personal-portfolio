@@ -10,6 +10,26 @@ class ApiPostTest extends TestCase
     use WithFaker;
 
     /**
+     * Creates new post with follows
+     *
+     * @param array $addons
+     * @return array
+     */
+    private function createPost(array $addons = []): array {
+        return [
+            'likes' => 0,
+            'thumbnail_url' => $this->faker->imageUrl(),
+            'user_id' => $this->faker->numberBetween(1, 20),
+            'category_id' => $this->faker->numberBetween(1, 4),
+            'title' => $this->faker->text(50),
+            'description' => $this->faker->text(255),
+            'slug' => $this->faker->slug(4),
+            'content' => $this->faker->realText(2000),
+            ...$addons,
+        ];
+    }
+
+    /**
      * A basic feature test example.
      *
      * @test
@@ -51,16 +71,7 @@ class ApiPostTest extends TestCase
      */
     public function post_should_be_created()
     {
-        $response = $this->post('/api/posts', [
-            'likes' => 0,
-            'thumbnail_url' => $this->faker->imageUrl(),
-            'user_id' => $this->faker->numberBetween(1, 20),
-            'category_id' => $this->faker->numberBetween(1, 4),
-            'title' => $this->faker->text(50),
-            'description' => $this->faker->text(255),
-            'slug' => $this->faker->slug(4),
-            'content' => $this->faker->realText(2000)
-        ]);
+        $response = $this->post('/api/posts', self::createPost());
 
         if ($response->status() !== 201) {
             $response->assertStatus($response->status());
@@ -77,17 +88,9 @@ class ApiPostTest extends TestCase
      */
     public function post_have_tags()
     {
-        $response = $this->post('/api/posts', [
-            'likes' => 0,
-            'thumbnail_url' => $this->faker->imageUrl(),
-            'user_id' => $this->faker->numberBetween(1, 20),
-            'category_id' => $this->faker->numberBetween(1, 4),
-            'title' => $this->faker->text(50),
-            'description' => $this->faker->text(255),
-            'slug' => $this->faker->slug(4),
-            'content' => $this->faker->realText(2000),
-            'tags' => [1, 2, 3]
-        ]);
+        $response = $this->post('/api/posts', self::createPost(
+            ['tags' => [1, 2, 3]]
+        ));
 
         if ($response->status() !== 201) {
             $response->assertStatus($response->status());
@@ -104,17 +107,9 @@ class ApiPostTest extends TestCase
      */
     public function post_have_attachments()
     {
-        $response = $this->post('/api/posts', [
-            'likes' => 0,
-            'thumbnail_url' => $this->faker->imageUrl(),
-            'user_id' => $this->faker->numberBetween(1, 20),
-            'category_id' => $this->faker->numberBetween(1, 4),
-            'title' => $this->faker->text(50),
-            'description' => $this->faker->text(255),
-            'slug' => $this->faker->slug(4),
-            'content' => $this->faker->realText(2000),
-            'attachments' => [1, 2, 3]
-        ]);
+        $response = $this->post('/api/posts', self::createPost(
+            ['attachments' => [1, 2, 3]]
+        ));
 
         if ($response->status() !== 201) {
             $response->assertStatus($response->status());
