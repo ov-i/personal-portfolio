@@ -2292,6 +2292,18 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 50%;
   }
 
+  .lg\:w-4\/12 {
+    width: 33.333333%;
+  }
+
+  .lg\:w-2\/12 {
+    width: 16.666667%;
+  }
+
+  .lg\:w-3\/12 {
+    width: 25%;
+  }
+
   .lg\:flex-row {
     flex-direction: row;
   }
@@ -2375,6 +2387,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .retina\:w-4\/12 {
     width: 33.333333%;
+  }
+
+  .retina\:w-2\/12 {
+    width: 16.666667%;
+  }
+
+  .retina\:w-3\/12 {
+    width: 25%;
   }
 
   .retina\:text-4xl {

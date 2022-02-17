@@ -565,8 +565,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-3\/4 {
   height: 75%;
 }
-.h-96 {
-  height: 24rem;
+.h-full {
+  height: 100%;
 }
 .w-full {
   width: 100%;
@@ -820,14 +820,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pt-10 {
   padding-top: 2.5rem;
 }
-.pt-3 {
-  padding-top: 0.75rem;
-}
 .pt-2 {
   padding-top: 0.5rem;
 }
+.pt-3 {
+  padding-top: 0.75rem;
+}
+.pt-5 {
+  padding-top: 1.25rem;
+}
 .pr-3 {
   padding-right: 0.75rem;
+}
+.pb-1 {
+  padding-bottom: 0.25rem;
 }
 .pb-2 {
   padding-bottom: 0.5rem;
@@ -844,9 +850,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pb-14 {
   padding-bottom: 3.5rem;
 }
-.pt-5 {
-  padding-top: 1.25rem;
-}
 .pb-20 {
   padding-bottom: 5rem;
 }
@@ -861,9 +864,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pl-9 {
   padding-left: 2.25rem;
-}
-.pb-1 {
-  padding-bottom: 0.25rem;
 }
 .text-left {
   text-align: left;
@@ -899,10 +899,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
@@ -910,6 +906,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .text-3xl {
   font-size: 1.875rem;
@@ -1359,14 +1359,14 @@ a {
     line-height: 2.25rem;
   }
 
-  .md\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
   .md\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 
   .md\:leading-8 {
@@ -1377,17 +1377,24 @@ a {
     --tw-text-opacity: 1;
     color: rgb(0 0 0 / var(--tw-text-opacity));
   }
-
-  .md\:text-dark-100 {
-    --tw-text-opacity: 1;
-    color: rgb(140 140 140 / var(--tw-text-opacity));
-  }
 }
 
 @media (min-width: 1024px) {
 
   .lg\:w-6\/12 {
     width: 50%;
+  }
+
+  .lg\:w-4\/12 {
+    width: 33.333333%;
+  }
+
+  .lg\:w-2\/12 {
+    width: 16.666667%;
+  }
+
+  .lg\:w-3\/12 {
+    width: 25%;
   }
 
   .lg\:text-xl {
@@ -1455,9 +1462,12 @@ a {
     width: 33.333333%;
   }
 
-  .retina\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+  .retina\:w-2\/12 {
+    width: 16.666667%;
+  }
+
+  .retina\:w-3\/12 {
+    width: 25%;
   }
 
   .retina\:text-4xl {

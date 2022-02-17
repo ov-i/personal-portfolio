@@ -15,7 +15,7 @@
                 <h2 class="admin-header font-semibold text-dark-200 text-2xl" role="heading">Użytkownicy</h2>
             </article>
 
-            <div class="users w-full mt-10 h-96 overflow-scroll rounded-md shadow-md" v-if="getUsers.length > 0">
+            <div class="users w-full mt-10 h-full rounded-md shadow-md" v-if="getUsers.length > 0">
                 <table class="users-table w-full text-left border border-dark-20 bg-white shadow-md relative">
                     <thead class=" py-5">
                         <tr class="bg-blog-accent text-white">
