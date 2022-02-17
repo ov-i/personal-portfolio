@@ -17,7 +17,6 @@ class ApiPostTest extends TestCase
      */
     private function createPost(array $addons = []): array {
         return [
-            'likes' => 0,
             'thumbnail_url' => $this->faker->imageUrl(),
             'user_id' => $this->faker->numberBetween(1, 20),
             'category_id' => $this->faker->numberBetween(1, 4),

@@ -18,6 +18,7 @@ class CreatePost
     public function __invoke(array $data): Post
     {
         $validator = Validator::make($data, [
+            'likes' => ['integer'],
             'thumbnail_url' => ['required', 'url'],
             'user_id' => ['exists:posts', 'required', 'integer'],
             'category_id' => ['exists:posts', 'required', 'integer'],
