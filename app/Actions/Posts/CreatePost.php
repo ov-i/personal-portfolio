@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Validator;
 
 class CreatePost
 {
+    /**
+     * Creates new post with $data passed
+     *
+     * @description If tags or attachments were not passed in request, create just pure post
+     * @param array $data
+     * @return Post
+     */
     public function __invoke(array $data): Post
     {
         $validator = Validator::make($data, [

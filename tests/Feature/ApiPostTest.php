@@ -44,6 +44,8 @@ class ApiPostTest extends TestCase
     }
 
     /**
+     * Checks if post has been created successfully
+     *
      * @test
      * @return void
      */
@@ -68,6 +70,8 @@ class ApiPostTest extends TestCase
     }
 
     /**
+     * Checks if post can be created with tags
+     *
      * @test
      * @return void
      */
@@ -93,6 +97,8 @@ class ApiPostTest extends TestCase
     }
 
     /**
+     * Checks if post can be created with attachments
+     *
      * @test
      * @return void
      */
