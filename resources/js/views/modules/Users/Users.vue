@@ -74,7 +74,7 @@ export default {
         Icon,
     },
     computed: {
-        ...mapGetters(['getUsers', 'getFetchErrors', 'getUser']),
+        ...mapGetters(['getUsers', 'getFetchErrors']),
     },
 }
 </script>
