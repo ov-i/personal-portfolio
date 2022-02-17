@@ -33,6 +33,8 @@ class PostsController extends Controller
     public function store(Request $request, CreatePost $createPost): JsonResponse
     {
         $post = $createPost($request->all());
+        if (!$post instanceof Post)
+            return response()->json(['error' => true, 'message' => $post], 400);
 
         return response()->json(['error' => false, 'post' => $post], 201);
     }

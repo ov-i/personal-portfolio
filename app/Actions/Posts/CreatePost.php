@@ -3,8 +3,10 @@
 namespace App\Actions\Posts;
 
 use App\Models\Post;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\MessageBag;
 
 class CreatePost
 {
@@ -13,9 +15,9 @@ class CreatePost
      *
      * @description If tags or attachments were not passed in request, create just pure post
      * @param array $data
-     * @return Post
+     * @return Post | null
      */
-    public function __invoke(array $data): Post
+    public function __invoke(array $data): Post | MessageBag
     {
         $validator = Validator::make($data, [
             'likes' => ['integer'],
@@ -30,7 +32,7 @@ class CreatePost
         ]);
 
         if ($validator->fails())
-            response()->json(['error' => true, 'message' => $validator->errors()], 400);
+            return $validator->errors();
 
         $tags = $data['tags'] ?? null;
         $attachments = $data['attachments'] ?? null;

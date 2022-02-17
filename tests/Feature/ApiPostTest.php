@@ -38,7 +38,7 @@ class ApiPostTest extends TestCase
     {
         $response = $this->get('/api/posts');
 
-        $response->assertStatus($response->status());
+        $response->assertOk();
     }
 
     /**
@@ -72,11 +72,11 @@ class ApiPostTest extends TestCase
     {
         $response = $this->post('/api/posts', self::createPost());
 
-        if ($response->status() !== 201) {
-            $response->assertStatus($response->status());
+        if ($response->status() === 400) {
+            $response->assertStatus(400);
+        } else {
+            $response->assertStatus(201);
         }
-
-        $response->assertStatus(201);
     }
 
     /**
@@ -91,11 +91,11 @@ class ApiPostTest extends TestCase
             ['tags' => [1, 2, 3]]
         ));
 
-        if ($response->status() !== 201) {
-            $response->assertStatus($response->status());
+        if ($response->status() === 400) {
+            $response->assertStatus(400);
+        } else {
+            $response->assertStatus(201);
         }
-
-        $response->assertStatus(201);
     }
 
     /**
@@ -110,10 +110,10 @@ class ApiPostTest extends TestCase
             ['attachments' => [1, 2, 3]]
         ));
 
-        if ($response->status() !== 201) {
-            $response->assertStatus($response->status());
+        if ($response->status() === 400) {
+            $response->assertStatus(400);
+        } else {
+            $response->assertStatus(201);
         }
-
-        $response->assertStatus(201);
     }
 }
