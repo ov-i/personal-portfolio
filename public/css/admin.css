@@ -544,9 +544,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .inline-block {
   display: inline-block;
 }
-.inline {
-  display: inline;
-}
 .flex {
   display: flex;
 }
@@ -714,10 +711,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-red-darken {
   --tw-bg-opacity: 1;
   background-color: rgb(111 1 1 / var(--tw-bg-opacity));
-}
-.bg-dirty-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(235 235 235 / var(--tw-bg-opacity));
 }
 .bg-accent-darken {
   --tw-bg-opacity: 1;
@@ -996,9 +989,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(126 126 126 / var(--tw-text-opacity));
 }
-.text-dark-300 {
-  color: rgba(0, 0, 0, 0.6);
-}
 .decoration-0 {
   text-decoration-thickness: 0px;
 }
@@ -1019,9 +1009,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .outline-blog-accent {
   outline-color: rgb(23, 23, 60);
-}
-.filter {
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .transition {
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;

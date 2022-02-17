@@ -1,7 +1,7 @@
 <template>
     <section class="admin-panel">
         <div class="admin-panel-wrapper flex items-start relative">
-            <div class="navigation-panel w-full retina:w-1/12 md:w-3/12 bg-blog-accent h-screen mr-4 absolute left-0 top-0 md:relative hidden md:block">
+            <div class="navigation-panel">
                 <div class="actions flex flex-col items-center relative">
                     <sidebar-item-wrapper />
                 </div>
@@ -34,5 +34,8 @@ export default {
 </script>
 
 <style scoped>
-
+.admin-panel .admin-panel-wrapper .navigation-panel {
+    @apply w-full retina:w-1/12 md:w-3/12 bg-blog-accent
+        h-screen mr-4 absolute left-0 top-0 md:relative hidden md:block;
+}
 </style>
