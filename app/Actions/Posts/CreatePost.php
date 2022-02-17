@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\Validator;
 
 class CreatePost
 {
-    public function __invoke(Request $request, array $data): Post
+    public function __invoke(array $data): Post
     {
         $validator = Validator::make($data, [
             'thumbnail_url' => ['required', 'url'],
-            'user_id' => ['exists:users', 'required', 'integer'],
-            'category_id' => ['exists:categories', 'required', 'integer'],
+            'user_id' => ['exists:posts', 'required', 'integer'],
+            'category_id' => ['exists:posts', 'required', 'integer'],
             'title' => ['required', 'unique:posts', 'min:10', 'max:50', 'string'],
             'slug' => ['required', 'alpha_dash'],
             'description' => ['required', 'string', 'min:20', 'max:255'],
@@ -24,8 +24,8 @@ class CreatePost
         if ($validator->fails())
             response()->json(['error' => true, 'message' => $validator->errors()], 400);
 
-        $tags = $request['tags'] ?? null;
-        $attachments = $request['attachments'] ?? null;
+        $tags = $data['tags'] ?? null;
+        $attachments = $data['attachments'] ?? null;
 
         $post = Post::create($data);
         if ($tags !== null) {

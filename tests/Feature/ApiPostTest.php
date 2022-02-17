@@ -2,13 +2,12 @@
 
 namespace Tests\Feature;
 
-use App\Models\Post;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ApiPostTest extends TestCase
 {
+    use WithFaker;
 
     /**
      * A basic feature test example.
@@ -46,9 +45,75 @@ class ApiPostTest extends TestCase
 
     /**
      * @test
+     * @return void
      */
     public function post_should_be_created()
     {
+        $response = $this->post('/api/posts', [
+            'likes' => 0,
+            'thumbnail_url' => $this->faker->imageUrl(),
+            'user_id' => $this->faker->numberBetween(1, 20),
+            'category_id' => $this->faker->numberBetween(1, 4),
+            'title' => $this->faker->text(50),
+            'description' => $this->faker->text(255),
+            'slug' => $this->faker->slug(4),
+            'content' => $this->faker->realText(2000)
+        ]);
 
+        if ($response->status() !== 201) {
+            $response->assertStatus($response->status());
+        }
+
+        $response->assertStatus(201);
+    }
+
+    /**
+     * @test
+     * @return void
+     */
+    public function post_have_tags()
+    {
+        $response = $this->post('/api/posts', [
+            'likes' => 0,
+            'thumbnail_url' => $this->faker->imageUrl(),
+            'user_id' => $this->faker->numberBetween(1, 20),
+            'category_id' => $this->faker->numberBetween(1, 4),
+            'title' => $this->faker->text(50),
+            'description' => $this->faker->text(255),
+            'slug' => $this->faker->slug(4),
+            'content' => $this->faker->realText(2000),
+            'tags' => [1, 2, 3]
+        ]);
+
+        if ($response->status() !== 201) {
+            $response->assertStatus($response->status());
+        }
+
+        $response->assertStatus(201);
+    }
+
+    /**
+     * @test
+     * @return void
+     */
+    public function post_have_attachments()
+    {
+        $response = $this->post('/api/posts', [
+            'likes' => 0,
+            'thumbnail_url' => $this->faker->imageUrl(),
+            'user_id' => $this->faker->numberBetween(1, 20),
+            'category_id' => $this->faker->numberBetween(1, 4),
+            'title' => $this->faker->text(50),
+            'description' => $this->faker->text(255),
+            'slug' => $this->faker->slug(4),
+            'content' => $this->faker->realText(2000),
+            'attachments' => [1, 2, 3]
+        ]);
+
+        if ($response->status() !== 201) {
+            $response->assertStatus($response->status());
+        }
+
+        $response->assertStatus(201);
     }
 }

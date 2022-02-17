@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\Admin;
 
+use App\Actions\Posts\CreatePost;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\JsonResponse;
@@ -25,12 +26,15 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param CreatePost $createPost
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request, CreatePost $createPost): JsonResponse
     {
-        //
+        $post = $createPost($request->all());
+
+        return response()->json(['error' => false, 'post' => $post], 201);
     }
 
     /**
@@ -47,7 +51,7 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */

@@ -43,7 +43,7 @@ class Post extends Model
     public function attachments(): BelongsToMany
     {
         return $this
-            ->belongsToMany(Attachment::class, 'attachments_posts', 'attachment_id', 'post_id')
+            ->belongsToMany(Attachment::class, 'attachments_posts', 'post_id', 'attachment_id')
             ->withTimestamps();
     }
 
