@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\Admin\PostsController;
 use App\Http\Controllers\API\Admin\UsersController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::apiResource('/users', UsersController::class);
+Route::apiResource('/posts', PostsController::class);
