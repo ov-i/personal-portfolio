@@ -20,10 +20,14 @@ a {
 
 /* Main content */
 .main-content {
-    @apply retina:w-1/2 retinax2:w-5/12 2xl:w-8/12 xl:w-9/12 md:w-11/12 md:mx-auto;
+    @apply retina:w-9/12 retinax2:w-6/12 2xl:w-9/12 md:w-full lg:w-11/12 md:mx-auto;
 }
 
 .user-img {
     width: 45px;
     height: 45px;
+}
+
+.admin-content .admin-heading .admin-header {
+    @apply font-semibold text-dark-200 text-2xl xl:text-3xl 2xl:text-4xl;
 }

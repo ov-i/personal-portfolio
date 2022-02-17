@@ -6,7 +6,7 @@
                     <sidebar-item-wrapper />
                 </div>
             </div>
-            <div class="administration-panel w-full">
+            <div class="administration-panel w-full overflow-y-scroll h-screen">
                 <router-view></router-view>
             </div>
         </div>
@@ -35,7 +35,7 @@ export default {
 
 <style scoped>
 .admin-panel .admin-panel-wrapper .navigation-panel {
-    @apply w-full retina:w-1/12 md:w-3/12 bg-blog-accent
+    @apply w-full retinax2:w-2/12 md:w-5/12 bg-blog-accent
         h-screen mr-4 absolute left-0 top-0 md:relative hidden md:block;
 }
 </style>
