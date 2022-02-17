@@ -24,7 +24,7 @@
                     <!-- single comment -->
                     <div class="comment py-4">
                         <div class="comment-author">
-                            <p class="text-lg font-medium text-dark-200">Bartosz Pazdur</p>
+                            <p class="text-xl pt-2 font-medium text-dark-200">Bartosz Pazdur</p>
                             <span class="block font-light italic text-sm text-dark-100">
                                 31.12.2022 12:30:00
                             </span>
@@ -49,7 +49,7 @@
                             <img src="https://unsplash.it/200/200" alt="user avatar" class="rounded-full user-img">
                         </div>
                         <div class="user-info ml-3">
-                            <p class="font-normal tracking-widest text-base leading-6 text-dark-200">Bartosz Pazdur</p>
+                            <p class="font-normal tracking-widest text-lg leading-6 text-dark-200">Bartosz Pazdur</p>
                             <span class="block font-light italic text-sm text-dark-100">12.03.2022 12:34:00</span>
                         </div>
                     </div>
@@ -75,13 +75,17 @@ export default {
     @apply grid grid-rows-3 md:grid-cols-3 md:grid-rows-none items-center w-full md:justify-between gap-5 lg:gap-10;
 }
 
+.admin-content .admin-action .comments .comment {
+    @apply md:w-11/12 border-b border-dirty-white last:border-none;
+}
+
 .admin-content .admin-action .comments .comment .comment-content {
-    @apply font-normal tracking-widest text-xs
-    italic leading-6 text-dark-200 pt-2 pr-3 text-justify;
+    @apply font-normal tracking-widest text-xs md:text-sm
+    leading-6 text-dark-100 pt-5 pr-3 text-justify
 }
 
 .comment .confirm-action .confirm-comment {
-    @apply text-blog-accent font-normal text-sm p-2
+    @apply text-blog-accent font-normal text-sm p-2 px-2 pt-2 pb-1
     rounded-sm hover:text-blog-accent duration-200 ease-linear;
 }
 
@@ -90,7 +94,7 @@ export default {
 }
 
 .box-heading {
-    @apply text-dark-200 text-lg retina:text-xl
+    @apply text-dark-200 text-xl
     retinax2:text-2xl font-semibold pb-2 border-b border-dirty-white;
 }
 </style>

@@ -862,6 +862,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pl-9 {
   padding-left: 2.25rem;
 }
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
 .text-left {
   text-align: left;
 }
@@ -1361,6 +1364,11 @@ a {
     line-height: 1.75rem;
   }
 
+  .md\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
   .md\:leading-8 {
     line-height: 2rem;
   }
@@ -1368,6 +1376,11 @@ a {
   .md\:text-dark-700 {
     --tw-text-opacity: 1;
     color: rgb(0 0 0 / var(--tw-text-opacity));
+  }
+
+  .md\:text-dark-100 {
+    --tw-text-opacity: 1;
+    color: rgb(140 140 140 / var(--tw-text-opacity));
   }
 }
 
