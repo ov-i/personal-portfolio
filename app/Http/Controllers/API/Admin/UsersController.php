@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\API\Admin;
 
-use App\Actions\CreateUser;
-use App\Actions\DeleteUser;
-use App\Actions\ShowUser;
+use App\Actions\Users\CreateUser;
+use App\Actions\Users\DeleteUser;
+use App\Actions\Users\ShowUser;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
