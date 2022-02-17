@@ -13,9 +13,10 @@ class ApiPostTest extends TestCase
     /**
      * A basic feature test example.
      *
+     * @test
      * @return void
      */
-    public function test_posts_should_exists()
+    public function posts_should_exists()
     {
         $response = $this->get('/api/posts');
 
@@ -25,9 +26,10 @@ class ApiPostTest extends TestCase
     /**
      * Checks if posts have some content in response
      *
+     * @test
      * @return void
      */
-    public function test_posts_have_content()
+    public function posts_have_content()
     {
         $response= $this->get('/api/posts');
 
@@ -40,5 +42,13 @@ class ApiPostTest extends TestCase
         $response->assertJsonFragment([
             'error' => false
         ]);
+    }
+
+    /**
+     * @test
+     */
+    public function post_should_be_created()
+    {
+
     }
 }
