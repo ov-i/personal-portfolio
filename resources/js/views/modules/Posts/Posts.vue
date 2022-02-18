@@ -20,6 +20,13 @@
 
             <!-- TODO: Add filter / group by controls -->
 
+            <article class="add-action w-full flex justify-between items-center pt-6 pb-3" role="article">
+                <div></div>
+                <router-link :to="{name: 'PostCreate'}" class="add-action-button">
+                    Dodaj nowy
+                </router-link>
+            </article>
+
             <article class="posts w-full mt-6" v-if="posts">
                 <!-- single post -->
                 <div class="post" v-for="post in posts" :key="post.id">
@@ -115,5 +122,10 @@ export default {
 .post-description {
     @apply text-sm font-normal italic text-dark-200 w-full
     lg:w-11/12 xl:w-10/12 tracking-widest leading-6 text-justify xl:text-left;
+}
+
+.add-action .add-action-button {
+    @apply bg-blog-accent rounded-md shadow-md uppercase text-white text-sm
+    font-medium hover:bg-blog-accent-lighten transition duration-200 ease-linear p-3;
 }
 </style>

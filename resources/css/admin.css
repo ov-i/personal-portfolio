@@ -6,7 +6,7 @@
     @apply hidden;
 }
 
-.router-link-exact-active {
+.router-link-exact-active, .router-link-active {
     @apply bg-white text-dark-700 rounded-md;
 }
 
