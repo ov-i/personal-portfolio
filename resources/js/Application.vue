@@ -25,10 +25,11 @@ export default {
         SidebarItemWrapper,
     },
     setup() {
-        return { ...mapActions(['fetchUsers']) }
+        return { ...mapActions(['fetchUsers', 'fetchPosts']) }
     },
     async created() {
         await this.fetchUsers()
+        await this.fetchPosts()
     }
 }
 </script>

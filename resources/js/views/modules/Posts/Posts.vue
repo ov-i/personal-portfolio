@@ -13,46 +13,54 @@
         <section class="admin-content-wrapper h-screen" v-else>
             <!-- admin heading -->
             <article class="admin-heading">
-                <h2 class="admin-header font-semibold text-dark-200 text-2xl" role="heading">Wszystkie wpisy</h2>
+                <h2 class="admin-header font-semibold text-dark-200 text-2xl" role="heading">
+                    Wszystkie wpisy
+                </h2>
             </article>
 
             <!-- TODO: Add filter / group by controls -->
 
-            <article class="posts w-full mt-6">
+            <article class="posts w-full mt-6" v-if="posts">
                 <!-- single post -->
-                <div class="post">
-                    <!-- post info -->
-                    <div class="post-info">
-                        <span class="created-at font-light italic text-dark-200">2022.01.22 12:00:57</span>
-                        <h3 class="post-title pt-2 pb-4">
-                            <router-link
-                                :to="{name: 'PostShow', params: {slug: 'budujemy-aplikacje-mobilna'}}"
-                                class="post-title-link">
-                                Budujemy aplikacje mobilną!
-                            </router-link>
-                        </h3>
-                        <p class="post-description">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, aliquid amet aperiam architecto
-                            at blanditiis consequuntur debitis distinctio ea et magnam maxime omnis quia quibusdam
-                            recusandae repudiandae sequi sit voluptates.
-                        </p>
-                    </div>
-                    <div class="post-actions">
-                        <div class="icons flex items-center justify-between">
-                            <div class="icon preview-post">
-                                <Icon icon="akar-icons:eye" />
-                            </div>
+                <div class="post" v-for="post in posts" :key="post.id">
+                    <div class="post-wrapper" v-if="post.slug">
+                        <!-- post info -->
+                        <div class="post-info">
+                            <span class="created-at font-light italic text-dark-200">
+                                {{ new Date(post.created_at).toLocaleString() }}
+                            </span>
+                            <h3 class="post-title pt-2 pb-4">
+                                <router-link
+                                    :to="{name: 'PostShow', params: {slug: post.slug}}"
+                                    class="post-title-link">
+                                    {{ post.title }}
+                                </router-link>
+                            </h3>
+                            <p class="post-description">
+                                {{ post.description }}
+                            </p>
+                        </div>
+                        <div class="post-actions">
+                            <div class="icons flex items-center">
+                                <div class="icon preview-post">
+                                    <Icon icon="akar-icons:eye" />
+                                </div>
 
-                            <div class="icon preview-post">
-                                <Icon icon="akar-icons:edit" />
-                            </div>
+                                <div class="icon preview-post">
+                                    <Icon icon="akar-icons:edit" />
+                                </div>
 
-                            <div class="icon preview-post">
-                                <Icon icon="ic:outline-done" />
-                            </div>
+                                <div class="icon preview-post" v-if="post.published">
+                                    <Icon icon="ic:outline-done" />
+                                </div>
 
-                            <div class="icon preview-post">
-                                <Icon icon="akar-icons:trash-can" />
+                                <div class="icon preview-post" v-else>
+                                    <Icon icon="bi:x-lg" />
+                                </div>
+
+                                <div class="icon preview-post">
+                                    <Icon icon="akar-icons:trash-can" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -84,19 +92,19 @@ export default {
         return { mce_plugins }
     },
     computed: {
-        ...mapGetters(['getFetchErrors']),
+        ...mapGetters(['getFetchErrors', 'posts']),
     },
 }
 </script>
 
 <style scoped>
-.posts .post {
-    @apply h-full w-full border-b border-dirty-white
+.posts .post .post-wrapper {
+    @apply h-full w-full border-b border-dirty-white justify-between
     last:border-none py-7 flex items-start flex-col-reverse lg:flex-row border-l-green-500;
 }
 
 .preview-post {
-    @apply text-2xl px-2 first:pl-0 lg:first:pl-2 pb-5 lg:pb-0;
+    @apply text-2xl px-1 first:pl-0 lg:first:pl-2 pb-5 lg:pb-0;
 }
 
 .post-title-link {

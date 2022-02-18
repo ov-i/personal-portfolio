@@ -21,7 +21,7 @@ class PostsController extends Controller
         if (count($posts) === 0)
             return response()->json(['error' => true, 'posts' => []], 404);
 
-        return response()->json(['error' => false, 'posts' => $posts], 200);
+        return response()->json(['error' => false, ...$posts], 200);
     }
 
     /**

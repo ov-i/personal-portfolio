@@ -16,5 +16,13 @@ export const fetchPosts = async ({ commit, getters, dispatch }) => {
     } catch (error) {
         dispatch('notFoundException', 'Problem z przetworzeniem danych')
     }
+}
 
+/**
+ * returns new date from string
+ * @param post
+ * @returns {string}
+ */
+export const createdAtToLocaleString = ({}, post) => {
+    return new Date(post.created_at).toLocaleString()
 }
