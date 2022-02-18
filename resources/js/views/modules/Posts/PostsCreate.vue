@@ -13,6 +13,7 @@
         </article>
 
         <article class="add-new w-full pt-3 flex items-start flex-col xl:flex-row" role="article">
+            <!-- post sheet -->
             <section class="post-sheet w-full xl:pr-6">
                 <div class="post-sheet-inner mb-3">
                     <input type="text" name="post-title" id="post-title" class="form-input w-full" placeholder="Tytuł wpisu" maxlength="50" v-model="post.title">
@@ -21,22 +22,22 @@
                         <span class="font-medium text-dark-700">{{ toSlug(post.title) }}</span>
                     </p>
                 </div>
+                <div class="post-sheet-inner mb-3">
+                    <textarea type="text" id="post-description" class="form-textarea w-full resize-none" placeholder="Dodaj krótki opis" maxlength="255" v-model="post.description"></textarea>
+                </div>
                 <div class="post-sheet-inner">
-                    <editor :api-key="mce_apikey" :plugins="mce_plugins" class="w-full h-96"/>
+                    <editor :api-key="mce_apikey" :plugins="mce_plugins" class="w-full h-96" v-model="post.content"/>
                 </div>
             </section>
-            <div class="post-sidebars w-full lg:w-10/12 xl:w-5/12 mx-auto xl:mx-0 pt-6 lg:pt-8 xl:pt-0">
+
+            <!-- post sidebars -->
+            <div class="post-sidebars w-full lg:w-10/12 xl:w-5/12 retina:w-4/12 mx-auto xl:mx-0 pt-6 lg:pt-8 xl:pt-0">
                 <!-- single sidebar -->
                 <div class="post-sidebar">
                     <h3 class="sidebar-heading">Dodaj miniaturkę</h3>
                     <!-- TODO: add modal where admin can see all attachments and select one. Select URL from it from laravel API  -->
                     <div class="action-sidebar pt-3">
-                        <input type="text" class="form-input w-full" placeholder="url miniaturki">
-
-                        <div class="flex items-center justify-between pt-3">
-                            <div></div>
-                            <button class="add-action-button ">dodaj</button>
-                        </div>
+                        <input type="text" class="form-input w-full" placeholder="url miniaturki" v-model="post.thumbnail_url">
                     </div>
                 </div>
 
@@ -46,16 +47,16 @@
                     <div class="action-sidebar pt-3">
                         <div class="actions">
                             <div class="action block">
-                                <input type="radio" name="category" id="programming" value="1"> Programownie
+                                <input type="radio" id="programming" value=1 v-model.number="post.category_id"> Programownie
                             </div>
                             <div class="action block">
-                                <input type="radio" name="category" id="security" value="2"> Bezpieczeństwo
+                                <input type="radio" id="security" value=2 v-model.number="post.category_id"> Bezpieczeństwo
                             </div>
                             <div class="action block">
-                                <input type="radio" name="category" id="courses" value="3"> Kursy
+                                <input type="radio" id="courses" value="3" v-model.number="post.category_id"> Kursy
                             </div>
                             <div class="action block">
-                                <input type="radio" name="category" id="ittalks" value="4"> ITTalks
+                                <input type="radio" id="ittalks" value="4" v-model.number="post.category_id"> ITTalks
                             </div>
                         </div>
 
@@ -72,18 +73,30 @@
                     <div class="action-sidebar pt-3">
                         <div class="actions">
                             <div class="action block">
-                                <input type="checkbox" name="category" id="programming_tag" value="1"> programowanie
+                                <input type="checkbox" name="category" id="programming_tag" value="1" v-model="tags"> programowanie
                             </div>
                             <div class="action block">
-                                <input type="checkbox" name="category" id="tech_tag" value="2"> tech
+                                <input type="checkbox" name="category" id="tech_tag" value="2" v-model="tags"> tech
                             </div>
                             <div class="action block">
-                                <input type="checkbox" name="category" id="blog_tag" value="3"> blog
+                                <input type="checkbox" name="category" id="blog_tag" value="3" v-model="tags"> blog
                             </div>
                             <div class="action block">
-                                <input type="checkbox" name="category" id="education" value="4"> rozwój
+                                <input type="checkbox" name="category" id="education" value="4" v-model="tags"> rozwój
                             </div>
                         </div>
+
+                        <div class="flex items-center justify-between pt-3">
+                            <div></div>
+                            <button class="add-action-button ">dodaj</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post-sidebar">
+                    <h3 class="sidebar-heading">załączniki</h3>
+                    <div class="action-sidebar pt-3">
+                        <input type="file" @change="event => changeFile(event)" multiple>
 
                         <div class="flex items-center justify-between pt-3">
                             <div></div>
@@ -100,7 +113,6 @@
 import Editor from "@tinymce/tinymce-vue"
 import { Icon } from "@iconify/vue"
 import {mapGetters} from "vuex";
-import {ref} from "vue";
 
 export default {
     name: "Posts",
@@ -110,9 +122,15 @@ export default {
     },
     data: () => ({
         post: {
-            title: '',
-            slug: ''
-        }
+            thumbnail_url: '',
+            category_id: '1',
+            title: 'Piszemy aplikację mobilną',
+            slug: '',
+            description: '',
+            content: '',
+        },
+        tags: [],
+        attachments: []
     }),
     methods: {
         toSlug(str) {
@@ -136,6 +154,20 @@ export default {
                 .replace(/-+/g, '-');
 
             return str;
+        },
+
+        /**
+         * Watches for files buffer changes
+         * @param event
+         * @returns {boolean}
+         */
+        changeFile(event) {
+            let files = event.target.files || event.dataTransfer.files;
+            if (!files.length)
+                return false;
+
+            // TODO: implement saving attachments to posts
+            // console.log()
         }
     },
     watch: {

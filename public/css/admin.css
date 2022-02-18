@@ -638,6 +638,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .cursor-pointer {
   cursor: pointer;
 }
+.resize-none {
+  resize: none;
+}
 .grid-rows-3 {
   grid-template-rows: repeat(3, minmax(0, 1fr));
 }
@@ -1557,6 +1560,10 @@ a {
     width: 50%;
   }
 
+  .xl\:w-4\/12 {
+    width: 33.333333%;
+  }
+
   .xl\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1617,6 +1624,10 @@ a {
 
   .retina\:w-4\/12 {
     width: 33.333333%;
+  }
+
+  .retina\:w-3\/12 {
+    width: 25%;
   }
 
   .retina\:text-4xl {
