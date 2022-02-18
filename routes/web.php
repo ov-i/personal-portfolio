@@ -39,4 +39,5 @@ Route::controller(AdminController::class)->prefix('admin')->group(function () {
     Route::get('/{wildcard}/{current}', 'index');
     Route::get('/{wildcard}/{current}/edit', 'index');
     Route::get('/{wildcard}/{current}/show', 'index');
+    Route::get('/{wildcard}/{current}/preview', 'index');
 });
