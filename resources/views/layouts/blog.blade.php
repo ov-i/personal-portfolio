@@ -184,7 +184,7 @@
                             @foreach($tags as $tag)
                                 <li class="font-light italic text-base text-dark-150 leading-7">
                                     <a href="{{ route('blog.tags', ['tag' => $tag->name]) }}">
-                                        #{{ $tag->name }} ({{ $tag->posts()->count() }})
+                                        #{{ $tag->name }} ({{ $tag->posts->count() }})
                                     </a>
                                 </li>
                             @endforeach

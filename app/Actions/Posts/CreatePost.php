@@ -22,7 +22,7 @@ class CreatePost
         $validator = Validator::make($data, [
             'likes' => ['integer'],
             'thumbnail_url' => ['required', 'url'],
-            'user_id' => ['exists:posts', 'required', 'integer'],
+            'user_id' => ['exists:users,id', 'required', 'integer'],
             'category_id' => ['exists:posts', 'required', 'integer'],
             'title' => ['required', 'unique:posts', 'min:10', 'max:50', 'string'],
             'slug' => ['required', 'alpha_dash'],

@@ -73,16 +73,13 @@
                     <div class="action-sidebar pt-3">
                         <div class="actions">
                             <div class="action block">
-                                <input type="checkbox" name="category" id="programming_tag" value="1" v-model="tags"> programowanie
+                                <input type="checkbox" name="tags" id="security_tag" value=1 v-model="tags"> tech
                             </div>
                             <div class="action block">
-                                <input type="checkbox" name="category" id="tech_tag" value="2" v-model="tags"> tech
+                                <input type="checkbox" name="tags" id="programming_tag" value=2 v-model="tags"> programowanie
                             </div>
                             <div class="action block">
-                                <input type="checkbox" name="category" id="blog_tag" value="3" v-model="tags"> blog
-                            </div>
-                            <div class="action block">
-                                <input type="checkbox" name="category" id="education" value="4" v-model="tags"> rozwój
+                                <input type="checkbox" name="tags" id="blog_tag" value=3 v-model="tags"> ITTalks
                             </div>
                         </div>
 

@@ -43,7 +43,7 @@ export const createPost = async ({ commit, dispatch, getters }, { new_post, tags
     try {
         const { post } = await axios.post(endpoint, {
             thumbnail_url: new_post.thumbnail_url,
-            user_id: 3,
+            user_id: 1,
             category_id: new_post.category_id,
             title: new_post.title,
             slug: new_post.slug,

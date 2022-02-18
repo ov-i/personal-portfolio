@@ -16,7 +16,7 @@ class Tag extends Model
     public function posts(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this
-            ->belongsToMany(Post::class, 'posts_tags', 'post_id', 'tag_id')
+            ->belongsToMany(Post::class, 'posts_tags', 'tag_id', 'post_id')
             ->withTimestamps();
     }
 }
