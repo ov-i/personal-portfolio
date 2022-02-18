@@ -5,20 +5,27 @@
             <h2 class="admin-header font-semibold text-dark-200 text-2xl" role="heading">Nowy wpis</h2>
         </article>
 
-        <article class="save-action flex items-center justify-between">
+        <article class="save-action flex items-center justify-between pt-6">
             <div></div>
             <button class="add-action-button">
                 Zapisz zmiany
             </button>
         </article>
 
-        <article class="add-new w-full pt-10 flex items-start md:flex-row " role="article">
-            <section class="post-sheet w-full pr-4">
+        <article class="add-new w-full pt-3 flex items-start flex-col xl:flex-row" role="article">
+            <section class="post-sheet w-full xl:pr-6">
+                <div class="post-sheet-inner mb-3">
+                    <input type="text" name="post-title" id="post-title" class="form-input w-full" placeholder="Tytuł wpisu" maxlength="50" v-model="post.title">
+                    <p v-if="post.title.length > 0" class="text-xs text-dark-300 font-light italic pt-2 pb-3">
+                        slug wpisu:
+                        <span class="font-medium text-dark-700">{{ toSlug(post.title) }}</span>
+                    </p>
+                </div>
                 <div class="post-sheet-inner">
                     <editor :api-key="mce_apikey" :plugins="mce_plugins" class="w-full h-96"/>
                 </div>
             </section>
-            <div class="post-sidebars w-full md:w-4/12">
+            <div class="post-sidebars w-full lg:w-10/12 xl:w-5/12 mx-auto xl:mx-0 pt-6 lg:pt-8 xl:pt-0">
                 <!-- single sidebar -->
                 <div class="post-sidebar">
                     <h3 class="sidebar-heading">Dodaj miniaturkę</h3>
@@ -93,12 +100,48 @@
 import Editor from "@tinymce/tinymce-vue"
 import { Icon } from "@iconify/vue"
 import {mapGetters} from "vuex";
+import {ref} from "vue";
 
 export default {
     name: "Posts",
     components: {
         Icon,
         'editor': Editor
+    },
+    data: () => ({
+        post: {
+            title: '',
+            slug: ''
+        }
+    }),
+    methods: {
+        toSlug(str) {
+            str = str.replace(/^\s+|\s+$/g, '');
+
+            // Make the string lowercase
+            str = str.toLowerCase();
+
+            // Remove accents, swap ñ for n, etc
+            let from = "ĄÁÄÂÀÃÅČÇĆĎĘÉĚËÈÊẼĔȆÍÌÎÏŃŇÑÓÓÖÒÔÕØŘŔŠŚŤÚŮÜÙÛÝŸŽąáäâàãåčçćďéěëèêẽĕȇęłíìîïńňñóöòôõøðřŕšśťúůüùûýÿžżźþÞĐđßÆa·/_,:;<>";
+            let to   = "AAAAAAACCCDEEEEEEEEEIIIINNNOOOOOOORRSSTUUUUUYYZaaaaaaacccdeeeeeeeeeliiiinnnooooooorrsstuuuuuyyzzzbBDdBAa--------";
+            for (let i=0, l=from.length ; i<l ; i++) {
+                str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+            }
+
+            // Remove invalid chars
+            str = str.replace(/[^a-z0-9 -]/g, '')
+                // Collapse whitespace and replace by -
+                .replace(/\s+/g, '-')
+                // Collapse dashes
+                .replace(/-+/g, '-');
+
+            return str;
+        }
+    },
+    watch: {
+        'post.title'(newVal, oldVal) {
+            this.post.slug = this.toSlug(newVal)
+        }
     },
     setup() {
         const mce_plugins = [
@@ -127,6 +170,6 @@ export default {
 }
 
 .sidebar-heading {
-    @apply font-medium text-2xl leading-6 tracking-wide border-b border-dirty-white pb-2;
+    @apply font-medium text-base retina:text-2xl lg:text-lg leading-6 tracking-wide border-b border-dirty-white pb-2;
 }
 </style>

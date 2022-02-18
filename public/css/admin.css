@@ -527,6 +527,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 1.75rem;
   margin-bottom: 1.75rem;
 }
+.mx-0 {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 .mr-4 {
   margin-right: 1rem;
 }
@@ -903,6 +907,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pr-4 {
   padding-right: 1rem;
 }
+.pr-6 {
+  padding-right: 1.5rem;
+}
 .text-left {
   text-align: left;
 }
@@ -1035,6 +1042,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-dark-150 {
   --tw-text-opacity: 1;
   color: rgb(126 126 126 / var(--tw-text-opacity));
+}
+.text-dark-300 {
+  color: rgba(0, 0, 0, 0.6);
 }
 .decoration-0 {
   text-decoration-thickness: 0px;
@@ -1443,6 +1453,15 @@ a {
 
 @media (min-width: 1024px) {
 
+  .lg\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .lg\:flex {
+    display: flex;
+  }
+
   .lg\:w-3\/12 {
     width: 25%;
   }
@@ -1455,12 +1474,50 @@ a {
     width: 91.666667%;
   }
 
+  .lg\:w-5\/12 {
+    width: 41.666667%;
+  }
+
+  .lg\:w-10\/12 {
+    width: 83.333333%;
+  }
+
   .lg\:flex-row {
     flex-direction: row;
   }
 
+  .lg\:items-start {
+    align-items: flex-start;
+  }
+
+  .lg\:justify-between {
+    justify-content: space-between;
+  }
+
+  .lg\:pt-0 {
+    padding-top: 0px;
+  }
+
+  .lg\:pr-6 {
+    padding-right: 1.5rem;
+  }
+
+  .lg\:pt-8 {
+    padding-top: 2rem;
+  }
+
   .lg\:text-xl {
     font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .lg\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .lg\:text-lg {
+    font-size: 1.125rem;
     line-height: 1.75rem;
   }
 
@@ -1471,8 +1528,17 @@ a {
 
 @media (min-width: 1280px) {
 
+  .xl\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
   .xl\:mt-0 {
     margin-top: 0px;
+  }
+
+  .xl\:block {
+    display: block;
   }
 
   .xl\:grid {
@@ -1487,8 +1553,16 @@ a {
     width: 83.333333%;
   }
 
+  .xl\:w-6\/12 {
+    width: 50%;
+  }
+
   .xl\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .xl\:flex-row {
+    flex-direction: row;
   }
 
   .xl\:gap-10 {
@@ -1499,6 +1573,14 @@ a {
     padding: 1rem;
   }
 
+  .xl\:pr-6 {
+    padding-right: 1.5rem;
+  }
+
+  .xl\:pt-0 {
+    padding-top: 0px;
+  }
+
   .xl\:text-5xl {
     font-size: 3rem;
     line-height: 1;
@@ -1507,6 +1589,11 @@ a {
   .xl\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 
@@ -1535,6 +1622,11 @@ a {
   .retina\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .retina\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 
