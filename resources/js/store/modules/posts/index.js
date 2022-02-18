@@ -6,7 +6,7 @@ import {mce_api_key} from "./config";
 export const posts = {
     namespaced: false,
     state: () => ({
-        posts: [],
+        posts: [{}],
         mce_api_key,
     }),
     mutations,

@@ -7,7 +7,7 @@
 
         <article class="save-action flex items-center justify-between pt-6">
             <div></div>
-            <button class="add-action-button">
+            <button class="add-action-button" @click="createPost({ new_post: post, tags, attachments })">
                 Zapisz zmiany
             </button>
         </article>
@@ -53,10 +53,10 @@
                                 <input type="radio" id="security" value=2 v-model.number="post.category_id"> Bezpieczeństwo
                             </div>
                             <div class="action block">
-                                <input type="radio" id="courses" value="3" v-model.number="post.category_id"> Kursy
+                                <input type="radio" id="courses" value=3 v-model.number="post.category_id"> Kursy
                             </div>
                             <div class="action block">
-                                <input type="radio" id="ittalks" value="4" v-model.number="post.category_id"> ITTalks
+                                <input type="radio" id="ittalks" value=4 v-model.number="post.category_id"> ITTalks
                             </div>
                         </div>
 
@@ -112,7 +112,7 @@
 <script>
 import Editor from "@tinymce/tinymce-vue"
 import { Icon } from "@iconify/vue"
-import {mapGetters} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 
 export default {
     name: "Posts",
@@ -124,10 +124,11 @@ export default {
         post: {
             thumbnail_url: '',
             category_id: '1',
-            title: 'Piszemy aplikację mobilną',
+            title: '',
             slug: '',
             description: '',
             content: '',
+            published: false,
         },
         tags: [],
         attachments: []
@@ -168,7 +169,7 @@ export default {
 
             // TODO: implement saving attachments to posts
             // console.log()
-        }
+        },
     },
     watch: {
         'post.title'(newVal, oldVal) {
@@ -183,7 +184,7 @@ export default {
             emoticons template paste textpattern`
         ]
 
-        return { mce_plugins }
+        return { mce_plugins, ...mapActions(['createPost']) }
     },
     computed: {
         ...mapGetters(['mce_apikey'])

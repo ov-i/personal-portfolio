@@ -190,3 +190,11 @@
 .post-body .post-content p > a {
     @apply text-accent hover:text-blog-accent-lighten transition duration-200 ease-linear;
 }
+
+.post-body .post-content h1 {
+    @apply text-2xl pt-5;
+}
+
+.post-body .post-content h2 {
+    @apply text-2xl pt-3;
+}

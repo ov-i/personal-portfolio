@@ -27,9 +27,9 @@
                 </router-link>
             </article>
 
-            <article class="posts w-full mt-6" v-if="posts">
+            <article class="posts w-full mt-6">
                 <!-- single post -->
-                <div class="post" v-for="post in posts" :key="post.id">
+                <div class="post" v-for="post in postsCollection.posts" :key="post.id">
                     <div class="post-wrapper" v-if="post.slug">
                         <!-- post info -->
                         <div class="post-info">
@@ -57,7 +57,7 @@
                                     <Icon icon="akar-icons:edit" />
                                 </div>
 
-                                <div class="icon preview-post" v-if="post.published">
+                                <div class="icon preview-post" v-if="!post.published">
                                     <Icon icon="ic:outline-done" />
                                 </div>
 
@@ -99,7 +99,10 @@ export default {
         return { mce_plugins }
     },
     computed: {
-        ...mapGetters(['getFetchErrors', 'posts']),
+        ...mapGetters({
+            getFetchErrors: 'getFetchErrors',
+            postsCollection: 'posts'
+        }),
     },
 }
 </script>

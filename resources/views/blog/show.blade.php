@@ -12,7 +12,7 @@
         </div>
         <div class="post-wrapper">
             <article class="post pb-7 first:pt-0 pt-10 last:border-none border-b border-background-accent">
-                <div class="posts-thumbnail pb-14">
+                <div class="posts-thumbnail pb-7">
                     <img src="{{ $post->thumbnail_url }}" alt="thumbnail">
                 </div>
                 <div class="post-title">

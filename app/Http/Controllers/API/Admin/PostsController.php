@@ -21,7 +21,7 @@ class PostsController extends Controller
         if (count($posts) === 0)
             return response()->json(['error' => true, 'posts' => []], 404);
 
-        return response()->json(['error' => false, ...$posts], 200);
+        return response()->json(['error' => false, 'posts' => $posts], 200);
     }
 
     /**
@@ -37,7 +37,7 @@ class PostsController extends Controller
         if ($post instanceof MessageBag)
             return response()->json(['error' => true, 'message' => $post], 400);
 
-        return response()->json(['error' => false, ...$post], 201);
+        return response()->json(['error' => false, 'post' => $post], 201);
     }
 
     /**
