@@ -425,6 +425,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   opacity: 1;
 }
 
+.form-input::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+}
+
+.form-input::-webkit-date-and-time-value {
+  min-height: 1.5em;
+}
+
 *, ::before, ::after {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -511,6 +519,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: auto;
   margin-bottom: auto;
 }
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.my-7 {
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+}
 .mr-4 {
   margin-right: 1rem;
 }
@@ -540,6 +556,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .mt-6 {
   margin-top: 1.5rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mb-7 {
+  margin-bottom: 1.75rem;
 }
 .block {
   display: block;
@@ -571,6 +593,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-full {
   height: 100%;
 }
+.h-96 {
+  height: 24rem;
+}
 .w-full {
   width: 100%;
 }
@@ -591,6 +616,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-screen {
   width: 100vw;
+}
+.w-10\/12 {
+  width: 83.333333%;
 }
 .-translate-x-1\/2 {
   --tw-translate-x: -50%;
@@ -871,6 +899,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pl-9 {
   padding-left: 2.25rem;
+}
+.pr-4 {
+  padding-right: 1rem;
 }
 .text-left {
   text-align: left;
@@ -1264,6 +1295,18 @@ a {
 
   .md\:w-auto {
     width: auto;
+  }
+
+  .md\:w-3\/12 {
+    width: 25%;
+  }
+
+  .md\:w-6\/12 {
+    width: 50%;
+  }
+
+  .md\:w-4\/12 {
+    width: 33.333333%;
   }
 
   .md\:grid-flow-col {
