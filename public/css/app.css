@@ -868,9 +868,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pr-2 {
   padding-right: 0.5rem;
 }
-.pb-14 {
-  padding-bottom: 3.5rem;
-}
 .pb-20 {
   padding-bottom: 5rem;
 }
@@ -885,6 +882,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pl-9 {
   padding-left: 2.25rem;
+}
+.pb-14 {
+  padding-bottom: 3.5rem;
 }
 .text-left {
   text-align: left;
