@@ -24,7 +24,7 @@
                     </div>
                     <div class="post-info flex flex-row font-light italic text-sm items-center">
                         <div class="author md:mr-2 mr-1">
-                            @foreach($post->users()->get() as $author)
+                            @foreach($post->user()->get() as $author)
                                 @if($author->toggle_nick_display)
                                     <span>{{ $author->nick }}</span>
                                 @else()
