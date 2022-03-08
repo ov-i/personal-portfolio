@@ -39,9 +39,10 @@ class CreateTraitCommand extends Command
     {
         $name = $this->argument('name');
 
-        if($this->confirm("This will create Trait '{$name}' in App\Trait namespace. Continue? ")) {
-            $name = str_replace('-', '', $name);
-            $name = ucwords($name);
+        $name = str_replace('-', '', $name);
+        $name = ucwords($name);
+
+        if($this->confirm("This will create Trait '{$name}' in App\Trait namespace. Continue? ", true)) {
 
             $destination = "app/Traits";
             if (!is_dir($destination))
