@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use App\Traits\BelongsToCategory;
+use App\Traits\BelongsToComments;
 use App\Traits\BelongsToUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
@@ -16,6 +16,7 @@ class Post extends Model
     use SoftDeletes;
     use BelongsToUser;
     use BelongsToCategory;
+    use BelongsToComments;
 
     protected $fillable = [
         'likes',
@@ -28,11 +29,6 @@ class Post extends Model
         'description',
         'published'
     ];
-
-    public function comments(): HasMany
-    {
-        return $this->hasMany(Comment::class);
-    }
 
     public function attachments(): BelongsToMany
     {
