@@ -43,7 +43,10 @@ class ApiPostTest extends TestCase
             $response->assertJsonFragment(['error' => true]);
         } else {
             $response->assertStatus(201);
-            $response->assertJsonFragment(['error' => false, 'post' => [], ...$addons]);
+            $response->assertJsonFragment([
+                'error' => false,
+                ...$addons
+            ]);
         }
     }
 
@@ -104,7 +107,7 @@ class ApiPostTest extends TestCase
         ));
 
         self::assertBadRequest($response, [
-            'tags' => [$this->faker->numberBetween()]]
+            'tags' => [1, 2, 3]]
         );
     }
 
@@ -121,7 +124,7 @@ class ApiPostTest extends TestCase
         ));
 
         self::assertBadRequest($response, [
-            'attachments' => [$this->faker->numberBetween()]]
+            'attachments' => [1, 2, 3]]
         );
     }
 }

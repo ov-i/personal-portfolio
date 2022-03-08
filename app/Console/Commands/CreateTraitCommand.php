@@ -48,7 +48,7 @@ class CreateTraitCommand extends Command
         if (file_exists("{$destination}/{$name}.php"))
             throw new FileException("Trait with name '{$name}.php' already exists");
 
-        if($this->confirm("This will create Trait '{$name}' in App\Trait namespace. Continue? ", true)) {
+        if($this->confirm("This will create Trait '{$name}' in App\Trait namespace. Continue?", true)) {
 
             if (!is_dir($destination))
                 mkdir($destination, 0777, true);
