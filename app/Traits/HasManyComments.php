@@ -5,7 +5,7 @@ namespace App\Traits;
 use App\Models\Comment;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-trait BelongsToComments
+trait HasManyComments
 {
     public function comments(): HasMany
     {
