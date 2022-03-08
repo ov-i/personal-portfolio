@@ -21,7 +21,24 @@
             <!-- TODO: Add filter / group by controls -->
 
             <article class="add-action w-full flex justify-between items-center pt-6 pb-3" role="article">
-                <div></div>
+                <div class="flex flex-col md:flex-row items-start">
+                    <label for="group-published" class="block mb-4 md:mr-4">
+                        Sortuj według <br>
+                        <select v-model="group_by_date" id="group-by" @change="sortByDate()" class="text-lg">
+                            <option value="wszystkie" selected disabled>-- wszystkie --</option>
+                            <option value="najnowsze">najnowsze</option>
+                            <option value="najstarsze">najstarsze</option>
+                        </select>
+                    </label>
+                    <label for="group-published" class="block">
+                        Stan wpisu <br>
+                        <select v-model="group_published" id="group-published" @change="fetchByGroupPublished()" class="text-lg">
+                            <option value="wszystkie" selected disabled>-- wszystkie --</option>
+                            <option value="opublikowane">opublikowane</option>
+                            <option value="nieopublikowane">nieopublikowane</option>
+                        </select>
+                    </label>
+                </div>
                 <router-link :to="{name: 'PostCreate'}" class="add-action-button">
                     Dodaj nowy
                 </router-link>
@@ -79,7 +96,7 @@
 
 <script>
 import Editor from '@tinymce/tinymce-vue'
-import { mapGetters } from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
 import { Icon } from '@iconify/vue';
 
 export default {
@@ -87,6 +104,37 @@ export default {
     components: {
         Icon,
         'editor': Editor,
+    },
+    data: () => ({
+        group_published: 'wszystkie',
+        group_by_date: 'wszystkie'
+    }),
+    methods: {
+        async fetchByGroupPublished() {
+            this.group_by_date = 'wszystkie'
+            await this.fetchPosts()
+            let posts = this.postsCollection.posts
+            let filtered = null;
+
+            if (this.group_published === 'opublikowane') {
+                this.$store.commit('FETCH_POSTS', posts)
+                filtered = posts.filter(post => post.published)
+                this.$store.commit('FETCH_POSTS', {posts: filtered})
+            } else {
+                this.$store.commit('FETCH_POSTS', posts)
+                filtered = posts.filter(post => !post.published)
+                this.$store.commit('FETCH_POSTS', {posts: filtered})
+            }
+        },
+        sortByDate() {
+            let posts = this.postsCollection.posts
+            this.$store.commit('FETCH_POSTS', {posts: posts.sort((prev, next) => {
+                if(this.group_by_date === 'najnowsze' && prev.created_at >= next.created_at)
+                    return -1
+                else if (this.group_by_date === 'najstarsze' && prev.created_at <= next.created_at)
+                    return -1
+            })})
+        }
     },
     setup() {
         const mce_plugins = [
@@ -96,7 +144,7 @@ export default {
             emoticons template paste textpattern color_cols color_map`
         ]
 
-        return { mce_plugins }
+        return { mce_plugins, ...mapActions(['fetchByGroupPublished', 'fetchPosts']) }
     },
     computed: {
         ...mapGetters({
