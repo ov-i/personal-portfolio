@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Traits\BelongsToRoles;
+use App\Traits\HasManyComments;
+use App\Traits\HasManyPosts;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,6 +18,8 @@ class User extends Authenticatable
     use Notifiable;
     use SoftDeletes;
     use BelongsToRoles;
+    use HasManyPosts;
+    use HasManyComments;
 
     protected $table = 'users';
 
@@ -52,14 +56,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function posts(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(Post::class);
-    }
-
-    public function comments()
-    {
-        $this->hasMany(Comment::class);
-    }
 }
