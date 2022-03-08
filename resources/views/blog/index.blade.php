@@ -11,11 +11,11 @@
             @foreach($posts as $post)
                 <article class="post pb-7 first:pt-0 pt-10 last:border-none border-b border-background-accent">
                     <div class="post-title">
-                        <a href="{{ route('blog.show', ['post' => $post->slug]) }}">
-                            <h1 class="post-title-header">
+                        <h1 class="post-title-header">
+                            <a href="{{ route('blog.show', ['post' => $post->slug]) }}">
                                 {{ $post->title }}
-                            </h1>
-                        </a>
+                            </a>
+                        </h1>
                     </div>
                     <div class="post-info flex flex-row font-light italic text-sm items-center">
                         <div class="author md:mr-2 mr-1">
@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="read-more pt-7">
-                            <a href="{{ route('blog.show', ['post' => $post->id]) }}" class="text-accent-darken font-medium">
+                            <a href="{{ route('blog.show', ['post' => $post->slug]) }}" class="text-accent-darken font-medium">
                                 Czytaj artykuł &raquo;
                             </a>
                         </div>
