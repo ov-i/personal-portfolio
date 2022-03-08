@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { router } from "../../../routes";
 
 /**
  * Fetches posts from laravel API
