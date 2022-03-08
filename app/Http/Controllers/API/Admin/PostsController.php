@@ -56,11 +56,11 @@ class PostsController extends Controller
      *
      * @param Request $request
      * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function update(Request $request, Post $post)
     {
-        //
+        return response()->json(['error' => false, 'message' => 'Ok']);
     }
 
     /**

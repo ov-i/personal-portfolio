@@ -77,11 +77,11 @@
                                     <Icon icon="akar-icons:edit" />
                                 </div>
 
-                                <div class="icon preview-post" v-if="!post.published">
+                                <div class="icon preview-post cursor-pointer" v-if="!post.published" @click="publishPost(post)">
                                     <Icon icon="ic:outline-done" />
                                 </div>
 
-                                <div class="icon preview-post" v-else>
+                                <div class="icon preview-post cursor-pointer" v-else @click="unPublishPost(post)">
                                     <Icon icon="bi:x-lg" />
                                 </div>
 
@@ -147,12 +147,21 @@ export default {
             emoticons template paste textpattern color_cols color_map`
         ]
 
-        return { mce_plugins, ...mapActions(['fetchByGroupPublished', 'fetchPosts']) }
+        return {
+            mce_plugins,
+            ...mapActions([
+                'fetchByGroupPublished',
+                'fetchPosts',
+                'publishPost',
+                'unPublishPost'
+            ])
+        }
     },
     computed: {
         ...mapGetters({
             getFetchErrors: 'getFetchErrors',
-            postsCollection: 'posts'
+            postsCollection: 'posts',
+            author: 'author',
         }),
     },
 }

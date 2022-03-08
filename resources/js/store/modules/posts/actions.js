@@ -63,3 +63,41 @@ export const createPost = async ({ commit, dispatch, getters }, { new_post, tags
     }
 
 }
+
+export const publishPost = async ({ commit, dispatch, getters }, post) => {
+    /**
+     * api endpoint
+     * @type {string}
+     */
+    const endpoint = `${getters.getRequestUrl}/posts/${post.id}`
+
+    try {
+         await axios.put(endpoint, {}, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        commit('PUBLISH_POST', post)
+    } catch (error) {
+        dispatch('notFoundException', 'Problem z przetworzeniem danych')
+    }
+}
+
+export const unPublishPost = async ({ commit, dispatch, getters }, post) => {
+    /**
+     * api endpoint
+     * @type {string}
+     */
+    const endpoint = `${getters.getRequestUrl}/posts/${post.id}`
+
+    try {
+        await axios.put(endpoint, {}, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        commit('UNPUBLISH_POST', post)
+    } catch (error) {
+        dispatch('notFoundException', 'Problem z przetworzeniem danych')
+    }
+}
