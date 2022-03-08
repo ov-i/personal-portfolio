@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class CreateTraitCommand extends Command
 {
@@ -33,18 +34,22 @@ class CreateTraitCommand extends Command
     /**
      * Execute the console command.
      *
+     * @throws FileException
      * @return int
      */
     public function handle(): int
     {
         $name = $this->argument('name');
 
+        $destination = "app/Traits";
         $name = str_replace('-', '', $name);
         $name = ucwords($name);
 
+        if (file_exists("{$destination}/{$name}.php"))
+            throw new FileException("Trait with name '{$name}.php' already exists");
+
         if($this->confirm("This will create Trait '{$name}' in App\Trait namespace. Continue? ", true)) {
 
-            $destination = "app/Traits";
             if (!is_dir($destination))
                 mkdir($destination, 0777, true);
 
