@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
+use App\Traits\BelongsToPost;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Attachment extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
+    use BelongsToPost;
 
     protected $fillable = [
         'post_id',
@@ -17,9 +20,4 @@ class Attachment extends Model
         'mimetype',
         'file_size'
     ];
-
-    public function posts(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(Post::class, 'post_id');
-    }
 }
