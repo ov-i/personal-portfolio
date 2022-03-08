@@ -1,18 +1,18 @@
 import axios from 'axios'
 
 /**
- * Fetches users from laravel API
+ * Fetches categories from laravel API
  * @param state
  * @param commit
  * @param dispatch
  * @returns {Promise<void>}
  */
-export const fetchUsers = async ({ getters, commit, dispatch }) => {
+export const fetchCategories = async ({ getters, commit, dispatch }) => {
     const endpoint = `${getters.getRequestUrl}/categories`
 
     try {
         const categories = await axios.get(endpoint);
-        commit('FETCH_USERS', categories.data)
+        commit('FETCH_CATEGORIES', categories.data.categories)
     } catch (error) {
         dispatch('notFoundException', 'Problem z przetworzeniem danych');
     }

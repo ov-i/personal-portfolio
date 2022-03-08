@@ -26,7 +26,16 @@
             <article class="add-action w-full flex justify-between items-center pt-6 pb-3" role="article">
                 <div class="flex flex-col md:flex-row items-start">
                     <label for="group-published" class="block mb-4 md:mr-4">
-                        Sortuj według <br>
+                        Według kategorii <br>
+                        <select v-model="group_by_date" id="group-by-categories" @change="groupCategories()" class="text-lg" v-if="categories.length">
+                            <option value="wszystkie" selected disabled>-- wszystkie --</option>
+                            <option v-for="category in categories" :key="category.id" :value="category.id">
+                                {{ category.name }}
+                            </option>
+                        </select>
+                    </label>
+                    <label for="group-published" class="block mb-4 md:mr-4">
+                        Według daty <br>
                         <select v-model="group_by_date" id="group-by" @change="sortByDate()" class="text-lg">
                             <option value="wszystkie" selected disabled>-- wszystkie --</option>
                             <option value="najnowsze">najnowsze</option>
@@ -34,7 +43,7 @@
                         </select>
                     </label>
                     <label for="group-published" class="block">
-                        Stan wpisu <br>
+                        Według stanu <br>
                         <select v-model="group_published" id="group-published" @change="fetchByGroupPublished()" class="text-lg">
                             <option value="wszystkie" selected disabled>-- wszystkie --</option>
                             <option value="opublikowane">opublikowane</option>
@@ -137,6 +146,10 @@ export default {
                 else if (this.group_by_date === 'najstarsze' && prev.created_at <= next.created_at)
                     return -1
             })})
+        },
+
+        groupCategories() {
+
         }
     },
     setup() {
@@ -162,6 +175,7 @@ export default {
             getFetchErrors: 'getFetchErrors',
             postsCollection: 'posts',
             author: 'author',
+            categories: 'getCategories'
         }),
     },
 }
