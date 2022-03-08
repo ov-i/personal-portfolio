@@ -17,7 +17,7 @@
             <!-- post sheet -->
             <section class="post-sheet w-full xl:pr-6">
                 <transition transition="fade" v-if="created">
-                    <div class="bg-green-600 text-white text-xl p-3 mb-4 font-primary font-medium rounded-sm shadow-md w-full" v-if="created">
+                    <div class="bg-green-600 text-white text-xl p-3 mb-4 font-primary font-medium rounded-sm shadow-md w-full">
                         Wpis utworzony
                     </div>
                 </transition>

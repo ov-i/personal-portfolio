@@ -1,25 +1,28 @@
 <template>
     <section class="admin-content main-content p-6 font-primary">
         <!-- admin heading -->
-        <div v-if="getFetchErrors.status === 404">
+        <div v-if="getFetchErrors.status === 404" class="mb-6">
             <h1 class="text-5xl uppercase text-dark-700 font-medium pt-2 text-center" v-if="getFetchErrors">
                 {{ getFetchErrors.message }}
             </h1>
             <h1 class="text-5xl uppercase text-dark-700 font-medium pt-2 text-center" v-else>
-                Problem z przetwarzaniem danych
+                Brak danych
             </h1>
         </div>
 
-        <section class="admin-content-wrapper h-screen" v-else>
-            <!-- admin heading -->
-            <article class="admin-heading">
-                <h2 class="admin-header font-semibold text-dark-200 text-2xl" role="heading">
-                    Wszystkie wpisy
-                </h2>
-            </article>
+        <!-- admin heading -->
+        <article class=" admin-content-wrapper admin-heading flex justify-between items-center">
+            <h2 class="admin-header font-semibold text-dark-200 text-2xl" role="heading">
+                Wszystkie wpisy
+            </h2>
+            <section class="add-action" v-if="getFetchErrors.status === 404">
+                <router-link :to="{name: 'PostCreate'}" class="add-action-button">
+                    Dodaj nowy
+                </router-link>
+            </section>
+        </article>
 
-            <!-- TODO: Add filter / group by controls -->
-
+        <section class="admin-content-wrapper h-screen" v-if="!getFetchErrors.status">
             <article class="add-action w-full flex justify-between items-center pt-6 pb-3" role="article">
                 <div class="flex flex-col md:flex-row items-start">
                     <label for="group-published" class="block mb-4 md:mr-4">
