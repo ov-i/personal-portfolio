@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 trait BelongsToPost
 {
-    public function posts(): BelongsTo
+    public function post(): BelongsTo
     {
         return $this->belongsTo(Post::class, 'post_id');
     }

@@ -2,13 +2,18 @@
 
 namespace App\Models;
 
+use App\Traits\BelongsToPost;
+use App\Traits\BelongsToUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comment extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
+    use BelongsToUser;
+    use BelongsToPost;
 
     protected $fillable = [
         'author',
@@ -16,14 +21,4 @@ class Comment extends Model
         'comment',
         'published'
     ];
-
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
-
-    public function post(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(Post::class);
-    }
 }
