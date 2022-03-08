@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\Admin\CategoriesController;
 use App\Http\Controllers\API\Admin\PostsController;
 use App\Http\Controllers\API\Admin\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('/users', UsersController::class);
 Route::apiResource('/posts', PostsController::class);
+
+Route::apiResource('/categories', CategoriesController::class);
