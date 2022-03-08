@@ -25,16 +25,16 @@
         <section class="admin-content-wrapper h-screen" v-if="!getFetchErrors.status">
             <article class="add-action w-full flex justify-between items-center pt-6 pb-3" role="article">
                 <div class="flex flex-col md:flex-row items-start">
-                    <label for="group-published" class="block mb-4 md:mr-4">
+                    <label for="group-published" class="block mb-4 md:mr-4" v-if="categories.length">
                         Według kategorii <br>
-                        <select v-model="group_by_date" id="group-by-categories" @change="groupCategories()" class="text-lg" v-if="categories.length">
-                            <option value="wszystkie" selected disabled>-- wszystkie --</option>
+                        <select v-model="group_by_categories" id="group-by-categories" @change="groupCategories()" class="text-lg">
+                            <option value="wszystkie" selected>-- wszystkie --</option>
                             <option v-for="category in categories" :key="category.id" :value="category.id">
                                 {{ category.name }}
                             </option>
                         </select>
                     </label>
-                    <label for="group-published" class="block mb-4 md:mr-4">
+                    <label for="group-published" class="block mb-4 md:mr-4" v-if="posts.length > 1">
                         Według daty <br>
                         <select v-model="group_by_date" id="group-by" @change="sortByDate()" class="text-lg">
                             <option value="wszystkie" selected disabled>-- wszystkie --</option>
@@ -57,8 +57,9 @@
             </article>
 
             <article class="posts w-full mt-6">
+                <h3 class="font-medium text-2xl text-center text-dark-300" v-if="no_data">Brak danych</h3>
                 <!-- single post -->
-                <div class="post" v-for="post in postsCollection.posts" :key="post.id">
+                <div class="post" v-for="post in posts" :key="post.id">
                     <div class="post-wrapper" v-if="post.slug">
                         <!-- post info -->
                         <div class="post-info">
@@ -119,37 +120,69 @@ export default {
     },
     data: () => ({
         group_published: 'wszystkie',
-        group_by_date: 'wszystkie'
+        group_by_date: 'wszystkie',
+        group_by_categories: 'wszystkie',
+        no_data: false
     }),
     methods: {
         async fetchByGroupPublished() {
             this.group_by_date = 'wszystkie'
             await this.fetchPosts()
-            let posts = this.postsCollection.posts
+            let posts = this.posts
             let filtered = null;
 
-            if (this.group_published === 'opublikowane') {
+            if (this.group_published === 'opublikowane'
+                &&
+                (this.group_by_categories !== 'wszystkie' && this.group_by_categories !== null))
+            {
+                this.$store.commit('FETCH_POSTS', posts)
+                filtered = posts.filter(post => post.published && post.category_id === parseInt(this.group_by_categories))
+                this.$store.commit('FETCH_POSTS', filtered)
+            } else if(this.group_published === 'nieopublikowane'
+                &&
+                (this.group_by_categories !== 'wszystkie' && this.group_by_categories !== null))
+            {
+
+                this.$store.commit('FETCH_POSTS', posts)
+                filtered = posts.filter(post => !post.published && post.category_id === parseInt(this.group_by_categories))
+                this.$store.commit('FETCH_POSTS', filtered)
+            } else if(this.group_published === 'opublikowane' && this.group_by_categories === 'wszystkie' )
+            {
                 this.$store.commit('FETCH_POSTS', posts)
                 filtered = posts.filter(post => post.published)
-                this.$store.commit('FETCH_POSTS', {posts: filtered})
+                this.$store.commit('FETCH_POSTS', filtered)
             } else {
                 this.$store.commit('FETCH_POSTS', posts)
                 filtered = posts.filter(post => !post.published)
-                this.$store.commit('FETCH_POSTS', {posts: filtered})
+                this.$store.commit('FETCH_POSTS', filtered)
             }
+
+            this.no_data = !filtered.length || !filtered;
         },
         sortByDate() {
-            let posts = this.postsCollection.posts
-            this.$store.commit('FETCH_POSTS', {posts: posts.sort((prev, next) => {
+            let posts = this.posts
+            this.$store.commit('FETCH_POSTS', posts.sort((prev, next) => {
                 if(this.group_by_date === 'najnowsze' && prev.created_at >= next.created_at)
                     return -1
                 else if (this.group_by_date === 'najstarsze' && prev.created_at <= next.created_at)
                     return -1
-            })})
+            }))
         },
+        async groupCategories() {
+            this.group_published = 'wszystkie'
+            await this.fetchPosts()
+            let posts = this.posts
+            this.$store.commit('FETCH_POSTS', posts)
 
-        groupCategories() {
+            if (this.group_by_categories === 'wszystkie') {
+                this.$store.commit('FETCH_POSTS', posts)
+                return
+            }
 
+            const filtered = posts.filter(post => post.category_id === parseInt(this.group_by_categories))
+            this.no_data = !filtered.length || !filtered;
+
+            this.$store.commit('FETCH_POSTS', filtered)
         }
     },
     setup() {
@@ -173,8 +206,7 @@ export default {
     computed: {
         ...mapGetters({
             getFetchErrors: 'getFetchErrors',
-            postsCollection: 'posts',
-            author: 'author',
+            posts: 'posts',
             categories: 'getCategories'
         }),
     },

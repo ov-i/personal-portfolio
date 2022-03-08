@@ -8,7 +8,7 @@
 export const FETCH_POSTS = (state, posts) => state.posts = posts
 
 export const CREATE_POST = (state, post) => {
-    const { posts } = state.posts
+    const { posts } = state
 
     posts.push({ id: posts.length + 1, ...post })
     state.created = true;
