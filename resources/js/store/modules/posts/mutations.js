@@ -11,7 +11,7 @@ export const CREATE_POST = (state, post) => {
     const { posts } = state.posts
 
     posts.push({ id: posts.length + 1, ...post })
-    console.log(post)
+    state.created = true;
 }
 
 export const PUBLISH_POST = (state, post) => {

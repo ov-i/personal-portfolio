@@ -6,6 +6,13 @@
 export const posts = (state) => state.posts
 
 /**
+ * gets created state variable
+ * @param state
+ * @returns {boolean}
+ */
+export const created = (state) => state.created
+
+/**
  * return posts length
  * @param state
  * @returns {number}

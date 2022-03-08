@@ -13,8 +13,14 @@
         </article>
 
         <article class="add-new w-full pt-3 flex items-start flex-col xl:flex-row" role="article">
+
             <!-- post sheet -->
             <section class="post-sheet w-full xl:pr-6">
+                <transition transition="fade" v-if="created">
+                    <div class="bg-green-600 text-white text-xl p-3 mb-4 font-primary font-medium rounded-sm shadow-md w-full" v-if="created">
+                        Wpis utworzony
+                    </div>
+                </transition>
                 <div class="post-sheet-inner mb-3">
                     <input type="text" name="post-title" id="post-title" class="form-input w-full" placeholder="Tytuł wpisu" maxlength="50" v-model="post.title">
                     <p v-if="post.title.length > 0" class="text-xs text-dark-300 font-light italic pt-2 pb-3">
@@ -184,7 +190,7 @@ export default {
         return { mce_plugins, ...mapActions(['createPost']) }
     },
     computed: {
-        ...mapGetters(['mce_apikey'])
+        ...mapGetters(['mce_apikey', 'created'])
     }
 }
 </script>
