@@ -2,21 +2,16 @@
 
 namespace App\Models;
 
+use App\Traits\BelongsToPosts;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
     use HasFactory;
+    use BelongsToPosts;
 
     protected $fillable = [
       'name'
     ];
-
-    public function posts(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    {
-        return $this
-            ->belongsToMany(Post::class, 'posts_tags', 'tag_id', 'post_id')
-            ->withTimestamps();
-    }
 }
