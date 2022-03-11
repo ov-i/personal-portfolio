@@ -122,10 +122,11 @@ export const unPublishPost = async ({ commit, dispatch, getters }, post) => {
  * @param commit
  * @param dispatch
  * @param getters
- * @param post
+ * @param id { number }
+ * @param post { object }
  * @returns {Promise<void>}
  */
-export const deletePost = async ({ commit, dispatch, getters }, post) => {
+export const deletePost = async ({ commit, dispatch, getters }, {id, post}) => {
     /**
      * api endpoint
      * @type {string}
@@ -139,7 +140,7 @@ export const deletePost = async ({ commit, dispatch, getters }, post) => {
             }
         })
 
-        commit('DELETE_POST', post)
+        commit('DELETE_POST', id)
     } catch (error) {
         dispatch('notFoundException', 'Problem z przetworzeniem danych')
     }

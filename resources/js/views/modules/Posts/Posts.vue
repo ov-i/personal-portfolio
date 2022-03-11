@@ -59,7 +59,7 @@
             <article class="posts w-full mt-6">
                 <h3 class="font-medium text-2xl text-center text-dark-300" v-if="no_data">Brak danych</h3>
                 <!-- single post -->
-                <div class="post" v-for="post in posts" :key="post.id">
+                <div class="post" v-for="(post, index) in posts" :key="post.id">
                     <div class="post-wrapper" v-if="post.slug">
                         <!-- post info -->
                         <div class="post-info">
@@ -95,7 +95,7 @@
                                     <Icon icon="bi:x-lg" />
                                 </div>
 
-                                <div class="icon preview-post">
+                                <div class="icon preview-post cursor-pointer" @click="deletePost({id: index, post: post})">
                                     <Icon icon="akar-icons:trash-can" />
                                 </div>
                             </div>
@@ -195,12 +195,12 @@ export default {
 
         return {
             mce_plugins,
-            ...mapActions([
-                'fetchByGroupPublished',
-                'fetchPosts',
-                'publishPost',
-                'unPublishPost'
-            ])
+            ...mapActions({
+                fetchPosts: 'fetchPosts',
+                publishPost: 'publishPost',
+                unPublishPost: 'unPublishPost',
+                deletePost: 'deletePost',
+            })
         }
     },
     computed: {
