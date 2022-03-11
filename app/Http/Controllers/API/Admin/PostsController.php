@@ -42,13 +42,15 @@ class PostsController extends Controller
 
     /**
      * Display the specified resource.
-     *
      * @param Post $post
-     * @return \Illuminate \Http\Response
+     * @return JsonResponse \Http\Response
      */
-    public function show(Post $post)
+    public function show(Post $post): JsonResponse
     {
-        //
+        if (!$post->id)
+            return response()->json(['error' => true, 'message' => "Could not find post with id = {$post->id}"]);
+
+        return response()->json(['error' => false, 'post' => $post]);
     }
 
     /**
@@ -72,7 +74,7 @@ class PostsController extends Controller
      * @param Post $post
      * @return JsonResponse
      */
-    public function unPublishPost(Post $post)
+    public function unPublishPost(Post $post): JsonResponse
     {
         if (!$post->published)
             return response()->json(['error' => true, 'message' => 'Could not unPublish already unPublished post'], 400);
