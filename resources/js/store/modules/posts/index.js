@@ -7,6 +7,7 @@ export const posts = {
     namespaced: false,
     state: () => ({
         posts: [{}],
+        post: [{}],
         created: false,
         mce_api_key,
     }),

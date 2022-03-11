@@ -5,6 +5,8 @@
  */
 export const posts = (state) => state.posts
 
+export const post = (state) => state.post
+
 /**
  * gets created state variable
  * @param state
