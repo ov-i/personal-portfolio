@@ -24,7 +24,7 @@
                                 <span v-else>{{ post.author.firstname + ' ' + post.author.lastname }}</span>
                             </div>
                             <div class="created_at md:mr-2 mr-1">
-                                <span>{{ post.post.created_at }}</span>
+                                <span>{{ new Date(post.post.created_at).toLocaleString() }}</span>
                             </div>
                             <div class="tags" v-if="post.tags.length > 0">
                             <span class="font-light italic text-xs" v-for="tag in post.tags.slice(0, 2)">
