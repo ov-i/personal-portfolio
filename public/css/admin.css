@@ -555,6 +555,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-6 {
   margin-top: 1.5rem;
 }
+.mt-4 {
+  margin-top: 1rem;
+}
 .block {
   display: block;
 }
@@ -608,6 +611,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-screen {
   width: 100vw;
+}
+.w-10\/12 {
+  width: 83.333333%;
 }
 .-translate-x-1\/2 {
   --tw-translate-x: -50%;
@@ -1075,9 +1081,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ease-linear {
   transition-timing-function: linear;
 }
-.ease-in-out {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 [v-cloak] {
   display: none;
@@ -1221,16 +1224,6 @@ a {
   color: rgb(35 35 56 / var(--tw-text-opacity));
 }
 
-.hover\:text-white:hover {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.hover\:text-red-darken:hover {
-  --tw-text-opacity: 1;
-  color: rgb(111 1 1 / var(--tw-text-opacity));
-}
-
 .hover\:text-blue-600:hover {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
@@ -1239,6 +1232,16 @@ a {
 .hover\:text-red:hover {
   --tw-text-opacity: 1;
   color: rgb(149 0 0 / var(--tw-text-opacity));
+}
+
+.hover\:text-red-darken:hover {
+  --tw-text-opacity: 1;
+  color: rgb(111 1 1 / var(--tw-text-opacity));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 @media (min-width: 768px) {
@@ -1457,12 +1460,12 @@ a {
     width: 50%;
   }
 
-  .lg\:w-11\/12 {
-    width: 91.666667%;
-  }
-
   .lg\:w-10\/12 {
     width: 83.333333%;
+  }
+
+  .lg\:w-11\/12 {
+    width: 91.666667%;
   }
 
   .lg\:flex-row {
@@ -1550,6 +1553,10 @@ a {
 
   .\32xl\:w-11\/12 {
     width: 91.666667%;
+  }
+
+  .\32xl\:w-9\/12 {
+    width: 75%;
   }
 
   .\32xl\:text-3xl {

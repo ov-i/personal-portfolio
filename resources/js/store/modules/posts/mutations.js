@@ -7,6 +7,8 @@
  */
 export const FETCH_POSTS = (state, posts) => state.posts = posts
 
+export const FETCH_POST = (state, post) => state.post = post
+
 export const CREATE_POST = (state, post) => {
     const { posts } = state
 

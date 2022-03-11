@@ -21,7 +21,7 @@ export default [
         component: PostShow
     },
     {
-        path: '/admin/posts/:slug/preview',
+        path: '/admin/posts/:id/preview',
         name: 'PostPreview',
         component: PostPreview
     },

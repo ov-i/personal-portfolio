@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {router} from "../../../routes";
 
 /**
  * Fetches posts from laravel API
@@ -17,6 +18,23 @@ export const fetchPosts = async ({ commit, getters, dispatch }) => {
     try {
         const posts = await axios.get(endpoint)
         commit('FETCH_POSTS', posts.data.posts);
+    } catch (error) {
+        dispatch('notFoundException', 'Problem z przetworzeniem danych')
+    }
+}
+
+export const fetchPost = async({ commit, getters, dispatch }, post) => {
+    const { getRequestUrl } = getters
+
+    /**
+     * api endpoint
+     * @type {string}
+     */
+    const endpoint = `${getRequestUrl}/posts/${post.id}`
+
+    try {
+        const { data } = await axios.get(endpoint)
+        commit('FETCH_POST', data);
     } catch (error) {
         dispatch('notFoundException', 'Problem z przetworzeniem danych')
     }

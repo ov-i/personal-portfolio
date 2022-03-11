@@ -79,9 +79,9 @@
                         </div>
                         <div class="post-actions">
                             <div class="icons flex items-center">
-                                <div class="icon">
-                                    <Icon icon="akar-icons:eye" />
-                                </div>
+                                <router-link :to="{name: 'PostPreview', params: {id: post.id}}" class="icon" @click="fetchPost(post)">
+                                    <Icon icon="akar-icons:eye" class="text-dark-700"></Icon>
+                                </router-link>
 
                                 <div class="icon">
                                     <Icon icon="akar-icons:edit" />
@@ -111,6 +111,8 @@
 import Editor from '@tinymce/tinymce-vue'
 import {mapActions, mapGetters} from 'vuex'
 import { Icon } from '@iconify/vue';
+import { useRoute } from 'vue-router'
+import {onMounted} from "vue";
 
 export default {
     name: 'Posts',
@@ -186,6 +188,12 @@ export default {
         }
     },
     setup() {
+        const route = useRoute()
+
+        onMounted(() => {
+
+        })
+
         const mce_plugins = [
             `autolink lists link image charmap print preview hr anchor pagebreak,
             searchreplace wordcount visualblocks visualchars code fullscreen,
@@ -197,6 +205,7 @@ export default {
             mce_plugins,
             ...mapActions({
                 fetchPosts: 'fetchPosts',
+                fetchPost: 'fetchPost',
                 publishPost: 'publishPost',
                 unPublishPost: 'unPublishPost',
                 deletePost: 'deletePost',
