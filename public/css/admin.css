@@ -1075,6 +1075,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .ease-linear {
   transition-timing-function: linear;
 }
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 [v-cloak] {
   display: none;
@@ -1221,6 +1224,21 @@ a {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:text-red-darken:hover {
+  --tw-text-opacity: 1;
+  color: rgb(111 1 1 / var(--tw-text-opacity));
+}
+
+.hover\:text-blue-600:hover {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+
+.hover\:text-red:hover {
+  --tw-text-opacity: 1;
+  color: rgb(149 0 0 / var(--tw-text-opacity));
 }
 
 @media (min-width: 768px) {

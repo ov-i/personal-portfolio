@@ -79,23 +79,23 @@
                         </div>
                         <div class="post-actions">
                             <div class="icons flex items-center">
-                                <div class="icon preview-post">
+                                <div class="icon">
                                     <Icon icon="akar-icons:eye" />
                                 </div>
 
-                                <div class="icon preview-post">
+                                <div class="icon">
                                     <Icon icon="akar-icons:edit" />
                                 </div>
 
-                                <div class="icon preview-post cursor-pointer" v-if="!post.published" @click="publishPost(post)">
+                                <div class="icon hover:text-blue-600" title="opublikuj" v-if="!post.published" @click="publishPost(post)">
                                     <Icon icon="ic:outline-done" />
                                 </div>
 
-                                <div class="icon preview-post cursor-pointer" v-else @click="unPublishPost(post)">
+                                <div class="icon hover:text-red" title="zdejmij" v-else @click="unPublishPost(post)">
                                     <Icon icon="bi:x-lg" />
                                 </div>
 
-                                <div class="icon preview-post cursor-pointer" @click="deletePost({id: index, post: post})">
+                                <div class="icon hover:text-red-darken" title="usuń" @click="deletePost({id: index, post: post})">
                                     <Icon icon="akar-icons:trash-can" />
                                 </div>
                             </div>
@@ -236,5 +236,9 @@ export default {
 .add-action .add-action-button {
     @apply bg-blog-accent rounded-md shadow-md uppercase text-white text-sm
     font-medium hover:bg-blog-accent-lighten transition duration-200 ease-linear p-3;
+}
+
+.icon {
+    @apply preview-post cursor-pointer duration-300 transition ease-in-out;
 }
 </style>
