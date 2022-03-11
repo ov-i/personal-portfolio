@@ -43,7 +43,7 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param Post $post
      * @return \Illuminate \Http\Response
      */
     public function show(Post $post)
@@ -87,7 +87,7 @@ class PostsController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  \App\Models\Post  $post
+     * @param Post $post
      * @return JsonResponse
      */
     public function update(Request $request, Post $post)
@@ -97,12 +97,15 @@ class PostsController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param Post $post
+     * @return JsonResponse
      */
-    public function destroy(Post $post)
+    public function destroy(Post $post): JsonResponse
     {
-        //
+        if (!$post->id)
+            return response()->json(['error' => true, 'message' => 'Could not delete un-existing post']);
+
+        $post->delete();
+        return response()->json(['error' => false]);
     }
 }
