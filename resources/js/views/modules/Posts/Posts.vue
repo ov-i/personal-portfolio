@@ -65,6 +65,9 @@
                         <div class="post-info">
                             <span class="created-at font-light italic text-dark-200">
                                 {{ new Date(post.created_at).toLocaleString() }}
+                                <i v-if="postCategory(post.category_id)">
+                                    {{ postCategory(post.category_id) }}
+                                </i>
                             </span>
                             <h3 class="post-title pt-2 pb-4">
                                 <router-link
@@ -108,17 +111,13 @@
 </template>
 
 <script>
-import Editor from '@tinymce/tinymce-vue'
 import {mapActions, mapGetters} from 'vuex'
 import { Icon } from '@iconify/vue';
-import { useRoute } from 'vue-router'
-import {onMounted} from "vue";
 
 export default {
     name: 'Posts',
     components: {
         Icon,
-        'editor': Editor,
     },
     data: () => ({
         group_published: 'wszystkie',
@@ -127,6 +126,10 @@ export default {
         no_data: false
     }),
     methods: {
+        /**
+         * fetches posts by published or not
+         * @return {Promise<void>}
+         */
         async fetchByGroupPublished() {
             this.group_by_date = 'wszystkie'
             await this.fetchPosts()
@@ -161,6 +164,11 @@ export default {
 
             this.no_data = !filtered.length || !filtered;
         },
+
+        /**
+         * sorts by data
+         * @return {number}
+         */
         sortByDate() {
             let posts = this.posts
             this.$store.commit('FETCH_POSTS', posts.sort((prev, next) => {
@@ -170,6 +178,11 @@ export default {
                     return -1
             }))
         },
+
+        /**
+         * groups posts with passed categories
+         * @returns {Promise<void>}
+         */
         async groupCategories() {
             this.group_published = 'wszystkie'
             await this.fetchPosts()
@@ -185,24 +198,23 @@ export default {
             this.no_data = !filtered.length || !filtered;
 
             this.$store.commit('FETCH_POSTS', filtered)
-        }
+        },
+
+        /**
+         * gets relationship between post and category
+         * @param post_category_id {number}
+         * @returns {null | string}
+         */
+        postCategory(post_category_id) {
+            const post_category = this.categories.find(category => category.id === post_category_id)
+            if (!post_category)
+                return null
+
+            return post_category.name;
+        },
     },
     setup() {
-        const route = useRoute()
-
-        onMounted(() => {
-
-        })
-
-        const mce_plugins = [
-            `autolink lists link image charmap print preview hr anchor pagebreak,
-            searchreplace wordcount visualblocks visualchars code fullscreen,
-            insertdatetime media nonbreaking save table directionality,
-            emoticons template paste textpattern color_cols color_map`
-        ]
-
         return {
-            mce_plugins,
             ...mapActions({
                 fetchPosts: 'fetchPosts',
                 fetchPost: 'fetchPost',
