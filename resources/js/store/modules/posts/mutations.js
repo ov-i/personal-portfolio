@@ -21,3 +21,13 @@ export const PUBLISH_POST = (state, post) => {
 export const UNPUBLISH_POST = (state, post) => {
     post.published = false
 }
+
+export const DELETE_POST = (state, post) => {
+    const { posts } = state
+
+    const result = posts.find(single => single.id === post.id)
+    if (!result)
+        return
+
+    posts.splice(result.id, 1);
+}

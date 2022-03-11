@@ -116,3 +116,31 @@ export const unPublishPost = async ({ commit, dispatch, getters }, post) => {
         dispatch('notFoundException', 'Problem z przetworzeniem danych')
     }
 }
+
+/**
+ * Deletes post with passed post{id}
+ * @param commit
+ * @param dispatch
+ * @param getters
+ * @param post
+ * @returns {Promise<void>}
+ */
+export const deletePost = async ({ commit, dispatch, getters }, post) => {
+    /**
+     * api endpoint
+     * @type {string}
+     */
+    const endpoint = `${getters.getRequestUrl}/posts/${post.id}`
+
+    try {
+        await axios.delete(endpoint, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+        commit('DELETE_POST', post)
+    } catch (error) {
+        dispatch('notFoundException', 'Problem z przetworzeniem danych')
+    }
+}
