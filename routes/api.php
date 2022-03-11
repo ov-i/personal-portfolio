@@ -22,5 +22,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('/users', UsersController::class);
 Route::apiResource('/posts', PostsController::class);
+Route::put('/post/{post}/publish', [PostsController::class, 'publishPost']);
 
 Route::apiResource('/categories', CategoriesController::class);

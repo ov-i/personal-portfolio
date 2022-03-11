@@ -68,7 +68,7 @@ export const publishPost = async ({ commit, dispatch, getters }, post) => {
      * api endpoint
      * @type {string}
      */
-    const endpoint = `${getters.getRequestUrl}/posts/${post.id}`
+    const endpoint = `${getters.getRequestUrl}/post/${post.id}/publish`
 
     try {
          await axios.put(endpoint, {}, {

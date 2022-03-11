@@ -52,6 +52,22 @@ class PostsController extends Controller
     }
 
     /**
+     * Publishes post
+     * @param Post $post
+     * @return JsonResponse
+     */
+    public function publishPost(Post $post): JsonResponse
+    {
+        if ($post->published)
+            return response()->json(['error' => true, 'message' => 'Could not publish already published post'], 400);
+
+        $post->published = true;
+        $post->save();
+
+        return response()->json(['error' => false], 200);
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param Request $request
