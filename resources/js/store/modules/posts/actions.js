@@ -63,6 +63,14 @@ export const createPost = async ({ commit, dispatch, getters }, { new_post, tags
 
 }
 
+/**
+ * Publishes post
+ * @param commit
+ * @param dispatch
+ * @param getters
+ * @param post
+ * @returns {Promise<void>}
+ */
 export const publishPost = async ({ commit, dispatch, getters }, post) => {
     /**
      * api endpoint
@@ -82,12 +90,20 @@ export const publishPost = async ({ commit, dispatch, getters }, post) => {
     }
 }
 
+/**
+ * UnPublishes post
+ * @param commit
+ * @param dispatch
+ * @param getters
+ * @param post
+ * @returns {Promise<void>}
+ */
 export const unPublishPost = async ({ commit, dispatch, getters }, post) => {
     /**
      * api endpoint
      * @type {string}
      */
-    const endpoint = `${getters.getRequestUrl}/posts/${post.id}`
+    const endpoint = `${getters.getRequestUrl}/post/${post.id}/unPublish`
 
     try {
         await axios.put(endpoint, {}, {

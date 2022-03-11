@@ -68,6 +68,22 @@ class PostsController extends Controller
     }
 
     /**
+     * UnPublishes post
+     * @param Post $post
+     * @return JsonResponse
+     */
+    public function unPublishPost(Post $post)
+    {
+        if (!$post->published)
+            return response()->json(['error' => true, 'message' => 'Could not unPublish already unPublished post'], 400);
+
+        $post->published = false;
+        $post->save();
+
+        return response()->json(['error' => false]);
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param Request $request
