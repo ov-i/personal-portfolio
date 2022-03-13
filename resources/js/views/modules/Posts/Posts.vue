@@ -23,8 +23,8 @@
         </article>
 
         <section class="admin-content-wrapper h-screen" v-if="!getFetchErrors.status">
-            <article class="add-action w-full flex justify-between items-center pt-6 pb-3" role="article">
-                <div class="flex flex-col md:flex-row items-start">
+            <article class="add-action w-full flex justify-between items-start lg:items-center pt-6 pb-3" role="article">
+                <div class="flex flex-col lg:flex-row items-start">
                     <label for="group-published" class="block mb-4 md:mr-4" v-if="categories.length">
                         Według kategorii <br>
                         <select v-model="group_by_categories" id="group-by-categories" @change="groupCategories()" class="text-lg">
@@ -54,6 +54,10 @@
                 <router-link :to="{name: 'PostCreate'}" class="add-action-button">
                     Dodaj nowy
                 </router-link>
+            </article>
+
+            <article class="search-wrapper" role="article" aria-label="search toolbar">
+                <input type="text" class="form-input w-full" placeholder="szukaj postów" @input="filterSearch()" v-model="search_input">
             </article>
 
             <article class="posts w-full mt-6">
@@ -123,9 +127,18 @@ export default {
         group_published: 'wszystkie',
         group_by_date: 'wszystkie',
         group_by_categories: 'wszystkie',
-        no_data: false
+        no_data: false,
+        search_input: '',
     }),
     methods: {
+        ...mapActions({
+            fetchPosts: 'fetchPosts',
+            fetchPost: 'fetchPost',
+            publishPost: 'publishPost',
+            unPublishPost: 'unPublishPost',
+            deletePost: 'deletePost',
+        }),
+
         /**
          * fetches posts by published or not
          * @return {Promise<void>}
@@ -212,16 +225,18 @@ export default {
 
             return post_category.name;
         },
-    },
-    setup() {
-        return {
-            ...mapActions({
-                fetchPosts: 'fetchPosts',
-                fetchPost: 'fetchPost',
-                publishPost: 'publishPost',
-                unPublishPost: 'unPublishPost',
-                deletePost: 'deletePost',
-            })
+        /**
+         * filters posts with input
+         * @return {Promise<void>}
+         */
+        async filterSearch() {
+            await this.fetchPosts()
+
+            const results = this.posts.filter(post => post.title.toLowerCase().indexOf(this.search_input.toLowerCase()) !== -1)
+            console.log(results)
+            !results.length ? this.no_data = true : this.no_data = false
+
+            this.$store.commit('FETCH_POSTS', results)
         }
     },
     computed: {
