@@ -37,10 +37,10 @@
                             {{ date('Y', strtotime($post->created_at)) }}r.
                         </span>
                     </div>
-                    <div class="tags">
-                        @foreach($post->tags()->get()->take(2) as $tag)
-                            <span class="font-light italic text-xs">#{{ $tag->name }}</span>
-                        @endforeach
+                    <div class="category">
+                        <span class="font-light italic text-xs md:text-base">
+                            {{ $post->category()->first()->name }}
+                        </span>
                     </div>
                 </div>
                 <div class="post-body">
@@ -121,5 +121,16 @@
                 </div>
             @endguest
         </article>
+
+        <div class="post-tags w-10/12 retina:w-7/12 mb-4 mt-7">
+            <h3 class="text-2xl font-medium border-b">tagi</h3>
+            @foreach($post->tags()->get() as $tag)
+                <div class="flex items-center flex-wrap mt-2">
+                    <div class="p-2 mr-3 my-2 rounded-md bg-blured-blog-accent flex items-center justify-center text-white">
+                        <span class="text-sm font-medium">#{{ $tag->name }}</span>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </section>
 @endsection
