@@ -68,17 +68,19 @@
                         <!-- post info -->
                         <div class="post-info">
                             <span class="created-at font-light italic text-dark-200">
-                                {{ new Date(post.created_at).toLocaleString() }}
+                                {{ dateLocale(post.created_at) }}
                                 <i v-if="postCategory(post.category_id)">
                                     {{ postCategory(post.category_id) }}
                                 </i>
                             </span>
                             <h3 class="post-title pt-2 pb-4">
-                                <router-link
-                                    :to="{name: 'PostShow', params: {slug: post.slug}}"
-                                    class="post-title-link">
+                                <a
+                                    :href="`/blog/wpisy/${post.slug}`"
+                                    class="post-title-link"
+                                    target="_blank"
+                                    rel="noreferrer noopener">
                                     {{ post.title }}
-                                </router-link>
+                                </a>
                             </h3>
                             <p class="post-description">
                                 {{ post.description }}
@@ -237,7 +239,16 @@ export default {
             !results.length ? this.no_data = true : this.no_data = false
 
             this.$store.commit('FETCH_POSTS', results)
-        }
+        },
+
+        /**
+         * transforms passed date to Date string localeString
+         * @param date {Date}
+         * @return {string}
+         */
+        dateLocale(date) {
+            return new Date(date).toLocaleString()
+        },
     },
     computed: {
         ...mapGetters({
