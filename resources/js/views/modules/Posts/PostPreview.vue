@@ -8,32 +8,31 @@
         </div>
         <div class="show-preview w-full pt-3 flex items-start flex-col xl:flex-row">
             <div class="post-sheet w-full 2xl:w-9/12 xl:pr-6">
-                <div class="post-wrapper" v-if="post && post.post">
+                <div class="post-wrapper" v-if="fetch && fetch.post">
                     <article class="post pb-7 first:pt-0 pt-10 last:border-none border-b border-background-accent">
-                        <div class="posts-thumbnail pb-7" v-if="post.post">
-                            <img :src="post.post.thumbnail_url" alt="thumbnail">
+                        <div class="posts-thumbnail pb-7" v-if="fetch.post">
+                            <img :src="fetch.post.thumbnail_url" alt="thumbnail">
                         </div>
                         <div class="post-title">
                             <h1 class="post-title-header">
-                                {{ post.post.title }}
+                                {{ fetch.post.title }}
                             </h1>
                         </div>
                         <div class="post-info flex flex-row font-light italic text-sm items-center">
-                            <div class="author md:mr-2 mr-1" v-if="post.author">
-                                <span v-if="post.author.toggle_nick_display">{{ post.author.nick }}</span>
-                                <span v-else>{{ post.author.firstname + ' ' + post.author.lastname }}</span>
+                            <div class="author md:mr-2 mr-1" v-if="postUser(fetch.post.user_id)">
+                                <span>{{ postUser(fetch.post.user_id) }}</span>
                             </div>
                             <div class="created_at md:mr-2 mr-1">
-                                <span>{{ new Date(post.post.created_at).toLocaleString() }}</span>
+                                <span>{{ dateLocale(fetch.post.created_at) }}</span>
                             </div>
-                            <div class="tags" v-if="post.tags.length > 0">
-                            <span class="font-light italic text-xs" v-for="tag in post.tags.slice(0, 2)">
+                            <div class="tags" v-if="fetch.tags.length > 0">
+                            <span class="font-light italic text-xs" v-for="tag in fetch.tags.slice(0, 2)">
                                 #{{ tag.name }}
                             </span>
                             </div>
                         </div>
                         <div class="post-body" id="post-body">
-                            <div id="post-content" class="post-content py-3 md:py-5" v-html="post.post.content"></div>
+                            <div id="post-content" class="post-content py-3 md:py-5" v-html="fetch.post.content"></div>
                         </div>
                     </article>
                 </div>
@@ -45,10 +44,10 @@
             <!-- post sidebars -->
             <div class="post-sidebars w-full lg:w-10/12 xl:w-5/12 retina:w-4/12 mx-auto xl:mx-0 pt-6 lg:pt-8 xl:pt-0">
                 <!-- single sidebar -->
-                <div class="post-sidebar" v-if="post.post">
+                <div class="post-sidebar" v-if="fetch.post">
                     <h3 class="text-3xl font-medium text-blog-accent pb-2 border-b border-dirty-white">Dostępna akcja</h3>
                     <div class="action mt-4">
-                        <button v-if="post.post.published" class="p-3 bg-blog-accent text-white font-medium text-sm rounded-sm">Zdejmij</button>
+                        <button v-if="fetch.post.published" class="p-3 bg-blog-accent text-white font-medium text-sm rounded-sm">Zdejmij</button>
                         <button v-else class="p-3 bg-blog-accent text-white font-medium text-sm rounded-sm">Opublikuj</button>
                     </div>
                     <!-- TODO: add modal where admin can see all attachments and select one. Select URL from it from laravel API  -->
@@ -61,19 +60,67 @@
 <script>
 import {mapGetters} from "vuex";
 import {Icon} from "@iconify/vue";
+import {useRoute} from "vue-router";
+import {onMounted, ref} from "vue";
 
 export default {
     name: "PostPreview",
     components: {
         Icon,
     },
+    methods: {
+        postCategory(post_category_id) {
+            const post_category = this.categories.find(category => category.id === post_category_id)
+            if (!post_category)
+                return null
+
+            return post_category.name;
+        },
+        /**
+         *
+         * @param post_user_id
+         * @return {string}
+         */
+        postUser(post_user_id) {
+            const post_user = this.users.find(user => user.id === post_user_id)
+            if (!post_user)
+                return null
+
+            if (post_user.toggle_nick_display)
+                return `${post_user.firstname} ${post_user.lastname}`
+            else
+                return post_user.nick
+        },
+
+        /**
+         * transforms passed date to Date string localeString
+         * @param date {Date}
+         * @return {string}
+         */
+        dateLocale(date) {
+            return new Date(date).toLocaleString()
+        },
+    },
+    setup() {
+        const route_id = ref();
+        const route = useRoute()
+
+        onMounted(() => {
+            route_id.value = route.params.id ?? null
+        })
+
+        if(!route_id)
+            return this.$router.push({ name: 'Posts' })
+    },
     computed: {
-        post() {
+        fetch() {
             return { ...this.getPost }
         },
 
         ...mapGetters({
-            getPost: 'post'
+            getPost: 'post',
+            categories: 'getCategories',
+            users: 'getUsers'
         })
     }
 }
