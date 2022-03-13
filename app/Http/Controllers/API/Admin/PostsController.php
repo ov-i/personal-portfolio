@@ -51,23 +51,12 @@ class PostsController extends Controller
             return response()->json(['error' => true, 'message' => "Could not find post with id = {$post->id}"]);
 
         // relations
-        $category = $post->category()->first()->only([
-            'name'
-        ]);
-        $author = $post->user()->first()->only([
-            'nick',
-            'firstname',
-            'lastname',
-            'toggle_nick_display'
-        ]);
         $tags = $post->tags()->get();
         $attachments = $post->attachments()->get();
 
         return response()->json([
             'error' => false,
             'post' => $post,
-            'category' => $category,
-            'author' => $author,
             'tags' => $tags,
             'attachments' => $attachments,
         ]);
