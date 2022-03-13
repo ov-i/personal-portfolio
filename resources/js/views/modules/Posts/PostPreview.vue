@@ -19,7 +19,7 @@
                             </h1>
                         </div>
                         <div class="post-info flex flex-row font-light italic text-sm items-center">
-                            <div class="author md:mr-2 mr-1">
+                            <div class="author md:mr-2 mr-1" v-if="post.author">
                                 <span v-if="post.author.toggle_nick_display">{{ post.author.nick }}</span>
                                 <span v-else>{{ post.author.firstname + ' ' + post.author.lastname }}</span>
                             </div>

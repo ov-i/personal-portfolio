@@ -10,7 +10,6 @@ trait BelongsToTags
     public function tags(): BelongsToMany
     {
         return $this
-            ->belongsToMany(Tag::class, 'posts_tags', 'post_id', 'tag_id')
-            ->withTimestamps();
+            ->belongsToMany(Tag::class, 'posts_tags', 'post_id', 'tag_id');
     }
 }

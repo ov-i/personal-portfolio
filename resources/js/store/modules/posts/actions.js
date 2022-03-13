@@ -34,6 +34,7 @@ export const fetchPost = async({ commit, getters, dispatch }, post) => {
 
     try {
         const { data } = await axios.get(endpoint)
+        console.log(data)
         commit('FETCH_POST', data);
     } catch (error) {
         dispatch('notFoundException', 'Problem z przetworzeniem danych')
