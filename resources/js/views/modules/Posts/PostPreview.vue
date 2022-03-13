@@ -25,15 +25,17 @@
                             <div class="created_at md:mr-2 mr-1">
                                 <span>{{ dateLocale(fetch.post.created_at) }}</span>
                             </div>
-                            <div class="tags" v-if="fetch.tags.length > 0">
-                            <span class="font-light italic text-xs" v-for="tag in fetch.tags.slice(0, 2)">
-                                #{{ tag.name }}
-                            </span>
+                            <div class="category" v-if="postCategory(fetch.post.category_id)">
+                                {{ postCategory(fetch.post.category_id) }}
                             </div>
                         </div>
                         <div class="post-body" id="post-body">
                             <div id="post-content" class="post-content py-3 md:py-5" v-html="fetch.post.content"></div>
                         </div>
+
+                        <tags-wrapper>
+                            <tag-item :tags="fetch.tags"></tag-item>
+                        </tags-wrapper>
                     </article>
                 </div>
                 <div class="flex items-center justify-center" v-else>
@@ -62,11 +64,15 @@ import {mapGetters} from "vuex";
 import {Icon} from "@iconify/vue";
 import {useRoute} from "vue-router";
 import {onMounted, ref} from "vue";
+import TagsWrapper from "../../../components/TagsWrapper";
+import TagItem from "../../../components/TagItem";
 
 export default {
     name: "PostPreview",
     components: {
         Icon,
+        TagsWrapper,
+        TagItem
     },
     methods: {
         postCategory(post_category_id) {
