@@ -39,10 +39,8 @@
                                 {{ date('Y', strtotime($post->created_at)) }}r.
                             </span>
                         </div>
-                        <div class="tags">
-                            @foreach($post->tags()->get()->take(2) as $tag)
-                                <span class="font-light italic text-xs md:text-base">#{{ $tag->name }}</span>
-                            @endforeach
+                        <div class="category">
+                            <span class="font-light italic text-xs md:text-base">{{ $post->category()->first()->name }}</span>
                         </div>
                     </div>
                     <div class="post-body">
