@@ -75,6 +75,12 @@ export default {
         TagItem
     },
     methods: {
+        /**
+         * gets relationship between category and post
+         *
+         * @param post_category_id
+         * @return {string | null}
+         */
         postCategory(post_category_id) {
             const post_category = this.categories.find(category => category.id === post_category_id)
             if (!post_category)
@@ -83,9 +89,10 @@ export default {
             return post_category.name;
         },
         /**
+         * gets relationship between user and post
          *
          * @param post_user_id
-         * @return {string}
+         * @return {string | null}
          */
         postUser(post_user_id) {
             const post_user = this.users.find(user => user.id === post_user_id)
