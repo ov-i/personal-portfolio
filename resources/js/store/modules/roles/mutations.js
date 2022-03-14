@@ -5,6 +5,4 @@
  * @param role {{id: number, name: string}}
  * @constructor
  */
-export const FETCH_ROLES = (state, role) => {
-
-}
+export const FETCH_ROLES = (state, role) => state.roles = role
