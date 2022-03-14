@@ -20,11 +20,6 @@ export const routes = [
         component: Users
     },
     {
-        path: '/admin/roles',
-        name: 'Roles',
-        component: Users
-    },
-    {
         path: '/admin/comments',
         name: 'Comments',
         component: Users
@@ -36,5 +31,6 @@ export const routes = [
     },
 
     ...UserModule,
-    ...PostModule
+    ...PostModule,
+    ...RoleModule,
 ];
