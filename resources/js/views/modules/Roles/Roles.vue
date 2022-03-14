@@ -14,11 +14,11 @@
         </article>
 
         <div class="roles w-full mt-3">
-            <div class="container flex justify-center mx-auto w-full">
+            <div class="container flex justify-center mx-auto w-full" v-if="roles">
                 <div class="flex flex-col">
                     <div class="w-full">
                         <div class="border-b border-gray-200 shadow">
-                            <table>
+                            <table class="w-full">
                                 <thead class="bg-gray-50">
                                 <tr>
                                     <th class="px-6 py-2 text-xs text-gray-500">
@@ -28,40 +28,22 @@
                                         Name
                                     </th>
                                     <th class="px-6 py-2 text-xs text-gray-500">
-                                        Email
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-gray-500">
-                                        Created_at
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-gray-500">
-                                        Edit
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-gray-500">
-                                        Delete
+                                        Akcja
                                     </th>
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white">
-                                    <tr class="whitespace-nowrap">
+                                    <tr class="whitespace-nowrap" v-for="role in rolesFetch()" :key="role.id">
                                         <td class="px-6 py-4 text-sm text-gray-500">
-                                            1
+                                            {{ role.id }}
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="text-sm text-gray-900">
-                                                Jon doe
+                                                {{ role.name }}
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4">
-                                            <div class="text-sm text-gray-500">jhondoe@example.com</div>
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500">
-                                            2021-1-12
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <a href="#" class="px-4 py-1 text-sm text-white bg-blue-400 rounded">Edit</a>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <a href="#" class="px-4 py-1 text-sm text-white bg-red-400 rounded">Delete</a>
+                                        <td class="text-center">
+                                            <button>usuń</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -75,8 +57,23 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+import {Icon} from "@iconify/vue/dist/iconify";
+
 export default {
-    name: "Roles"
+    name: "Roles",
+    components: {Icon},
+    computed: {
+        ...mapGetters({
+            roles: 'getRoles'
+        })
+    },
+    methods: {
+        rolesFetch() {
+            const { roles } = this.roles
+            return roles
+        }
+    }
 }
 </script>
 
@@ -84,5 +81,9 @@ export default {
 .add-action .add-action-button {
     @apply bg-blog-accent rounded-md shadow-md uppercase text-white text-sm
     font-medium hover:bg-blog-accent-lighten transition duration-200 ease-linear p-3;
+}
+
+.icon {
+    @apply cursor-pointer duration-300 transition ease-in-out;
 }
 </style>
