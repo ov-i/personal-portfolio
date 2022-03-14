@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\Admin\CategoriesController;
 use App\Http\Controllers\API\Admin\PostsController;
+use App\Http\Controllers\API\Admin\RolesController;
 use App\Http\Controllers\API\Admin\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,4 @@ Route::put('/post/{post}/publish', [PostsController::class, 'publishPost']);
 Route::put('/post/{post}/unPublish', [PostsController::class, 'unPublishPost']);
 
 Route::apiResource('/categories', CategoriesController::class);
+Route::apiResource('/roles', RolesController::class);
