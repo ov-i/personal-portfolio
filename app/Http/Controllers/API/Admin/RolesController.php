@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\API\Admin;
 
+use App\Actions\Roles\CreateRole;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\MessageBag;
 
 class RolesController extends Controller
 {
@@ -29,11 +31,16 @@ class RolesController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request, CreateRole $createRole)
     {
-        //
+        $role = $createRole($request->all());
+
+        if ($role instanceof MessageBag)
+            return response()->json(['error' => true, 'message' => $role->getMessages()], 400);
+
+        return response()->json(['error' => false, 'role' => $role], 201);
     }
 
     /**
