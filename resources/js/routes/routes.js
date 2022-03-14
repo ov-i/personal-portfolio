@@ -2,6 +2,7 @@ import Home from "../views/Home";
 import Users from "../views/modules/Users/Users";
 import PostModule from "./modules/Posts";
 import UserModule from "./modules/User";
+import RoleModule from "./modules/Role";
 
 export const routes = [
     {
