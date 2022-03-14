@@ -52,7 +52,6 @@
                         <button v-if="fetch.post.published" class="p-3 bg-blog-accent text-white font-medium text-sm rounded-sm">Zdejmij</button>
                         <button v-else class="p-3 bg-blog-accent text-white font-medium text-sm rounded-sm">Opublikuj</button>
                     </div>
-                    <!-- TODO: add modal where admin can see all attachments and select one. Select URL from it from laravel API  -->
                 </div>
             </div>
         </div>
@@ -88,6 +87,7 @@ export default {
 
             return post_category.name;
         },
+
         /**
          * gets relationship between user and post
          *
@@ -107,23 +107,13 @@ export default {
 
         /**
          * transforms passed date to Date string localeString
+         *
          * @param date {Date}
          * @return {string}
          */
         dateLocale(date) {
             return new Date(date).toLocaleString()
         },
-    },
-    setup() {
-        const route_id = ref();
-        const route = useRoute()
-
-        onMounted(() => {
-            route_id.value = route.params.id ?? null
-        })
-
-        if(!route_id)
-            return this.$router.push({ name: 'Posts' })
     },
     computed: {
         fetch() {

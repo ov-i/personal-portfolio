@@ -8,13 +8,13 @@
                 Dostępne role
             </h2>
             <section class="add-action">
-                <router-link to="" class="add-action-button">
+                <button class="add-action-button" @click="showCreateModal()">
                     Dodaj rolę
-                </router-link>
+                </button>
             </section>
         </article>
         <section class="roles-wrapper pt-7" role="banner">
-            <table class="w-full shadow-md" v-if="rolesFetch">
+            <table class="w-full shadow-md" v-if="rolesFetch().length">
                 <thead class="bg-gray-50">
                     <tr>
                         <th class="px-6 py-4 text-xs text-white bg-blog-accent">
@@ -46,26 +46,62 @@
                     </tr>
                 </tbody>
             </table>
+            <h3 class="text-blog-accent text-3xl font-medium text-center" v-else>Brak danych</h3>
         </section>
+    </section>
+    <div class="bg-dark-300 opacity-90 h-screen w-screen absolute top-0 left-0 z-10" v-if="roleModal" @click="hideRoleModal()"></div>
+    <section class="create-modal absolute top-1/3 left-1/2 shadow-md p-3 rounded-md bg-white z-20" v-if="roleModal">
+        <h3 class="font-medium text-lg text-blog-accent border-b border-dirty-white pb-2">Nazwa roli</h3>
+
+        <form role="form">
+            <input type="text" class="form-input mb-4" v-model="role.name" autofocus required>
+            <button
+                class="p-3 rounded-sm shadow-md bg-blog-accent font-medium uppercase text-sm block text-white"
+                @click.prevent="createRole(role); hideRoleModal()">
+                Zapisz
+            </button>
+        </form>
     </section>
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 import {Icon} from "@iconify/vue/dist/iconify";
 
 export default {
     name: "Roles",
     components: {Icon},
+    data: () => ({
+       roleModal: false,
+       role: {
+           name: ''
+       }
+    }),
     computed: {
         ...mapGetters({
             roles: 'getRoles'
         })
     },
     methods: {
+        ...mapActions({
+            createRole: 'createRole'
+        }),
+
+        /**
+         *
+         * @return {array<{id: number, name: string}>}
+         */
         rolesFetch() {
             const { roles } = this.roles
             return roles
+        },
+
+        showCreateModal() {
+            this.roleModal = true
+        },
+
+        hideRoleModal() {
+            this.roleModal = false
         }
     }
 }

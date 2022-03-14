@@ -23,6 +23,14 @@ export const fetchPosts = async ({ commit, getters, dispatch }) => {
     }
 }
 
+/**
+ *
+ * @param commit
+ * @param getters
+ * @param dispatch
+ * @param post
+ * @return {Promise<void>}
+ */
 export const fetchPost = async({ commit, getters, dispatch }, post) => {
     const { getRequestUrl } = getters
 
@@ -42,12 +50,22 @@ export const fetchPost = async({ commit, getters, dispatch }, post) => {
 
 /**
  * Creates new post
+ *
  * @param commit
  * @param dispatch
  * @param getters
- * @param new_post
- * @param tags
- * @param attachments
+ * @param new_post {
+     * {
+     * thumbnail_url: string,
+     * category_id: number,
+     * title: string,
+     * slug: string,
+     * description: string,
+     * content: string
+     * }
+ * }
+ * @param tags {array<{id: number}>}
+ * @param attachments {array<{id: number}>}
  * @returns {Promise<void>}
  */
 export const createPost = async ({ commit, dispatch, getters }, { new_post, tags, attachments }) => {
