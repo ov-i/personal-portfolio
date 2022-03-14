@@ -2,6 +2,7 @@
     <!-- roles main section -->
     <section class="main-content admin-content roles-section p-8 font-primary">
         <!-- admin heading -->
+
         <article class="admin-content-wrapper border-b border-dirty-white pb-3 admin-heading flex justify-between items-center">
             <h2 class="admin-header font-semibold text-dark-200 text-2xl" role="heading">
                 Dostępne role
@@ -12,47 +13,38 @@
                 </router-link>
             </section>
         </article>
-
-        <div class="roles w-full mt-3">
-            <div class="container flex justify-center mx-auto w-full" v-if="roles">
-                <div class="flex flex-col">
-                    <div class="w-full">
-                        <div class="border-b border-gray-200 shadow">
-                            <table class="w-full">
-                                <thead class="bg-gray-50">
-                                <tr>
-                                    <th class="px-6 py-2 text-xs text-gray-500">
-                                        ID
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-gray-500">
-                                        Name
-                                    </th>
-                                    <th class="px-6 py-2 text-xs text-gray-500">
-                                        Akcja
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody class="bg-white">
-                                    <tr class="whitespace-nowrap" v-for="role in rolesFetch()" :key="role.id">
-                                        <td class="px-6 py-4 text-sm text-gray-500">
-                                            {{ role.id }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="text-sm text-gray-900">
-                                                {{ role.name }}
-                                            </div>
-                                        </td>
-                                        <td class="text-center">
-                                            <button>usuń</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <section class="roles-wrapper pt-7" role="banner">
+            <table class="w-full shadow-md" v-if="rolesFetch">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-4 text-xs text-white bg-blog-accent">
+                            ID
+                        </th>
+                        <th class="px-6 py-4 text-xs text-white bg-blog-accent">
+                            Name
+                        </th>
+                        <th class="px-6 py-4 text-xs text-white bg-blog-accent">
+                            Akcja
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white text-center">
+                    <tr class="whitespace-nowrap" v-for="role in rolesFetch()" :key="role.id">
+                        <td class="px-6 py-4 text-sm text-gray-500">
+                            {{ role.id }}
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="text-sm text-gray-900">
+                                <p>{{ role.name }}</p>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <button>usuń</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </section>
 </template>
 
