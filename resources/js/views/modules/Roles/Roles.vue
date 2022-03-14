@@ -39,7 +39,9 @@
                             </div>
                         </td>
                         <td class="text-center">
-                            <button>usuń</button>
+                            <button class="text-blog-accent hover:text-blog-accent-lighten transition duration-200 ease-linear font-medium">
+                                usuń
+                            </button>
                         </td>
                     </tr>
                 </tbody>
