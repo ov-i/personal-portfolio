@@ -33,7 +33,7 @@ class RolesController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    public function store(Request $request, CreateRole $createRole)
+    public function store(Request $request, CreateRole $createRole): JsonResponse
     {
         $role = $createRole($request->all());
 
