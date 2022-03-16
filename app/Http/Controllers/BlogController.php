@@ -6,15 +6,26 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function index()
+    /**
+     * returns posts data
+     *
+     * @return Factory|View|Application
+     */
+    public function index(): Factory|View|Application
     {
-        $posts = Post::paginate(10);
-        $categories = Category::get();
-        $tags = Tag::get();
+        $posts = Post::query()
+            ->orderBy('id')
+            ->where('published', '=', true)
+            ->paginate(10);
+        $categories = Category::query()->get();
+        $tags = Tag::query()->get();
 
         return view('blog.index', compact([
             'posts',
@@ -25,8 +36,9 @@ class BlogController extends Controller
 
     public function show(Post $post)
     {
-        $categories = Category::get();
-        $tags = Tag::get();
+        $categories = Category::query()->get();
+        $tags = Tag::query()->get();
+
         $comments = $post->comments()->get();
 
         return view('blog.show', compact([
