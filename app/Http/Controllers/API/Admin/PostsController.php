@@ -17,7 +17,8 @@ class PostsController extends Controller
      */
     public function index(): JsonResponse
     {
-        $posts = Post::get();
+        $posts = Post::query()->get();
+
         if (count($posts) === 0)
             return response()->json(['error' => true, 'posts' => []], 404);
 
