@@ -18,7 +18,7 @@ class UsersController extends Controller
      */
     public function index(User $user): JsonResponse
     {
-        $users = $user->get();
+        $users = $user->query()->get();
 
         if (count($users) === 0)
             return response()->json(['error' => true, 'users' => []], 404);

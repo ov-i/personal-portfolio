@@ -19,7 +19,7 @@ class RolesController extends Controller
      */
     public function index(): JsonResponse
     {
-        $roles = Role::get();
+        $roles = Role::query()->get();
 
         if (count($roles) === 0)
             return response()->json(['error' => true, 'roles' => []], 404);

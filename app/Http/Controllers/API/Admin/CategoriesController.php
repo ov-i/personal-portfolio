@@ -16,7 +16,7 @@ class CategoriesController extends Controller
      */
     public function index(): JsonResponse
     {
-        $categories = Category::get();
+        $categories = Category::query()->get();
 
         if (count($categories) === 0)
             return response()->json(['error' => true, 'categories' => []], 404);
