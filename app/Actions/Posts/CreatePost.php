@@ -3,6 +3,7 @@
 namespace App\Actions\Posts;
 
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -15,9 +16,9 @@ class CreatePost
      *
      * @description If tags or attachments were not passed in request, create just pure post
      * @param array $data
-     * @return Post| MessageBag|array
+     * @return Post| MessageBag | array
      */
-    public function __invoke(array $data): Post | MessageBag | array
+    public function __invoke(array $data): Model | MessageBag | array
     {
         $validator = Validator::make($data, [
             'likes' => ['integer'],
@@ -37,7 +38,8 @@ class CreatePost
         $tags = $data['tags'] ?? null;
         $attachments = $data['attachments'] ?? null;
 
-        $post = Post::create($data);
+        $post = Post::query()->create($data);
+
         if ($tags !== null) {
             $post_tags = $post->tags()->sync($tags);
 
