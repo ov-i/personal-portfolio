@@ -43,7 +43,7 @@ Route::get('/blog/kategoria/{category:name}/wpisy', [BlogController::class, 'cat
 Route::get('/blog/tags/{tag:name}/posts', [BlogController::class, 'tags'])->name('blog.tags');
 
 // routes protected by auth
-Route::middleware('auth')->group(function () {
+Route::middleware('admin')->group(function () {
     // administration panel
     Route::controller(AdminController::class)->prefix('admin')->group(function () {
         Route::get('/', 'index')->name('admin.home');
