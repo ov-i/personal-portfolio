@@ -27,3 +27,11 @@ mix.js('resources/js/admin.js', 'public/js')
         require('tailwindcss'),
     ])
     .sourceMaps()
+
+// Auth section
+mix.js('resources/js/auth.js', 'public/js')
+    .vue()
+    .postCss('resources/css/auth.css', 'public/css', [
+        require('tailwindcss'),
+    ])
+    .sourceMaps()
