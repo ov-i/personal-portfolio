@@ -19,10 +19,8 @@ class AuthController extends Controller
      */
     public function login(): View|Factory|RedirectResponse|Application
     {
-        if (auth()->check() && $this->isAdmin())
-            return redirect()->route('admin.home');
-        elseif(auth()->check() && !$this->isAdmin())
-            return redirect()->route('user.home');
+        if (auth()->check())
+            return redirect()->route('blog.index');
 
         return view('auth.login');
     }
@@ -49,10 +47,7 @@ class AuthController extends Controller
             return redirect()->route('auth.login')
                 ->with('badCredentials', 'Nieprawidłowe dane logowania');
 
-        if (!$this->isAdmin())
-            return redirect()->route('user.home')->with('user', auth()->user());
-
-        return redirect()->route('admin.home');
+        return redirect()->route('blog.index');
     }
 
     /**
@@ -62,8 +57,10 @@ class AuthController extends Controller
      */
     public function logout(): RedirectResponse
     {
-        auth()->logout();
-        return redirect()->route('auth.login');
+        if (auth()->check())
+            auth()->logout();
+
+        return redirect()->route('blog.index');
     }
 
     /**

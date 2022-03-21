@@ -90,7 +90,7 @@
                                     <div class="dropdown-menu-wrapper cursor-pointer" role="banner" @click="toggleDialog()">
                                         <figure class="dropdown-avatar flex items-center md:justify-end" role="figure" aria-label="user avatar">
                                             <img src="https://unsplash.it/200/200" alt="user-avatar" class="rounded-full w-2/12 h-2/12 mx-2">
-                                            <span class="dropdown-avatar-name text-lg mr-4">Hej, Sarah</span>
+                                            <span class="dropdown-avatar-name text-lg mr-4">Hej, {{ auth()->user()->nick  }}</span>
                                             <div class="dropdown-button text-lg">
                                                 <span class="iconify" data-icon="ant-design:caret-down-filled"></span>
                                             </div>
@@ -113,13 +113,15 @@
                                                     Ustawienia
                                                 </a>
                                             </li>
-                                            <li class="dropdown-menu-dialog-list-item font-regular">
-                                                <a href="">
-                                                    panel administracyjny
-                                                </a>
-                                            </li>
+                                            @if((new \App\Http\Controllers\AuthController())->isAdmin())
+                                                <li class="dropdown-menu-dialog-list-item font-regular">
+                                                    <a href="{{ route('admin.home') }}">
+                                                        panel administracyjny
+                                                    </a>
+                                                </li>
+                                            @endif
                                             <li class="py-4 px-4 font-regular w-full hover:bg-dirty-white rounded-md transition duration-300 ease-linear">
-                                                <a href="">
+                                                <a href="{{ route('auth.logout') }}">
                                                     wyloguj
                                                 </a>
                                             </li>
@@ -131,7 +133,9 @@
                         @guest()
                             <li class="nav-item items-center align-middle md:flex" role="listitem">
                                 <div class="login-icon align-middle text-center flex justify-center">
-                                    <span class="iconify my-auto text-3xl cursor-pointer mr-2" data-icon="akar-icons:person"></span>
+                                    <a href="{{ route('auth.login') }}" class="my-auto text-3xl cursor-pointer mr-2">
+                                        <span class="iconify " data-icon="akar-icons:person"></span>
+                                    </a>
                                 </div>
                             </li>
                         @endguest
