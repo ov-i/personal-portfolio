@@ -29,7 +29,7 @@ Route::get('/', [HomePageController::class, 'index'])->name('home.index');
 Route::get('/download_cv', [HomePageController::class, 'download'])->name('home.download');
 
 // auth actions
-Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
+Route::get('/logowanie', [AuthController::class, 'login'])->name('auth.login');
 Route::post('/auth/authenticate', [AuthController::class, 'authenticate'])->name('auth.authenticate');
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
@@ -54,11 +54,6 @@ Route::middleware('admin')->group(function () {
         Route::get('/{wildcard}/{current}/preview', 'index');
     });
 
-    // user panel
-    Route::controller(UserController::class)->prefix('panel')->group(function () {
-        Route::get('/', fn() => 'Panel użytkownika')->name('user.home');
-    });
-
     // api calls
     Route::prefix('api')->group(function () {
         Route::get('/authData', function () {
@@ -74,5 +69,11 @@ Route::middleware('admin')->group(function () {
         Route::put('/post/{post}/unPublish', [PostsController::class, 'unPublishPost']);
         Route::apiResource('/categories', CategoriesController::class);
         Route::apiResource('/roles', RolesController::class);
+    });
+});
+
+Route::middleware('auth')->group(function() {
+    Route::controller(UserController::class)->prefix('panel')->group(function() {
+        Route::get('/', fn() => 'Panel użytkownika')->name('user.home');
     });
 });
