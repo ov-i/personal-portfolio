@@ -13,7 +13,7 @@
         @endif
 
         @if(\Illuminate\Support\Facades\Session::has('notFound'))
-            <div class="bg-red text-white w-full p-3 mb- rounded-md">
+            <div class="bg-red text-white w-full p-3 mb-6 rounded-md">
                 <p class="font-medium text-sm">
                     {{ \Illuminate\Support\Facades\Session::get('notFound') }}
                 </p>

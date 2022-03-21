@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Session;
 
 class AuthRequest extends FormRequest
 {
@@ -24,7 +26,7 @@ class AuthRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['email', 'exists:users', 'required', 'string'],
+            'email' => ['email', 'required', 'string'],
             'password' => ['string', 'required']
         ];
     }

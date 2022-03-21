@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthRequest;
 use App\Models\User;
+use http\Message;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\MessageBag;
 use MongoDB\Driver\Session;
 use phpDocumentor\Reflection\Types\Collection;
 
@@ -39,8 +42,8 @@ class AuthController extends Controller
         $remember = $request->boolean('remember');
 
         $user = User::query()->where('email', '=', $email);
-        if ($user->count() === 0) {
-            \Illuminate\Support\Facades\Session::flash('notFound', "Nie można odanelźć użytkownika o adresie {$email}");
+        if (!$user->first()) {
+            \Illuminate\Support\Facades\Session::flash('notFound', "Nie można odnaleźć użytkownika o adresie {$email}");
             return redirect()->route('auth.login');
         }
 
