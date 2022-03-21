@@ -3,7 +3,31 @@
 @section('title', 'Panel logowania')
 
 @section('content')
-    <section class="login-panel w-11/12 sm:w-9/12 md:w-8/12 lg:w-7/12 xl:w-7/12 2xl:w-6/12 retina:w-7/12 retinax2:w-6/12 bg-white shadow-md rounded-md p-5">
+    <section class="login-panel w-11/12 sm:w-9/12 md:w-8/12 lg:w-7/12 xl:w-7/12 2xl:w-6/12 retina:w-7/12 retinax2:w-6/12 bg-white shadow-md rounded-md p-5 my-6">
+        @if(\Illuminate\Support\Facades\Session::has('userBanned'))
+            <div class="bg-red text-white w-full p-3 mb-6 rounded-md">
+                <p class="font-medium text-sm">
+                    {{ \Illuminate\Support\Facades\Session::get('userBanned') }}
+                </p>
+            </div>
+        @endif
+
+        @if(\Illuminate\Support\Facades\Session::has('notFound'))
+            <div class="bg-red text-white w-full p-3 mb- rounded-md">
+                <p class="font-medium text-sm">
+                    {{ \Illuminate\Support\Facades\Session::get('notFound') }}
+                </p>
+            </div>
+        @endif
+
+        @if(\Illuminate\Support\Facades\Session::has('loginFailed'))
+            <div class="bg-red text-white w-full p-3 mb-6 rounded-md">
+                <p class="font-medium text-sm">
+                    {{ \Illuminate\Support\Facades\Session::get('loginFailed') }}
+                </p>
+            </div>
+        @endif
+
         <div class="back-button flex items-center text-sm text-dark-300 font-light mb-3 hover:text-dark-700 duration-200 ease-in-out cursor-pointer">
             <span class="iconify" data-icon="akar-icons:arrow-back"></span>
             <a href="{{ route('blog.index') }}" class="ml-2">Powrót do bloga</a>

@@ -8,6 +8,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use MongoDB\Driver\Session;
 use phpDocumentor\Reflection\Types\Collection;
 
 class AuthController extends Controller
@@ -37,15 +38,22 @@ class AuthController extends Controller
         $password = htmlentities($request['password']);
         $remember = $request->boolean('remember');
 
-        $user = User::where('email', '=', $email)->first();
-        if (!$user)
-            return redirect()->route('auth.login')
-                ->with('notFound', "Nie można odanelźć użytkownika o adresie {$email}");
+        $user = User::query()->where('email', '=', $email);
+        if ($user->count() === 0) {
+            \Illuminate\Support\Facades\Session::flash('notFound', "Nie można odanelźć użytkownika o adresie {$email}");
+            return redirect()->route('auth.login');
+        }
+
+        if ($user->first()->banned) {
+            \Illuminate\Support\Facades\Session::flash('userBanned', "To konto jest zablokowane.");
+            return redirect()->route('auth.login');
+        }
 
         $logged_in = auth()->attempt(['email' => $email, 'password' => $password], $remember);
-        if (!$logged_in)
-            return redirect()->route('auth.login')
-                ->with('badCredentials', 'Nieprawidłowe dane logowania');
+        if (!$logged_in) {
+            \Illuminate\Support\Facades\Session::flash('loginFailed', "Podano błędne dane.");
+            return redirect()->route('auth.login');
+        }
 
         return redirect()->route('blog.index');
     }
