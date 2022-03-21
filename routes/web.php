@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\API\Admin\CategoriesController;
+use App\Http\Controllers\API\Admin\PostsController;
+use App\Http\Controllers\API\Admin\RolesController;
+use App\Http\Controllers\API\Admin\UsersController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PostCategoryController;
@@ -33,11 +37,22 @@ Route::get('/blog/kategoria/{category:name}/wpisy', [BlogController::class, 'cat
 
 Route::get('/blog/tags/{tag:name}/posts', [BlogController::class, 'tags'])->name('blog.tags');
 
-Route::controller(AdminController::class)->prefix('admin')->group(function () {
-    Route::get('/', 'index');
-    Route::get('/{wildcard}', 'index');
-    Route::get('/{wildcard}/{current}', 'index');
-    Route::get('/{wildcard}/{current}/edit', 'index');
-    Route::get('/{wildcard}/{current}/show', 'index');
-    Route::get('/{wildcard}/{current}/preview', 'index');
+Route::middleware('auth')->group(function () {
+    Route::controller(AdminController::class)->prefix('admin')->group(function () {
+        Route::get('/', 'index');
+        Route::get('/{wildcard}', 'index');
+        Route::get('/{wildcard}/{current}', 'index');
+        Route::get('/{wildcard}/{current}/edit', 'index');
+        Route::get('/{wildcard}/{current}/show', 'index');
+        Route::get('/{wildcard}/{current}/preview', 'index');
+    });
+
+    Route::prefix('api')->group(function () {
+        Route::apiResource('/users', UsersController::class);
+        Route::apiResource('/posts', PostsController::class);
+        Route::put('/post/{post}/publish', [PostsController::class, 'publishPost']);
+        Route::put('/post/{post}/unPublish', [PostsController::class, 'unPublishPost']);
+        Route::apiResource('/categories', CategoriesController::class);
+        Route::apiResource('/roles', RolesController::class);
+    });
 });
