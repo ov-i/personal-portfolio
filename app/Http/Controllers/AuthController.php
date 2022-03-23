@@ -4,15 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthRequest;
 use App\Models\User;
-use http\Message;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\MessageBag;
-use MongoDB\Driver\Session;
-use phpDocumentor\Reflection\Types\Collection;
 
 class AuthController extends Controller
 {
