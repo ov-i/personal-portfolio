@@ -235,7 +235,6 @@ export default {
             await this.fetchPosts()
 
             const results = this.posts.filter(post => post.title.toLowerCase().indexOf(this.search_input.toLowerCase()) !== -1)
-            console.log(results)
             !results.length ? this.no_data = true : this.no_data = false
 
             this.$store.commit('FETCH_POSTS', results)
