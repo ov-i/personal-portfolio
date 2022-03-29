@@ -31,7 +31,8 @@ Route::get('/download_cv', [HomePageController::class, 'download'])->name('home.
 // auth actions
 Route::get('/logowanie', [AuthController::class, 'login'])->name('auth.login');
 Route::post('/auth/authenticate', [AuthController::class, 'authenticate'])->name('auth.authenticate');
-Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::get('/rejestracja', [AuthController::class, 'registerForm'])->name('auth.registerForm');
+Route::post('/auth/register', [AuthController::class, 'register'])->name('auth.register');
 
 // Blog section
 Route::get("/blog", [BlogController::class, 'index'])->name('blog.index');
@@ -73,6 +74,8 @@ Route::middleware('admin')->group(function () {
 });
 
 Route::middleware('auth')->group(function() {
+    Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
     Route::controller(UserController::class)->prefix('panel')->group(function() {
         Route::get('/', fn() => 'Panel użytkownika')->name('user.home');
     });

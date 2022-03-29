@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Auth\RegisterUser;
 use App\Http\Requests\AuthRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\MessageBag;
 
 class AuthController extends Controller
 {
@@ -38,22 +43,50 @@ class AuthController extends Controller
 
         $user = User::query()->where('email', '=', $email);
         if (!$user->first()) {
-            \Illuminate\Support\Facades\Session::flash('notFound', "Nie można odnaleźć użytkownika o adresie {$email}");
+            Session::flash('notFound', "Nie można odnaleźć użytkownika o adresie {$email}");
             return redirect()->route('auth.login');
         }
 
         if ($user->first()->banned) {
-            \Illuminate\Support\Facades\Session::flash('userBanned', "To konto jest zablokowane.");
+            Session::flash('userBanned', "To konto jest zablokowane.");
             return redirect()->route('auth.login');
         }
 
         $logged_in = auth()->attempt(['email' => $email, 'password' => $password], $remember);
         if (!$logged_in) {
-            \Illuminate\Support\Facades\Session::flash('loginFailed', "Podano błędne dane.");
+            Session::flash('loginFailed', "Podano błędne dane.");
             return redirect()->route('auth.login');
         }
 
         return redirect()->route('blog.index');
+    }
+
+    /**
+     * shows register forms to users
+     *
+     * @return Factory|View|Application
+     */
+    public function registerForm(): Factory|View|Application
+    {
+        return view('auth.registration');
+    }
+
+    public function register(RegisterRequest $request, RegisterUser $registerUser)
+    {
+        $user = $registerUser($request->all());
+        if ($user instanceof MessageBag) {
+            Session::flash('registerErrors', $user->getMessages());
+            return redirect()->back();
+        }
+
+        Mail::send('mails.registered', array('name' => 'Bartosz Pazdur'), function($message) use ($user) {
+            $message->to($user->email)->subject('Rejestracja konta w serwisie.');
+            $message->from('bp.staysecure@yahoo.com', 'Bartosz Pazdur StaySecure');
+        });
+
+        auth()->login($user);
+
+        return redirect()->route('user.home');
     }
 
     /**

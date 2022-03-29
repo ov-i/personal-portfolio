@@ -3,39 +3,34 @@
 @section('title', 'Panel logowania')
 
 @section('content')
+
     <section class="login-panel w-11/12 sm:w-9/12 md:w-8/12 lg:w-7/12 xl:w-7/12 2xl:w-6/12 retina:w-7/12 retinax2:w-6/12 bg-white shadow-md rounded-md p-5 my-6">
-        @if(\Illuminate\Support\Facades\Session::has('userBanned'))
-            <div class="bg-red text-white w-full p-3 mb-6 rounded-md">
-                <p class="font-medium text-sm">
-                    {{ \Illuminate\Support\Facades\Session::get('userBanned') }}
-                </p>
-            </div>
+        @if(\Illuminate\Support\Facades\Session::has('registerErrors'))
+            <h1>Bład</h1>
         @endif
-
-        @if(\Illuminate\Support\Facades\Session::has('notFound'))
-            <div class="bg-red text-white w-full p-3 mb-6 rounded-md">
-                <p class="font-medium text-sm">
-                    {{ \Illuminate\Support\Facades\Session::get('notFound') }}
-                </p>
-            </div>
-        @endif
-
-        @if(\Illuminate\Support\Facades\Session::has('loginFailed'))
-            <div class="bg-red text-white w-full p-3 mb-6 rounded-md">
-                <p class="font-medium text-sm">
-                    {{ \Illuminate\Support\Facades\Session::get('loginFailed') }}
-                </p>
-            </div>
-        @endif
-
         <div class="back-button flex items-center text-sm text-dark-300 font-light mb-3 hover:text-dark-700 duration-200 ease-in-out cursor-pointer">
             <span class="iconify" data-icon="akar-icons:arrow-back"></span>
             <a href="{{ route('blog.index') }}" class="ml-2">Powrót do bloga</a>
         </div>
-        <h3 class="font-medium text-2xl text-dark-700 border-b border-dirty-white">Logowanie do panelu</h3>
+
+        <h3 class="font-medium text-2xl text-dark-700 border-b border-dirty-white">Rejestracja</h3>
         <div class="form-panel w-full mx-auto">
-            <form action="{{ route('auth.authenticate') }}" method="post">
+            <form action="{{ route('auth.register') }}" method="post">
                 @csrf
+
+                <div class="font-group pt-5 w-full">
+                    <label for="email" id="emailLabel" class="text-dark-300 font-medium text-sm">
+                        Nazwa użytkownika
+                    </label>
+                    <input
+                        class="form-input transition duration-200 ease-linear focus:rounded-lg block w-full"
+                        type="text"
+                        name="nick"
+                        id="nick"
+                        autofocus
+                        autocomplete="nickname"
+                        value="{{ old('nick') }}"/>
+                </div>
 
                 <!-- single group -->
                 <div class="font-group pt-5 w-full">
@@ -87,7 +82,7 @@
                 <hr class="w-full block mt-5 mx-auto">
                 <div class="form-helper mt-3">
                     <a href="" class="text-sm text-blog-accent font-light hover:font-medium duration-150 ease-in-out block mb-2">Zapomniałem hasła</a>
-                    <a href="{{ route('auth.registerForm') }}" class="text-sm text-blog-accent font-light hover:font-medium duration-150 ease-in-out block">Nie masz konta?</a>
+                    <a href="" class="text-sm text-blog-accent font-light hover:font-medium duration-150 ease-in-out block">Nie masz konta?</a>
                 </div>
             </form>
         </div>
