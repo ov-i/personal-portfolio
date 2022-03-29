@@ -22,3 +22,16 @@ export const CREATE_ROLE = (state, role) => {
         name: role.name
     })
 }
+
+/**
+ * deletes role from vuex state
+ *
+ * @param state
+ * @param id {number}
+ * @constructor
+ */
+export const DELETE_ROLE = (state, id) => {
+    const { roles } = state
+
+    roles.splice(id, 1)
+}

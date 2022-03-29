@@ -1,25 +1,42 @@
 <template>
     <section class="admin-content main-content p-6 font-primary">
-        <!-- admin heading -->
-        <div v-if="getFetchErrors.status === 404 || getUsers.length === 0">
-            <h1 class="text-5xl uppercase text-dark-700 font-medium pt-2 text-center" v-if="getFetchErrors">
-                {{ getFetchErrors.message }}
-            </h1>
-            <h1 class="text-5xl uppercase text-dark-700 font-medium pt-2 text-center" v-else>
-                Problem z przetwarzaniem danych
-            </h1>
-        </div>
-
-        <section class="admin-content-wrapper" v-else>
+        <div class="admin-content-wrapper">
             <article class="admin-heading">
                 <h2 class="admin-header font-semibold text-dark-200 text-2xl" role="heading">Użytkownicy</h2>
             </article>
 
+            <article class="filters w-full mt-3" role="article">
+                <div class="filter-banned">
+                    <label for="banned">Dostęp</label>
+                    <select name="banned" id="banned" class="block" v-model="access" @change="sortByBanned">
+                        <option selected disabled>--wybierz opcje--</option>
+                        <option value="default">wszystkich</option>
+                        <option value="true">zablokowany</option>
+                        <option value="false">odblokowany</option>
+                    </select>
+                </div>
+                <div class="filter-name mt-5">
+                    <input type="text" class="form-input w-full" placeholder="Znajdź użytkownika" v-model="filterValue" @input="filterUsers">
+                </div>
+            </article>
+        </div>
+
+        <h3 class="font-medium text-2xl text-dark-300 text-center mt-2" v-if="noData">Brak danych</h3>
+
+        <section class="admin-content-wrapper" v-else>
             <div class="users w-full mt-10 h-full rounded-md shadow-md" v-if="getUsers.length > 0">
                 <table class="users-table w-full text-left border border-dark-20 bg-white shadow-md relative">
                     <thead class=" py-5">
                         <tr class="bg-blog-accent text-white">
-                            <th class="py-5 px-4">nazwa</th>
+                            <th class="py-5 px-4 flex items-center cursor-pointer" @click="sortAlphabetically">
+                                nazwa
+                                <div class="icon" v-if="!sortedAlphabetically">
+                                    <Icon icon="bi:arrow-down" />
+                                </div>
+                                <div class="icon" v-else>
+                                    <Icon icon="bi:arrow-up" />
+                                </div>
+                            </th>
                             <th class="py-5 px-4">imię</th>
                             <th class="py-5 px-4">nazwisko</th>
                             <th class="py-5 px-4">zablokowany</th>
@@ -64,11 +81,55 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
     name: "Users",
     data: () => ({
-       sortedBanned: false,
-       sortBanned: []
+       access: 'default',
+       filterValue: '',
+       noData: false,
+       sortedAlphabetically: false
     }),
     methods: {
-        ...mapActions(['deleteUser'])
+        ...mapActions(['deleteUser', 'fetchUsers']),
+        async filterUsers() {
+            await this.fetchUsers()
+
+            const results = this.getUsers.filter(user => user.nick.toLowerCase().indexOf(this.filterValue.toLowerCase()) !== -1)
+            !results.length ? this.noData = true : this.noData = false
+
+            this.$store.commit('FETCH_USERS', results)
+        },
+        async sortAlphabetically() {
+            const users = this.getUsers
+
+            if(this.sortedAlphabetically) {
+                await this.fetchUsers()
+                this.sortedAlphabetically = false
+                return
+            }
+
+            this.$store.commit('FETCH_USERS', users.sort((firstUser, secondUser) => {
+                this.sortedAlphabetically = true
+                return firstUser.nick < secondUser.nick ? -1 : 1
+            }))
+        },
+        async sortByBanned() {
+            await this.fetchUsers()
+            const users = this.getUsers
+
+            if (this.access === 'default') {
+                await this.fetchUsers()
+            } else if (this.access === 'true') {
+                const results = users.filter(user => user.banned)
+                if (!results.length)
+                    return
+
+                this.$store.commit('FETCH_USERS', results)
+            } else {
+                const results = users.filter(user => !user.banned)
+                if (!results.length)
+                    return
+
+                this.$store.commit('FETCH_USERS', results)
+            }
+        }
     },
     components: {
         Icon,
