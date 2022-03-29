@@ -29,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white text-center">
-                    <tr class="whitespace-nowrap" v-for="role in rolesFetch()" :key="role.id">
+                    <tr class="whitespace-nowrap" v-for="(role, index) in rolesFetch()" :key="role.id">
                         <td class="px-6 py-4 text-sm text-gray-500">
                             {{ role.id }}
                         </td>
@@ -39,7 +39,7 @@
                             </div>
                         </td>
                         <td class="text-center">
-                            <button class="text-blog-accent hover:text-blog-accent-lighten transition duration-200 ease-linear font-medium">
+                            <button class="text-blog-accent hover:text-blog-accent-lighten transition duration-200 ease-linear font-medium" @click="deleteRole({id: index, roleId: role.id})">
                                 usuń
                             </button>
                         </td>
@@ -84,7 +84,8 @@ export default {
     },
     methods: {
         ...mapActions({
-            createRole: 'createRole'
+            createRole: 'createRole',
+            deleteRole: 'deleteRole',
         }),
 
         /**
@@ -92,8 +93,7 @@ export default {
          * @return {array<{id: number, name: string}>}
          */
         rolesFetch() {
-            const { roles } = this.roles
-            return roles
+            return this.roles
         },
 
         showCreateModal() {

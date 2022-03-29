@@ -27,7 +27,7 @@ export const fetchRoles = async ({ commit, dispatch, getters }) => {
             }
         })
 
-        commit('FETCH_ROLES', roles.data)
+        commit('FETCH_ROLES', roles.data.roles)
     } catch (error) {
         dispatch('notFoundException', 'Problem z przetworzeniem danych')
     }
@@ -59,6 +59,37 @@ export const createRole = async ({ commit, dispatch, getters }, role) => {
             }
         })
         commit('CREATE_ROLE', role)
+    } catch (error) {
+        dispatch('notFoundException', 'Problem z przetworzeniem danych')
+    }
+}
+
+/**
+ * deletes role with id
+ *
+ * @param commit
+ * @param dispatch
+ * @param getters
+ * @param id {number}
+ * @param roleId {number}
+ * @return {Promise<void>}
+ */
+export const deleteRole = async ({ commit, dispatch, getters }, { id, roleId }) => {
+    /**
+     * selects endpoint for application
+     *
+     * @type {string}
+     */
+    const endpoint = `${getters.getRequestUrl}/roles/${roleId}`
+
+    try {
+        await axios.delete(endpoint, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+        commit('DELETE_ROLE', id)
     } catch (error) {
         dispatch('notFoundException', 'Problem z przetworzeniem danych')
     }

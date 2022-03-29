@@ -70,10 +70,14 @@ class RolesController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Role $role
-     * @return Response
+     * @return JsonResponse
      */
-    public function destroy(Role $role)
+    public function destroy(Role $role): JsonResponse
     {
-        //
+        if (!$role->id)
+            return response()->json(['error' => true, 'message' => 'Could not delete un-existing role']);
+
+        $role->delete();
+        return response()->json(['error' => false]);
     }
 }
