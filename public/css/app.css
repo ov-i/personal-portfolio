@@ -2293,10 +2293,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: auto;
   }
 
-  .md\:w-6\/12 {
-    width: 50%;
-  }
-
   .md\:grid-flow-col {
     grid-auto-flow: column;
   }

@@ -73,7 +73,7 @@
                                     {{ postCategory(post.category_id) }}
                                 </i>
                             </span>
-                            <h3 class="post-title pt-2 pb-4">
+                            <h3 class="post-title pt-2 pb-4" v-if="post.published">
                                 <a
                                     :href="`/blog/wpisy/${post.slug}`"
                                     class="post-title-link"
@@ -81,6 +81,13 @@
                                     rel="noreferrer noopener">
                                     {{ post.title }}
                                 </a>
+                            </h3>
+                            <h3 class="post-title pt-2 pb-4" v-if="!post.published">
+                                <router-link
+                                    :to="{name: 'PostPreview', params: {id: post.id}}"
+                                    class="post-title-link">
+                                    {{ post.title }}
+                                </router-link>
                             </h3>
                             <p class="post-description">
                                 {{ post.description }}

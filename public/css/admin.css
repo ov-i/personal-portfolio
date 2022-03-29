@@ -1414,10 +1414,6 @@ a {
     width: auto;
   }
 
-  .md\:w-6\/12 {
-    width: 50%;
-  }
-
   .md\:grid-flow-col {
     grid-auto-flow: column;
   }
