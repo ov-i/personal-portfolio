@@ -1,3 +1,5 @@
+import CommentPost from "./components/CommentPost";
+
 require('./bootstrap');
 import Vue, { createApp } from 'vue'
 import '@iconify/iconify'
@@ -13,7 +15,8 @@ const app = createApp({
     comment: ''
   }),
   components: {
-      SectionHeader
+      SectionHeader,
+      CommentPost,
   },
   methods: {
       toggleDialog() {
@@ -26,6 +29,7 @@ const app = createApp({
 })
 
 app.component('sectionheader', SectionHeader)
+app.component('commentoost', CommentPost)
 
 app.mount('#app')
 

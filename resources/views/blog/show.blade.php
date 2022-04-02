@@ -91,35 +91,16 @@
 
             @auth
                 <div class="comment-form pt-10 pb-0 md:pb-10">
-                    <div class="comment-form-inner relative">
-                        <textarea
-                            name="new_comment"
-                            id="comment" rows="7"
-                            class="form-textarea w-full block rounded-sm shadow-md text-sm tracking-widest"
-                            placeholder="Co Ci chodzi po głowie?"
-                            @input="increaseCounter()"
-                            v-model="comment"
-                            maxlength="300"
-                        ></textarea>
-                        <p class="counter text-xs font-normal text-dark-200 md:absolute md:bottom-2 md:right-2 z-20 text-right md:text-left pt-2 md:pt-0" :class="{'text-red': comment_length >= 300}">
-                            Liczba słów: ${comment_length}/300
-                        </p>
-                    </div>
-                    <div class="call-to-action md:flex md:justify-between md:items-center">
-                        <div></div>
-                        <button :disabled="comment.length === 0" class="comment-btn">
-                            skomentuj
-                        </button>
-                    </div>
+                    <comment-post />
                 </div>
-            @endauth
-            @guest()
+
+            @else
                 <div class="user-not-signed py-12">
                     <a href="" class="login-route">
                         Dołącz do dyskusji
                     </a>
                 </div>
-            @endguest
+            @endauth
         </article>
 
         <div class="post-tags w-10/12 retina:w-7/12 mb-4 mt-7">
@@ -134,3 +115,9 @@
         </div>
     </section>
 @endsection
+<script>
+    import CommentPost from "../../js/components/CommentPost";
+    export default {
+        components: {CommentPost}
+    }
+</script>
