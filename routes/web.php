@@ -79,4 +79,7 @@ Route::middleware('auth')->group(function() {
     Route::controller(UserController::class)->prefix('panel')->group(function() {
         Route::get('/', fn() => 'Panel użytkownika')->name('user.home');
     });
+
+    Route::post('/api/comment', [\App\Http\Controllers\API\Admin\CommentsController::class, 'store'])
+        ->name('comments.store');
 });
