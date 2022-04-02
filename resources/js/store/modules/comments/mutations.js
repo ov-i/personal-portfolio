@@ -1,4 +1,5 @@
 /**
+ * fetches comments from api
  *
  * @param state
  * @param comments {array<{
