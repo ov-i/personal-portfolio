@@ -28,3 +28,19 @@ export const fetchComments = async ({ commit, dispatch, getters }) => {
         dispatch('notFoundException', 'Problem z przetworzeniem danych')
     }
 }
+
+/**
+ * creates new comment
+ *
+ * @param commit
+ * @param comment {
+     * {
+         * author: string,
+         * post_id: number,
+         * comment: string,
+         * published: boolean
+     * }
+ * }
+ * @return {Promise<void>}
+ */
+export const createComment = async ({ commit }, comment) => {}

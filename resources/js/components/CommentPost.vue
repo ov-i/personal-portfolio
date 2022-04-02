@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import {mapActions} from "vuex";
+
 export default {
     name: "CommentPost",
     data: () => ({
@@ -29,6 +31,8 @@ export default {
        commentLength: 0
     }),
     methods: {
+        ...mapActions({
+        }),
         increaseCounter() {
             if (!this.comment.trim().length)
                 this.commentLength = 0
