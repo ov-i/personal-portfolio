@@ -15,7 +15,7 @@
     </div>
     <div class="call-to-action md:flex md:justify-between md:items-center">
         <div></div>
-        <button :disabled="comment.length === 0" class="comment-btn">
+        <button :disabled="comment.length === 0" class="comment-btn" @click="addComment()">
             skomentuj
         </button>
     </div>
