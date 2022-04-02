@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\API\Admin;
 
+use App\Actions\Comments\CreateComment;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\MessageBag;
 
 class CommentsController extends Controller
 {
@@ -33,19 +36,24 @@ class CommentsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param CreateComment $createComment
+     * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(Request $request, CreateComment $createComment): JsonResponse
     {
-        //
+        $comment = $createComment($request->all());
+        if ($comment instanceof MessageBag)
+            return response()->json(['error' => true, 'message' => $comment->getMessages()], 400);
+
+        return response()->json(['error' => false, 'comment' => $comment], 201);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -55,9 +63,9 @@ class CommentsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, $id)
     {
@@ -68,7 +76,7 @@ class CommentsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {

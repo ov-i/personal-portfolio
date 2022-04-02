@@ -20,3 +20,6 @@ use Illuminate\Support\Facades\Route;
 // public api calls
 Route::get('/comments', [\App\Http\Controllers\API\Admin\CommentsController::class, 'index'])
     ->name('comments.index');
+
+Route::post('/comment', [\App\Http\Controllers\API\Admin\CommentsController::class, 'store'])
+    ->name('comments.store');
