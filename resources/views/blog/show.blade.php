@@ -77,6 +77,7 @@
             <div class="comments-heading pb-4">
                 <h2 class="comments-header text-2xl">Dyskusja ({{ $comments->count() }})</h2>
             </div>
+
             @foreach($comments as $comment)
             <div class="comment py-4 border-b border-dirty-white first:pt-5 last:border-none font-primary" role="note">
                 <div class="comment-info">
@@ -91,12 +92,30 @@
 
             @auth
                 <div class="comment-form pt-10 pb-0 md:pb-10">
-                    <comment-post />
+                    <div class="comment-form-inner relative">
+                        <textarea
+                            name="new_comment"
+                            id="comment" rows="7"
+                            class="form-textarea w-full block rounded-sm shadow-md text-sm tracking-widest"
+                            placeholder="Co Ci chodzi po głowie?"
+                            @input="increaseCounter()"
+                            v-model="comment"
+                            maxlength="300"
+                        ></textarea>
+                        <p class="counter text-xs font-normal text-dark-200 md:absolute md:bottom-2 md:right-2 z-20 text-right md:text-left pt-2 md:pt-0" :class="{'text-red': commentLength >= 300}">
+                            Liczba słów: ${commentLength}/300
+                        </p>
+                    </div>
+                    <div class="call-to-action md:flex md:justify-between md:items-center">
+                        <div></div>
+                        <button :disabled="comment.length === 0" class="comment-btn">
+                            skomentuj
+                        </button>
+                    </div>
                 </div>
-
             @else
                 <div class="user-not-signed py-12">
-                    <a href="" class="login-route">
+                    <a href="{{ route('auth.login') }}" class="login-route">
                         Dołącz do dyskusji
                     </a>
                 </div>
@@ -115,9 +134,3 @@
         </div>
     </section>
 @endsection
-<script>
-    import CommentPost from "../../js/components/CommentPost";
-    export default {
-        components: {CommentPost}
-    }
-</script>
