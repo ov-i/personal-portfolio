@@ -1,5 +1,6 @@
 require('./bootstrap');
-import Vue, { createApp } from 'vue'
+
+import { createApp } from 'vue'
 import '@iconify/iconify'
 import SectionHeader from "./components/SectionHeader";
 
@@ -9,31 +10,32 @@ const app = createApp({
   },
   data: () => ({
     dialog: false,
-    comment_length: 0,
-    comment: ''
+    comment: '',
+    commentLength: 0,
   }),
   components: {
-      SectionHeader
+      SectionHeader,
   },
   methods: {
       toggleDialog() {
           this.dialog = !this.dialog
       },
       increaseCounter() {
-          this.comment_length = this.comment.length
+          if (!this.comment.trim().length)
+              this.commentLength = 0
+
+          this.commentLength = this.comment.trim().length
       }
   },
 })
 
 app.component('sectionheader', SectionHeader)
-
 app.mount('#app')
 
 const showNavButton = document.querySelector('#show-nav-button');
 const mobileNav = document.querySelector('#nav-list')
 const closeNav = document.querySelector('#close-nav')
 
-console.log(showNavButton);
 closeNav.addEventListener('click', () => {
     mobileNav.classList.add('hidden')
 })

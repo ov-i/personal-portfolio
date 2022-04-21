@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+// public api calls
+Route::get('/comments', [\App\Http\Controllers\API\Admin\CommentsController::class, 'index'])
+    ->name('comments.index');

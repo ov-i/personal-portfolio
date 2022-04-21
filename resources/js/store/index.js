@@ -3,6 +3,7 @@ import { users } from './modules/users'
 import { posts } from "./modules/posts";
 import { categories } from "./modules/categories";
 import { roles } from "./modules/roles";
+import { comments } from "./modules/comments";
 import * as mutations from './mutations'
 import * as actions from './actions'
 import * as getters from './getters'
@@ -19,7 +20,8 @@ export const store = createStore({
         users,
         posts,
         categories,
-        roles
+        roles,
+        comments,
     },
     plugins: NODE_ENV !== 'production' ? [createLogger()] : []
 })
