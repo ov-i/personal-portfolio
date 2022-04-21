@@ -68,21 +68,17 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="remember-me">
-                        <input type="checkbox" name="remember" id="remember-me">
-                        Zapamiętaj mnie
-                    </label>
-                </div>
-
                 <button type="submit" class="w-full mt-5 p-3 text-white bg-blog-accent hover:bg-blog-accent-lighten duration-200 ease-linear rounded-md hover:shadow-md uppercase font-medium text-sm">
-                    Zaloguj się
+                    Zarejestruj się
                 </button>
 
                 <hr class="w-full block mt-5 mx-auto">
                 <div class="form-helper mt-3">
-                    <a href="" class="text-sm text-blog-accent font-light hover:font-medium duration-150 ease-in-out block mb-2">Zapomniałem hasła</a>
-                    <a href="" class="text-sm text-blog-accent font-light hover:font-medium duration-150 ease-in-out block">Nie masz konta?</a>
+                    <a 
+                        href="{{ route('auth.login') }}" 
+                        class="text-sm text-blog-accent font-light hover:font-medium duration-150 ease-in-out block mb-2">
+                        Masz juz konto?
+                    </a>
                 </div>
             </form>
         </div>

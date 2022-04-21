@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Actions\Auth\RegisterUser;
 use App\Http\Requests\AuthRequest;
-use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -71,7 +71,7 @@ class AuthController extends Controller
         return view('auth.registration');
     }
 
-    public function register(RegisterRequest $request, RegisterUser $registerUser)
+    public function register(Request $request, RegisterUser $registerUser)
     {
         $user = $registerUser($request->all());
         if ($user instanceof MessageBag) {
@@ -81,7 +81,7 @@ class AuthController extends Controller
 
         Mail::send('mails.registered', array('name' => 'Bartosz Pazdur'), function($message) use ($user) {
             $message->to($user->email)->subject('Rejestracja konta w serwisie.');
-            $message->from('bp.staysecure@yahoo.com', 'Bartosz Pazdur StaySecure');
+            $message->from('bpstaysecure@yahoo.com', 'Bartosz Pazdur StaySecure');
         });
 
         auth()->login($user);

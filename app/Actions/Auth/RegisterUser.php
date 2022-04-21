@@ -3,11 +3,10 @@
 namespace App\Actions\Auth;
 
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\MessageBag;
 
@@ -17,10 +16,10 @@ class RegisterUser
      * creates new user
      *
      * @param array $data
-     * @return RedirectResponse|MessageBag
+     * @return Authenticatable|MessageBag|User
      * @throws QueryException
      */
-    public function __invoke(array $data): RedirectResponse|MessageBag|User
+    public function __invoke(array $data): Authenticatable|MessageBag|User
     {
         $validator = Validator::make($data, [
             'nick' => ['string', 'min:3', 'max:255', 'required'],
@@ -41,7 +40,6 @@ class RegisterUser
                 'password' => Hash::make($data['password'])
             ]);
 
-            event(new Registered($user));
             return $user;
         } catch (QueryException $exception) {
             throw new QueryException($exception->getSql(), $exception->getBindings(), $exception->getPrevious());
