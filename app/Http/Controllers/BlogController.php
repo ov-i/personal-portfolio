@@ -39,7 +39,7 @@ class BlogController extends Controller
         $categories = Category::query()->get();
         $tags = Tag::query()->get();
 
-        $comments = $post->comments()->get();
+        $comments = $post->comments()->where('published', '=', true)->get();
 
         return view('blog.show', compact([
             'post',

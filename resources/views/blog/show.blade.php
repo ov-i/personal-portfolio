@@ -91,27 +91,38 @@
             @endforeach
 
             @auth
+                @if(Session::has('success'))
+                    <div class="bg-green-500 text-white text-2xl shadow-md rounded-md my-3 p-3">
+                        {{ Session::get('success') }}
+                    </div>
+                @endif
+
                 <div class="comment-form pt-10 pb-0 md:pb-10">
-                    <div class="comment-form-inner relative">
-                        <textarea
-                            name="new_comment"
-                            id="comment" rows="7"
-                            class="form-textarea w-full block rounded-sm shadow-md text-sm tracking-widest"
-                            placeholder="Co Ci chodzi po głowie?"
-                            @input="increaseCounter()"
-                            v-model="comment"
-                            maxlength="300"
-                        ></textarea>
-                        <p class="counter text-xs font-normal text-dark-200 md:absolute md:bottom-2 md:right-2 z-20 text-right md:text-left pt-2 md:pt-0" :class="{'text-red': commentLength >= 300}">
-                            Liczba słów: ${commentLength}/300
-                        </p>
-                    </div>
-                    <div class="call-to-action md:flex md:justify-between md:items-center">
-                        <div></div>
-                        <button :disabled="comment.length === 0" class="comment-btn">
-                            skomentuj
-                        </button>
-                    </div>
+                    <form action="{{ route('blog.comments.store', ['post' => $post->slug]) }}" method="post">
+                        @csrf
+                        <input type="hidden" name="post_id" value="{{ $post->id }}">
+                        <div class="comment-form-inner relative">
+                            <textarea
+                                name="comment"
+                                id="comment" 
+                                rows="7"
+                                class="form-textarea w-full block rounded-sm shadow-md text-sm tracking-widest"
+                                placeholder="Co Ci chodzi po głowie?"
+                                @input="increaseCounter()"
+                                v-model="comment"
+                                maxlength="300"
+                            ></textarea>
+                            <p class="counter text-xs font-normal text-dark-200 md:absolute md:bottom-2 md:right-2 z-20 text-right md:text-left pt-2 md:pt-0" :class="{'text-red': commentLength >= 300}">
+                                Liczba słów: ${commentLength}/300
+                            </p>
+                        </div>
+                        <div class="call-to-action md:flex md:justify-between md:items-center">
+                            <div></div>
+                            <button type="submit" :disabled="comment.length === 0" class="comment-btn">
+                                skomentuj
+                            </button>
+                        </div>
+                    </form>
                 </div>
             @else
                 <div class="user-not-signed py-12">

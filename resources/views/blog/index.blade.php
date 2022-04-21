@@ -46,7 +46,7 @@
                                 <div class="inner-action flex items-center flex-row mx-2">
                                     <span class="iconify text-2xl" data-icon="fa-regular:comment"></span>
                                     <p class="counter ml-1 font-light italic font-primary text-sm">
-                                        {{ $post->comments()->get()->count() }}
+                                        {{ $post->comments()->where('published', '=', true)->get()->count() }}
                                     </p>
                                 </div>
                             </div>

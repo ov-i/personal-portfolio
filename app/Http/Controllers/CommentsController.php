@@ -2,41 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Comments\CreateComment;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\MessageBag;
 
 class CommentsController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param CreateComment  $createComment
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, CreateComment $createComment)
     {
-        //
+        $comment = $createComment($request->all());
+        if ($comment instanceof MessageBag)
+            return response()->json(['error' => true, 'message' => $comment->getMessages()], 400);
+
+        if ((new AuthController())->isAdmin())
+            Session::flash('success', 'Dodano nowy komentarz!');
+        else
+            Session::flash('success', 'Twój komentarz musi zostać zaakceptowany!');
+
+        return redirect()->back();
     }
+
 
     /**
      * Display the specified resource.

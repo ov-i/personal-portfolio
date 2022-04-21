@@ -12,17 +12,32 @@ class CreateComment
     public function __invoke(array $data): Comment | MessageBag
     {
         $validator = Validator::make($data, [
-            'author' => ['required', 'min: 3', 'max; 255', 'string'],
-            'post_id' => ['required', 'exists:posts,id', 'number'],
+            'post_id' => ['required', 'exists:posts,id', 'numeric'],
             'comment' => ['required', 'min:10', 'max:300', 'string'],
         ]);
 
         if ($validator->fails())
-            return $validator->errors();
-
+        return $validator->errors();
+        
+        $saveAuthorAs = $this->getAuthor();
         return Comment::create([
-            ...$data,
+            'author' => $saveAuthorAs,
+            'post_id' => $data['post_id'],
+            'comment' => $data['comment'],
             'published' => (new AuthController())->isAdmin()
         ]);
+    }
+
+    /**
+     * gets the author nick if user did not passed his firstname or lastname
+     * 
+     * @return string
+     */
+    private function getAuthor() 
+    {
+        if (auth()->user()->toggle_nick_display)
+            return auth()->user()->nick;
+        else
+            return auth()->user()->firstname . ' ' . auth()->user()->lastname;
     }
 }
