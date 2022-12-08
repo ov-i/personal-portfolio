@@ -14,6 +14,6 @@ class Role extends Model
     use BelongsToUsers;
 
     protected $fillable = [
-        'name'
+        'name',
     ];
 }

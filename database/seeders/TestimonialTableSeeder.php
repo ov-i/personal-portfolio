@@ -16,17 +16,17 @@ class TestimonialTableSeeder extends Seeder
     {
         DB::table('testimonials')->insert([
             'name' => 'Lat doświadczenia',
-            'value' => '6'
+            'value' => '6',
         ]);
 
         DB::table('testimonials')->insert([
             'name' => 'Zadowolonych klientów',
-            'value' => '30'
+            'value' => '30',
         ]);
 
         DB::table('testimonials')->insert([
             'name' => 'Ukończonych projetków',
-            'value' => '100+'
+            'value' => '100+',
         ]);
     }
 }

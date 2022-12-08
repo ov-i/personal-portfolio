@@ -30,6 +30,6 @@ class Post extends Model
         'slug',
         'content',
         'description',
-        'published'
+        'published',
     ];
 }

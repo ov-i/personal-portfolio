@@ -14,6 +14,6 @@ class Category extends Model
     use HasManyPosts;
 
     protected $fillable = [
-        'name'
+        'name',
     ];
 }

@@ -17,7 +17,7 @@ class CommentFactory extends Factory
             'author' => $this->faker->userName(),
             'post_id' => $this->faker->numberBetween(1, 20),
             'comment' => $this->faker->text(300),
-            'published' => $this->faker->boolean(45)
+            'published' => $this->faker->boolean(45),
         ];
     }
 }

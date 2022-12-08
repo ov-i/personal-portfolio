@@ -18,8 +18,9 @@ class CategoriesController extends Controller
     {
         $categories = Category::query()->get();
 
-        if (count($categories) === 0)
+        if (count($categories) === 0) {
             return response()->json(['error' => true, 'categories' => []], 404);
+        }
 
         return response()->json(['error' => false, 'categories' => $categories], 200);
     }

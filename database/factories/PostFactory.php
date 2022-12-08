@@ -24,7 +24,7 @@ class PostFactory extends Factory
             'content' => $this->faker->sentences(100, true),
             'published' => $this->faker->boolean(45),
             'created_at' => $this->faker->dateTime(),
-            'updated_at' => $this->faker->dateTime()
+            'updated_at' => $this->faker->dateTime(),
         ];
     }
 }

@@ -34,27 +34,29 @@ class CreateTraitCommand extends Command
     /**
      * Execute the console command.
      *
-     * @throws FileException
      * @return int
+     *
+     * @throws FileException
      */
     public function handle(): int
     {
         $name = $this->argument('name');
 
-        $destination = "app/Traits";
+        $destination = 'app/Traits';
         $name = str_replace('-', '', $name);
         $name = ucwords($name);
 
-        if (file_exists("{$destination}/{$name}.php"))
+        if (file_exists("{$destination}/{$name}.php")) {
             throw new FileException("Trait with name '{$name}.php' already exists");
+        }
 
-        if($this->confirm("This will create Trait '{$name}' in App\Trait namespace. Continue?", true)) {
-
-            if (!is_dir($destination))
+        if ($this->confirm("This will create Trait '{$name}' in App\Trait namespace. Continue?", true)) {
+            if (! is_dir($destination)) {
                 mkdir($destination, 0777, true);
+            }
 
-            $file = fopen("{$destination}/{$name}.php",'a')
-                or die("File {$name}.php could not be opened");
+            $file = fopen("{$destination}/{$name}.php", 'a')
+                or exit("File {$name}.php could not be opened");
 
             $content = "<?php
 

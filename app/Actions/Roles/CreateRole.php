@@ -11,20 +11,21 @@ class CreateRole
     /**
      * creates new role
      *
-     * @param array $data
+     * @param  array  $data
      * @return MessageBag|Role
      */
-    public function __invoke(array $data): MessageBag | Role
+    public function __invoke(array $data): MessageBag|Role
     {
         $validator = Validator::make($data, [
-           'name' => ['required', 'unique:roles', 'max:45', 'min:3'],
+            'name' => ['required', 'unique:roles', 'max:45', 'min:3'],
         ]);
 
-        if ($validator->fails())
+        if ($validator->fails()) {
             return $validator->errors();
+        }
 
         return Role::create([
-           ...$data,
+            ...$data,
         ]);
     }
 }

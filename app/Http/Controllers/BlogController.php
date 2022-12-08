@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -45,7 +43,7 @@ class BlogController extends Controller
             'post',
             'categories',
             'tags',
-            'comments'
+            'comments',
         ]));
     }
 

@@ -14,7 +14,8 @@ trait BelongsToAttachments
                 Attachment::class,
                 'attachments_posts',
                 'post_id',
-                'attachment_id')
+                'attachment_id'
+            )
             ->withTimestamps();
     }
 }

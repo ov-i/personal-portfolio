@@ -34,7 +34,7 @@ Route::get('/rejestracja', [AuthController::class, 'registerForm'])->name('auth.
 Route::post('/auth/register', [AuthController::class, 'register'])->name('auth.register');
 
 // Blog section
-Route::get("/blog", [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::post('/blog/search', [SearchController::class, '__invoke'])->name('blog.search');
 Route::get('/blog/wpisy/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/blog/kategoria/{category:name}/wpisy', [BlogController::class, 'categories'])
@@ -57,10 +57,12 @@ Route::middleware('admin')->group(function () {
     // api calls
     Route::prefix('api')->group(function () {
         Route::get('/authData', function () {
-            if (!auth()->check())
+            if (! auth()->check()) {
                 return response()->json(['error' => true, 'data' => []], 400);
+            }
 
             $data = auth()->user();
+
             return response()->json(['error' => false, 'data' => $data]);
         });
         Route::apiResource('/users', UsersController::class);
@@ -72,11 +74,11 @@ Route::middleware('admin')->group(function () {
     });
 });
 
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->group(function () {
     Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
-    Route::controller(UserController::class)->prefix('panel')->group(function() {
-        Route::get('/', fn() => 'Panel użytkownika')->name('user.home');
+    Route::controller(UserController::class)->prefix('panel')->group(function () {
+        Route::get('/', fn () => 'Panel użytkownika')->name('user.home');
     });
 
     Route::post('/blog/wpisy/{post:slug}/komentarz', [App\Http\Controllers\CommentsController::class, 'store'])->name('blog.comments.store');

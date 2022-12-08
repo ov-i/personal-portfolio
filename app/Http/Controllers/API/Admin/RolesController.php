@@ -21,8 +21,9 @@ class RolesController extends Controller
     {
         $roles = Role::query()->get();
 
-        if (count($roles) === 0)
+        if (count($roles) === 0) {
             return response()->json(['error' => true, 'roles' => []], 404);
+        }
 
         return response()->json(['error' => false, 'roles' => $roles], 200);
     }
@@ -30,15 +31,16 @@ class RolesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return JsonResponse
      */
     public function store(Request $request, CreateRole $createRole): JsonResponse
     {
         $role = $createRole($request->all());
 
-        if ($role instanceof MessageBag)
+        if ($role instanceof MessageBag) {
             return response()->json(['error' => true, 'message' => $role->getMessages()], 400);
+        }
 
         return response()->json(['error' => false, 'role' => $role], 201);
     }
@@ -46,7 +48,7 @@ class RolesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Role $role
+     * @param  Role  $role
      * @return Response
      */
     public function show(Role $role)
@@ -57,8 +59,8 @@ class RolesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param Role $role
+     * @param  Request  $request
+     * @param  Role  $role
      * @return Response
      */
     public function update(Request $request, Role $role)
@@ -69,15 +71,17 @@ class RolesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Role $role
+     * @param  Role  $role
      * @return JsonResponse
      */
     public function destroy(Role $role): JsonResponse
     {
-        if (!$role->id)
+        if (! $role->id) {
             return response()->json(['error' => true, 'message' => 'Could not delete un-existing role']);
+        }
 
         $role->delete();
+
         return response()->json(['error' => false]);
     }
 }

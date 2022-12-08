@@ -14,23 +14,24 @@ class CommentsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param CreateComment  $createComment
+     * @param  CreateComment  $createComment
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, CreateComment $createComment)
     {
         $comment = $createComment($request->all());
-        if ($comment instanceof MessageBag)
+        if ($comment instanceof MessageBag) {
             return response()->json(['error' => true, 'message' => $comment->getMessages()], 400);
+        }
 
-        if ((new AuthController())->isAdmin())
+        if ((new AuthController())->isAdmin()) {
             Session::flash('success', 'Dodano nowy komentarz!');
-        else
+        } else {
             Session::flash('success', 'Twój komentarz musi zostać zaakceptowany!');
+        }
 
         return redirect()->back();
     }
-
 
     /**
      * Display the specified resource.

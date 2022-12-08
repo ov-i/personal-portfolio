@@ -23,7 +23,7 @@ class AboutMeTableSeeder extends Seeder
             'email' => 'b.pazdur@yahoo.com',
             'cv_url' => 'cv/cv.pdf',
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
         ]);
     }
 }

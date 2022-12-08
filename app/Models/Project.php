@@ -15,6 +15,6 @@ class Project extends Model
         'repository_url',
         'description',
         'website_url',
-        'project_status'
+        'project_status',
     ];
 }

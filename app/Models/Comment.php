@@ -19,6 +19,6 @@ class Comment extends Model
         'author',
         'post_id',
         'comment',
-        'published'
+        'published',
     ];
 }

@@ -17,7 +17,7 @@ class AttachmentFactory extends Factory
             'name' => $this->faker->userName(),
             'source' => $this->faker->imageUrl(),
             'mimetype' => $this->faker->mimeType(),
-            'filesize' => $this->faker->numberBetween(100000, 20000000)
+            'filesize' => $this->faker->numberBetween(100000, 20000000),
         ];
     }
 }

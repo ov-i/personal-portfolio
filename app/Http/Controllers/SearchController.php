@@ -18,20 +18,21 @@ class SearchController extends Controller
     {
         $inputValue = $request->input('search');
 
-        $result = $post->where('title', 'like', '%' . $inputValue . '%')->get();
+        $result = $post->where('title', 'like', '%'.$inputValue.'%')->get();
         if (count($result) === 0) {
-            return back()->with('notfound', 'Nie znaleziono wpisu: ' .  $inputValue);
+            return back()->with('notfound', 'Nie znaleziono wpisu: '.$inputValue);
         }
 
         $tags_posts = $tag->posts()->paginate(10);
         $categories = Category::get();
         $tags = Tag::get();
+
         return view('blog.search', compact([
             'tags_posts',
             'tag',
             'tags',
             'categories',
-            'result'
+            'result',
         ]));
     }
 }

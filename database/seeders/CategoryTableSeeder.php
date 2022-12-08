@@ -16,27 +16,27 @@ class CategoryTableSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-           'name' => 'bezpieczeństwo',
-           'created_at' => Carbon::now(),
-           'updated_at' => Carbon::now()
+            'name' => 'bezpieczeństwo',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
 
         DB::table('categories')->insert([
             'name' => 'programowanie',
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
         ]);
 
         DB::table('categories')->insert([
             'name' => 'ITTalks',
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
         ]);
 
         DB::table('categories')->insert([
             'name' => 'kursy',
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
         ]);
     }
 }

@@ -31,6 +31,7 @@ class HomePageController extends Controller
     public function download(): BinaryFileResponse
     {
         $aboutMe = AboutMe::find(1);
-        return response()->download(public_path() . '/' . $aboutMe->cv_url);
+
+        return response()->download(public_path().'/'.$aboutMe->cv_url);
     }
 }

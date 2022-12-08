@@ -13,14 +13,16 @@ class PostsController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
      * @return JsonResponse
      */
     public function index(): JsonResponse
     {
         $posts = Post::query()->get();
 
-        if (count($posts) === 0)
+        if (count($posts) === 0) {
             return response()->json(['error' => true, 'posts' => []], 404);
+        }
 
         return response()->json(['error' => false, 'posts' => $posts], 200);
     }
@@ -28,28 +30,31 @@ class PostsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @param CreatePost $createPost
+     * @param  Request  $request
+     * @param  CreatePost  $createPost
      * @return JsonResponse
      */
     public function store(Request $request, CreatePost $createPost): JsonResponse
     {
         $post = $createPost($request->all());
-        if ($post instanceof MessageBag)
+        if ($post instanceof MessageBag) {
             return response()->json(['error' => true, 'message' => $post], 400);
+        }
 
         return response()->json(['error' => false, 'post' => $post], 201);
     }
 
     /**
      * Display the specified resource.
-     * @param Post $post
+     *
+     * @param  Post  $post
      * @return JsonResponse \Http\Response
      */
     public function show(Post $post): JsonResponse
     {
-        if (empty($post))
+        if (empty($post)) {
             return response()->json(['error' => true, 'message' => "Could not find post with id = {$post->id}"]);
+        }
 
         // relations
         $tags = $post->tags()->get();
@@ -65,13 +70,15 @@ class PostsController extends Controller
 
     /**
      * Publishes post
-     * @param Post $post
+     *
+     * @param  Post  $post
      * @return JsonResponse
      */
     public function publishPost(Post $post): JsonResponse
     {
-        if ($post->published)
+        if ($post->published) {
             return response()->json(['error' => true, 'message' => 'Could not publish already published post'], 400);
+        }
 
         $post->published = true;
         $post->save();
@@ -81,13 +88,15 @@ class PostsController extends Controller
 
     /**
      * UnPublishes post
-     * @param Post $post
+     *
+     * @param  Post  $post
      * @return JsonResponse
      */
     public function unPublishPost(Post $post): JsonResponse
     {
-        if (!$post->published)
+        if (! $post->published) {
             return response()->json(['error' => true, 'message' => 'Could not unPublish already unPublished post'], 400);
+        }
 
         $post->published = false;
         $post->save();
@@ -98,8 +107,8 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param Post $post
+     * @param  Request  $request
+     * @param  Post  $post
      * @return JsonResponse
      */
     public function update(Request $request, Post $post)
@@ -109,15 +118,18 @@ class PostsController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     * @param Post $post
+     *
+     * @param  Post  $post
      * @return JsonResponse
      */
     public function destroy(Post $post): JsonResponse
     {
-        if (!$post->id)
+        if (! $post->id) {
             return response()->json(['error' => true, 'message' => 'Could not delete un-existing post']);
+        }
 
         $post->delete();
+
         return response()->json(['error' => false]);
     }
 }

@@ -14,14 +14,14 @@ class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
      */
     public function index(User $user): JsonResponse
     {
         $users = $user->query()->get();
 
-        if (count($users) === 0)
+        if (count($users) === 0) {
             return response()->json(['error' => true, 'users' => []], 404);
+        }
 
         return response()->json(['error' => false, 'users' => $users], 200);
     }
@@ -29,7 +29,7 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param CreateUser $createUser
+     * @param  CreateUser  $createUser
      * @param  Request  $request
      * @return JsonResponse
      */
@@ -43,8 +43,8 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param User $user
-     * @param ShowUser $showUser
+     * @param  User  $user
+     * @param  ShowUser  $showUser
      * @return JsonResponse
      */
     public function show(User $user, ShowUser $showUser): JsonResponse
@@ -59,7 +59,7 @@ class UsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param User $user
+     * @param  User  $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -70,8 +70,8 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param User $user
-     * @param DeleteUser $deleteUser
+     * @param  User  $user
+     * @param  DeleteUser  $deleteUser
      * @return JsonResponse
      */
     public function destroy(User $user, DeleteUser $deleteUser): JsonResponse

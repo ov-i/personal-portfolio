@@ -17,7 +17,7 @@ class ProjectFactory extends Factory
         return [
             'project_name' => Str::random(10),
             'language' => Str::random(3),
-            'repository_url' => "https://github.com/".$this->faker->userName().'/'.$this->faker->slug(4),
+            'repository_url' => 'https://github.com/'.$this->faker->userName().'/'.$this->faker->slug(4),
             'description' => $this->faker->text(),
             'website_url' => $this->faker->url(),
             'project_status' => $this->faker->numberBetween(0, 100),

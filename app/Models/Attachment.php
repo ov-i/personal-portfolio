@@ -18,6 +18,6 @@ class Attachment extends Model
         'name',
         'source',
         'mimetype',
-        'file_size'
+        'file_size',
     ];
 }

@@ -3,8 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Session;
 
 class AuthRequest extends FormRequest
 {
@@ -27,7 +25,7 @@ class AuthRequest extends FormRequest
     {
         return [
             'email' => ['email', 'required', 'string'],
-            'password' => ['string', 'required']
+            'password' => ['string', 'required'],
         ];
     }
 }

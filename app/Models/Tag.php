@@ -12,6 +12,6 @@ class Tag extends Model
     use BelongsToPosts;
 
     protected $fillable = [
-      'name'
+        'name',
     ];
 }

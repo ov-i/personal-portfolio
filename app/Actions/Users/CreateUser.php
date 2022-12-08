@@ -11,7 +11,7 @@ class CreateUser
     {
         return User::create([
             ...$data,
-            'password' => Hash::make($data['password'])
+            'password' => Hash::make($data['password']),
         ]);
     }
 }

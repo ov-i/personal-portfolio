@@ -14,10 +14,11 @@ class ApiPostTest extends TestCase
     /**
      * Creates new post with follows
      *
-     * @param array $addons
+     * @param  array  $addons
      * @return array
      */
-    private function createPost(array $addons = []): array {
+    private function createPost(array $addons = []): array
+    {
         return [
             'thumbnail_url' => $this->faker->imageUrl(),
             'user_id' => $this->faker->numberBetween(1, 20),
@@ -33,11 +34,12 @@ class ApiPostTest extends TestCase
     /**
      * Asserts bad request
      *
-     * @param TestResponse $response
-     * @param array $addons
+     * @param  TestResponse  $response
+     * @param  array  $addons
      * @return void
      */
-    private function assertBadRequest(TestResponse $response, array $addons = []): void {
+    private function assertBadRequest(TestResponse $response, array $addons = []): void
+    {
         if ($response->status() === 400) {
             $response->assertStatus(400);
             $response->assertJsonFragment(['error' => true]);
@@ -45,7 +47,7 @@ class ApiPostTest extends TestCase
             $response->assertStatus(201);
             $response->assertJsonFragment([
                 'error' => false,
-                ...$addons
+                ...$addons,
             ]);
         }
     }
@@ -54,6 +56,7 @@ class ApiPostTest extends TestCase
      * A basic feature test example.
      *
      * @test
+     *
      * @return void
      */
     public function posts_should_exists()
@@ -67,11 +70,12 @@ class ApiPostTest extends TestCase
      * Checks if posts have some content in response
      *
      * @test
+     *
      * @return void
      */
     public function posts_have_content()
     {
-        $response= $this->get('/api/posts');
+        $response = $this->get('/api/posts');
 
         if ($response->status() === 404) {
             $response->assertNotFound();
@@ -85,6 +89,7 @@ class ApiPostTest extends TestCase
      * Checks if post has been created successfully
      *
      * @test
+     *
      * @return void
      */
     public function post_should_be_created()
@@ -98,6 +103,7 @@ class ApiPostTest extends TestCase
      * Checks if post can be created with tags
      *
      * @test
+     *
      * @return void
      */
     public function post_have_tags()
@@ -106,8 +112,10 @@ class ApiPostTest extends TestCase
             ['tags' => [1, 2, 3]]
         ));
 
-        self::assertBadRequest($response, [
-            'tags' => [1, 2, 3]]
+        self::assertBadRequest(
+            $response,
+            [
+            'tags' => [1, 2, 3], ]
         );
     }
 
@@ -115,6 +123,7 @@ class ApiPostTest extends TestCase
      * Checks if post can be created with attachments
      *
      * @test
+     *
      * @return void
      */
     public function post_have_attachments()
@@ -123,8 +132,10 @@ class ApiPostTest extends TestCase
             ['attachments' => [1, 2, 3]]
         ));
 
-        self::assertBadRequest($response, [
-            'attachments' => [1, 2, 3]]
+        self::assertBadRequest(
+            $response,
+            [
+            'attachments' => [1, 2, 3], ]
         );
     }
 }

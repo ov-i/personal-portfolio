@@ -3,9 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Attachment;
-use Carbon\Carbon;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class AttachmentTableSeeder extends Seeder
 {

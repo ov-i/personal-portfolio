@@ -5,6 +5,7 @@ namespace App\Actions\Users;
 use App\Models\User;
 use Symfony\Component\CssSelector\Exception\InternalErrorException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 use function response;
 
 class ShowUser
